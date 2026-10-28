@@ -460,6 +460,94 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 
+
+/* Kirushi Assistant — premium conversational workspace */
+.chat-fab{border:1px solid #174a35;background:linear-gradient(135deg,#173e2e,#20583d);box-shadow:0 5px 15px #153e2b12;padding:11px 14px;min-height:43px;border-radius:13px;gap:9px}
+.chat-fab .kc-fab-icon{height:22px;width:22px;background:#ffffff18;display:grid;place-items:center;border-radius:7px}
+.chat-fab .kc-fab-icon svg{width:15px;height:15px}
+.chat-fab .kc-fab-sparkle{color:#c7e7ad;font-size:11px;margin-left:1px}
+.chat-fab .chat-fab-text{font-size:11px;letter-spacing:.06px;font-weight:800}
+.chat-fab:hover{background:linear-gradient(135deg,#174931,#2d7650);box-shadow:0 8px 20px #14382725}
+.kc-chat-active{overflow:hidden}
+.kc-chat-backdrop{position:fixed;inset:0;z-index:58;background:#0c271a57;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);animation:kcBackdropIn .24s ease-out}
+.chat-window.kc-chat{position:fixed;z-index:60;display:none;flex-direction:column;top:96px;right:34px;bottom:auto;width:min(465px,calc(100vw - 28px));height:min(690px,calc(100dvh - 120px));min-height:370px;border:1px solid #dce9e1;border-radius:24px;overflow:hidden;background:#f8faf8;box-shadow:0 34px 100px #081e13a1,0 2px 12px #09271d1c;transform-origin:top right}
+.chat-window.kc-chat.open{display:flex;animation:kcChatEnter .25s cubic-bezier(.21,.73,.26,1)}
+.kc-chat-header{position:relative;flex-shrink:0;overflow:hidden;background:linear-gradient(125deg,#103728 3%,#18513b 65%,#245e41 100%);color:#f5fff8;padding:22px 23px 16px}
+.kc-chat-header:before{content:"";position:absolute;width:175px;height:175px;border:1px solid #ffffff24;border-radius:50%;right:-90px;top:-120px;box-shadow:0 0 0 27px #ffffff06,0 0 0 64px #ffffff05;pointer-events:none}
+.kc-chat-header-top{display:flex;align-items:center;gap:12px;position:relative;z-index:1}
+.kc-chat-brand-mark{height:48px;width:48px;flex-shrink:0;border-radius:15px;background:linear-gradient(135deg,#dcf1d7,#b4dcb2);color:#184932;position:relative;display:grid;place-items:center;box-shadow:0 8px 16px #091e181b}
+.kc-chat-brand-mark span{font:900 27px/1 Manrope,Inter,sans-serif;letter-spacing:-2px}
+.kc-chat-brand-mark i{font-style:normal;font-size:11px;color:#317f53;position:absolute;right:6px;top:5px}
+.kc-chat-header-title{min-width:0;flex:1}
+.kc-chat-kicker{display:block;font-size:8px;letter-spacing:1.6px;font-weight:850;color:#bce8ca;margin-bottom:5px}
+.kc-chat-header-title h2{font-family:Manrope,Inter,sans-serif;margin:0;font-size:19px;letter-spacing:-.6px;font-weight:850;color:#fff;line-height:1.1}
+.kc-chat-availability{margin-top:7px;display:flex;align-items:center;gap:7px;font-size:10px;color:#c0dccc}
+.kc-chat-pulse{height:6px;width:6px;border-radius:50%;background:#7cdda0;box-shadow:0 0 0 4px #7cdda020}
+.kc-chat-header-actions{display:flex;gap:7px;align-self:flex-start;margin-left:4px}
+.kc-chat-icon-btn{border:1px solid #ffffff29;height:31px;width:31px;display:grid;place-items:center;border-radius:9px;background:#ffffff17;color:#fff;transition:background .15s,transform .15s}
+.kc-chat-icon-btn:hover{background:#ffffff2e;transform:translateY(-1px)}
+.kc-chat-icon-btn span{font-size:22px;line-height:1;font-weight:300}
+.kc-chat-header-sub{position:relative;z-index:1;margin-top:20px;padding:10px 12px;border:1px solid #ffffff23;background:#ffffff11;border-radius:10px;font-size:10px;line-height:1.5;color:#d9ede0;display:flex;align-items:center;gap:9px}
+.kc-chat-private-icon{font-size:16px;color:#b2e6bb}
+.chat-window.kc-chat .chat-scroll{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:17px;background:radial-gradient(circle at 70% 5%,#ebf4ea,#f8faf7 54%);padding:25px 21px;scrollbar-color:#cbded0 transparent;scrollbar-width:thin}
+.kc-chat-welcome{align-self:stretch;display:flex;flex-direction:column;align-items:flex-start;padding:22px 22px 23px;border:1px solid #e0ece1;background:#fff;border-radius:19px;box-shadow:0 8px 28px #173f2510}
+.kc-welcome-sparkle{display:grid;place-items:center;height:47px;width:47px;border-radius:15px;color:#277b50;font-size:26px;background:linear-gradient(145deg,#eaf8e8,#dcefe0);margin-bottom:22px}
+.kc-chat-welcome-tag{font-size:9px;letter-spacing:1.65px;color:#3d9869;font-weight:850}
+.kc-chat-welcome h3{color:#163b2a;font-size:25px;font-family:Manrope,Inter,sans-serif;font-weight:800;letter-spacing:-.8px;margin:9px 0 11px}
+.kc-chat-welcome p{color:#687e70;font-size:12px;line-height:1.85;margin:0 0 17px;max-width:310px}
+.kc-chat-languages{display:flex;gap:7px;flex-wrap:wrap}
+.kc-chat-languages span{font-size:10px;border:1px solid #dcebe0;background:#f1f8f2;border-radius:100px;padding:7px 10px;color:#377950;font-weight:700}
+.kc-chat-timeline-label{align-self:center;color:#8da394;font-weight:850;font-size:9px;letter-spacing:1.7px;margin:0 auto 4px}
+.kc-chat-msg{display:flex;align-items:flex-start;gap:9px;max-width:94%;flex-shrink:0;animation:kcMessageIn .2s ease-out}
+.kc-chat-msg.is-user{align-self:flex-end;flex-direction:row-reverse}
+.kc-chat-msg.is-bot{align-self:flex-start}
+.kc-chat-msg-icon{width:29px;height:29px;flex-shrink:0;display:grid;place-items:center;border-radius:10px;background:#d8ebdc;color:#1f6a44;font-weight:900;font-size:13px;border:1px solid #c7e3ce}
+.kc-chat-msg.is-user .kc-chat-msg-icon{background:#e4e8e1;border-color:#dde5dc;color:#64786a}
+.kc-chat-msg-content{min-width:0;display:flex;flex-direction:column;gap:6px}
+.kc-chat-msg.is-user .kc-chat-msg-content{align-items:flex-end}
+.kc-chat-msg-name{color:#829689;font-size:10px;font-weight:800;margin-left:3px}
+.chat-window.kc-chat .chat-bubble{max-width:100%;background:#fff;color:#254a36;border:1px solid #e2ece2;border-radius:5px 15px 15px 15px;padding:12px 15px;box-shadow:0 3px 9px #0b24100a;font-size:12px;line-height:1.78;white-space:pre-wrap;overflow-wrap:anywhere}
+.chat-window.kc-chat .chat-bubble.user{background:#216348;border-color:#216348;color:#fff;border-radius:15px 5px 15px 15px;box-shadow:0 4px 14px #1e634823}
+.kc-chat-composer{flex-shrink:0;background:#fff;border-top:1px solid #e7eee9;padding:15px 17px 15px;box-shadow:0 -7px 22px #23442d08}
+.kc-chat-quick-heading{display:flex;align-items:center;gap:14px;margin:0 3px 10px;font-size:9px;font-weight:850;letter-spacing:1.35px;color:#9aab9d}
+.kc-chat-quick-line{height:1px;flex:1;background:#e8efe9}
+.chat-window.kc-chat .chat-suggestions{padding:0 0 13px;gap:7px;display:flex;overflow-x:auto;scrollbar-width:none}
+.chat-window.kc-chat .chat-suggestions::-webkit-scrollbar{display:none}
+.chat-window.kc-chat .chat-suggestions button{border:1px solid #dce9df;background:#f7faf7;border-radius:9px;padding:9px 10px;font-size:10px;color:#366b4c;font-weight:760;white-space:nowrap;transition:.15s;display:flex;align-items:center;gap:5px}
+.chat-window.kc-chat .chat-suggestions button:hover{border-color:#9acaab;background:#eaf7ed;transform:translateY(-1px)}
+.chat-window.kc-chat .chat-suggestions button>span{color:#4f9973;font-size:12px}
+.chat-window.kc-chat .chat-form{margin:0;padding:0;display:flex;gap:8px;align-items:stretch}
+.kc-chat-input-wrap{flex:1;display:flex;align-items:center;gap:8px;border:1px solid #dbe7dc;border-radius:13px;background:#f8faf7;min-width:0;padding:0 13px;transition:background .15s,border .15s}
+.kc-chat-input-wrap:focus-within{background:#fff;border-color:#6ab888;box-shadow:0 0 0 3px #6ab8881c}
+.kc-chat-input-icon{font-size:17px;color:#7ea98b}
+.chat-window.kc-chat .chat-form input{border:0;border-radius:0;background:transparent;font-size:12px;padding:14px 0;width:100%;outline:none;min-width:0;box-shadow:none;color:#243f30}
+.chat-window.kc-chat .chat-form input:focus{outline:0;border:0;box-shadow:none}
+.chat-window.kc-chat .chat-form input::placeholder{color:#a1ada3}
+.chat-window.kc-chat .chat-form button{width:47px;min-width:47px;background:#18563c;color:#fff;border:0;border-radius:13px;display:grid;place-items:center;transition:.15s;box-shadow:0 3px 9px #173d2a22}
+.chat-window.kc-chat .chat-form button:hover{background:#267a50;transform:translateY(-1px)}
+.chat-window.kc-chat .chat-form button svg{height:19px;width:19px}
+.kc-chat-footer{padding:12px 1px 0;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;color:#9eaaa2;font-size:9px;line-height:1.4;text-align:center}
+.kc-chat-footer-dot{height:5px;width:5px;border-radius:50%;background:#7eb88e}
+.kc-chat-footer-separator{color:#bac8be}
+@keyframes kcChatEnter{from{opacity:0;transform:translateY(-9px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes kcBackdropIn{from{opacity:0}to{opacity:1}}
+@keyframes kcMessageIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){
+ .chat-fab{width:38px;height:38px;border-radius:11px;padding:8px;display:grid;place-items:center}
+ .chat-fab .chat-fab-text,.chat-fab .kc-fab-sparkle{display:none}
+ .chat-fab .kc-fab-icon{width:21px;height:21px;background:transparent}
+ .chat-window.kc-chat{top:9px;left:9px;right:9px;bottom:9px;width:auto;height:auto;max-height:none;border-radius:20px;min-height:0;transform-origin:center center}
+ .kc-chat-header{padding:19px 17px 15px}
+ .kc-chat-header-sub{margin-top:15px}
+ .chat-window.kc-chat .chat-scroll{padding:20px 15px}
+ .kc-chat-composer{padding:13px 12px calc(13px + env(safe-area-inset-bottom,0px))}
+ .kc-chat-welcome{padding:20px}
+ .kc-chat-welcome h3{font-size:23px}
+ .kc-chat-footer{font-size:8px}
+}
+@media(max-height:520px){.chat-window.kc-chat{top:7px;bottom:7px;height:auto;min-height:0}.kc-chat-header-sub,.kc-chat-quick-heading{display:none}.kc-chat-header{padding:12px 14px}.kc-chat-composer{padding:9px 12px}}
+@media(prefers-reduced-motion:reduce){.kc-chat-backdrop,.chat-window.kc-chat.open,.kc-chat-msg{animation:none!important}}
+
   </style>
 </head>
 <body class="is-locked">
@@ -494,7 +582,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
           <span class="topbar-date" id="topbarDate"></span>
           <span class="topbar-divider"></span>
           <div class="open-tag" id="openTag"><span class="status-dot"></span> Open today</div>
-          <button type="button" class="chat-fab" id="chatFab" data-action="toggle-chat" aria-label="Open Kirushi assistant" aria-expanded="false"><span data-icon="message"></span><span class="chat-fab-text">Ask Kirushi</span></button>
+          <button type="button" class="chat-fab" id="chatFab" data-action="toggle-chat" aria-controls="chatWindow" aria-label="Open Kirushi assistant" aria-expanded="false"><span class="kc-fab-icon" data-icon="message"></span><span class="chat-fab-text">Kirushi Assistant</span><span class="kc-fab-sparkle" aria-hidden="true">✦</span></button>
           <button type="button" class="profile-chip" data-page="settings" title="Settings and backup" aria-label="Open settings">KC</button>
         </div>
       </header>
@@ -509,12 +597,37 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
     <button type="button" data-page="payroll"><span data-icon="wallet"></span><small>Salary</small></button>
     <button type="button" data-page="team"><span data-icon="users"></span><small>Team</small></button>
   </nav>
-  <section class="chat-window" id="chatWindow" aria-label="Kirushi assistant" aria-hidden="true">
-    <div class="chat-heading"><div class="chat-bot-avatar">✳</div><div><strong>Kirushi Assistant</strong><small>Answers from your saved shop records</small></div><button type="button" class="icon-button chat-close" data-action="close-chat" aria-label="Close assistant">×</button></div>
-    <div class="chat-scroll" id="chatMessages" role="log" aria-live="polite"></div>
-    <div class="chat-suggestions" id="chatSuggestions"><button type="button" data-suggest="Janu innaiki vanthala?">Today attendance</button><button type="button" data-suggest="Janu last Sunday work ku vanthatha?">Last Sunday</button><button type="button" data-suggest="Niranjani salary evlo?">Salary details</button></div>
-    <form id="chatForm" class="chat-form"><input id="chatInput" type="text" maxlength="400" placeholder="Ask in Tamil / Tanglish..." aria-label="Ask the assistant" autocomplete="off" /><button type="submit" aria-label="Send message"><span data-icon="send"></span></button></form>
-    <p class="chat-disclaimer">Answers use your latest synced attendance and salary records.</p>
+  <div class="kc-chat-backdrop" id="chatBackdrop" hidden></div>
+  <section class="chat-window kc-chat" id="chatWindow" role="dialog" aria-modal="true" aria-labelledby="chatTitle" aria-hidden="true">
+    <div class="kc-chat-header">
+      <div class="kc-chat-header-top">
+        <div class="kc-chat-brand-mark" aria-hidden="true"><span>K</span><i>✦</i></div>
+        <div class="kc-chat-header-title">
+          <span class="kc-chat-kicker">KIRUSHI • YOUR SHOP DESK</span>
+          <h2 id="chatTitle">Kirushi Assistant</h2>
+          <div class="kc-chat-availability"><span class="kc-chat-pulse"></span> Attendance &amp; salary helper</div>
+        </div>
+        <div class="kc-chat-header-actions">
+          <button type="button" class="kc-chat-icon-btn" data-action="reset-chat" title="Start a new chat" aria-label="Start new conversation"><span aria-hidden="true">↺</span></button>
+          <button type="button" class="kc-chat-icon-btn" data-action="close-chat" title="Close chat" aria-label="Close assistant"><span aria-hidden="true">×</span></button>
+        </div>
+      </div>
+      <div class="kc-chat-header-sub"><span class="kc-chat-private-icon" aria-hidden="true">◈</span> பதில்கள் உங்கள் சேமித்த shop records-ல் இருந்து</div>
+    </div>
+    <div class="chat-scroll" id="chatMessages" role="log" aria-live="polite" aria-relevant="additions text"></div>
+    <div class="kc-chat-composer">
+      <div class="kc-chat-quick-heading"><span>QUICK QUESTIONS</span><span class="kc-chat-quick-line"></span></div>
+      <div class="chat-suggestions" id="chatSuggestions">
+        <button type="button" data-suggest="innaiki attendance sollu"><span aria-hidden="true">◉</span> Today’s attendance</button>
+        <button type="button" data-suggest="Janu pending salary evlo?"><span aria-hidden="true">₹</span> Salary balance</button>
+        <button type="button" data-suggest="Innaiki shop open ah closed ah?"><span aria-hidden="true">▣</span> Shop status</button>
+      </div>
+      <form id="chatForm" class="chat-form">
+        <label class="kc-chat-input-wrap" for="chatInput"><span class="kc-chat-input-icon" aria-hidden="true">✳</span><input id="chatInput" type="text" maxlength="400" placeholder="Tamil / Tanglish / English-ல் கேளுங்கள்…" aria-label="Ask Kirushi assistant" autocomplete="off" /></label>
+        <button type="submit" aria-label="Send message"><span data-icon="send"></span></button>
+      </form>
+      <div class="kc-chat-footer"><span class="kc-chat-footer-dot"></span> Your data stays in your private workspace <span class="kc-chat-footer-separator">•</span> Records-based helper</div>
+    </div>
   </section>
   <div class="modal-backdrop" id="modalBackdrop" hidden><div class="modal-dialog" id="modalContent" role="dialog" aria-modal="true"></div></div>
   <div id="authGate" class="auth-gate" role="dialog" aria-modal="true" aria-label="Sign in to Kirushi Cool Spot"><div class="auth-box" id="authContent"><div class="auth-spinner">Connecting securely…</div></div></div>
@@ -748,7 +861,7 @@ function backupMarker(){return BACKUP_MARKER+String(window.KirushiCloud?.user?.i
 function safelyBackedUpThisVersion(){try{return localStorage.getItem(backupMarker())==='yes';}catch{return false;}}
 function markBackupRequested(){try{localStorage.setItem(backupMarker(),'yes');}catch{}}
 
-let state={page:'dashboard',selectedDate:today(),calendarMonth:today().slice(0,7),chatOpen:false,chat:[{who:'bot',text:'வணக்கம்! 👋 Kirushi Cool Spot உதவியாளர் நான். Attendance, flexible shop Open/Closed dates, salary, staff details பற்றி Tamil, Tanglish அல்லது English-ல் கேளுங்கள்.\n\nExample: “Janu last Sunday work ku vanthatha?”'}]};
+let state={page:'dashboard',selectedDate:today(),calendarMonth:today().slice(0,7),chatOpen:false,chat:[]};
 function updateStatus(status){const before=cloudStatus;cloudStatus=status;/* The floating saved badge is intentionally gone. */if(status==='offline'&&before!=='offline'&&cloudReady)toast('Cloud connection unavailable. New changes are not being saved. Check internet.');}
 function commit(mutator,label,after){
  if(!cloudReady){toast('Sign in and connect to your database first.');return Promise.resolve(false);}
@@ -1066,8 +1179,28 @@ async function restoreRevision(version){if(saving)return;
  try{const row=await window.KirushiCloud.revision(version);if(!row||!validData(row.data))throw new Error('Revision not found or invalid');
    await commit(()=>{db=cleanData(row.data);applySeedStart(db);},`Restored version ${version}`,closeModal);
  }catch(e){toast('Restore error: '+e.message);}}
-function setChatOpen(open){state.chatOpen=open;$('#chatWindow').classList.toggle('open',open);$('#chatWindow').setAttribute('aria-hidden',String(!open));$('#chatFab').setAttribute('aria-expanded',String(open));if(open){renderChat();setTimeout(()=>$('#chatInput').focus(),40);}}
-function renderChat(){const box=$('#chatMessages');box.innerHTML=state.chat.map(m=>`<div class="chat-bubble ${m.who==='user'?'user':''}">${escapeHTML(m.text)}</div>`).join('');box.scrollTop=box.scrollHeight;}
+function setChatOpen(open){
+ state.chatOpen=open;
+ const dialog=$('#chatWindow');
+ dialog.classList.toggle('open',open);
+ dialog.setAttribute('aria-hidden',String(!open));
+ $('#chatFab').setAttribute('aria-expanded',String(open));
+ $('#chatBackdrop').hidden=!open;
+ document.body.classList.toggle('kc-chat-active',open);
+ if(open){renderChat();setTimeout(()=>$('#chatInput').focus(),55);}
+ else $('#chatFab').focus();
+}
+function renderChat(){
+ const box=$('#chatMessages');
+ const intro=`<div class="kc-chat-welcome"><div class="kc-welcome-sparkle" aria-hidden="true">✳</div><span class="kc-chat-welcome-tag">YOUR EVERYDAY WORK ASSISTANT</span><h3>Vanakkam! <span aria-hidden="true">👋</span></h3><p>Staff attendance, salaries, paydays மற்றும் shop status பற்றி கேளுங்கள். நான் உங்கள் records-ஐப் பார்த்துப் பதில் சொல்வேன்.</p><div class="kc-chat-languages"><span>தமிழ்</span><span>Tanglish</span><span>English</span></div></div>`;
+ box.innerHTML=(!state.chat.length?intro:'<div class="kc-chat-timeline-label">YOUR CONVERSATION</div>')+state.chat.map(m=>{
+   const isUser=m.who==='user';
+   return `<div class="kc-chat-msg ${isUser?'is-user':'is-bot'}"><div class="kc-chat-msg-icon" aria-hidden="true">${isUser?'Y':'K'}</div><div class="kc-chat-msg-content"><span class="kc-chat-msg-name">${isUser?'You':'Kirushi'}</span><div class="chat-bubble ${isUser?'user':''}">${escapeHTML(m.text)}</div></div></div>`;
+ }).join('');
+ box.scrollTop=box.scrollHeight;
+}
+function resetChat(){state.chat=[];renderChat();$('#chatInput').value='';$('#chatInput').focus();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&state.chatOpen){setChatOpen(false);}});
 function lastSunday(ref=today()){let d=add(ref,-1);while(!sunday(d))d=add(d,-1);return d;}
 function dateInQuestion(q){let m=q.match(/\b(20\d\d)[-/.](\d{1,2})[-/.](\d{1,2})\b/);if(m){const d=`${m[1]}-${pad(m[2])}-${pad(m[3])}`;if(validDate(d))return d;}m=q.match(/\b(\d{1,2})[/.-](\d{1,2})[/.-](20\d\d)\b/);if(m){const d=`${m[3]}-${pad(m[2])}-${pad(m[1])}`;if(validDate(d))return d;}
  const monthMap={january:1,february:2,march:3,april:4,may:5,june:6,july:7,august:8,september:9,october:10,november:11,december:12};m=q.match(/\b(\d{1,2})\s+(jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|jul(?:y)?|aug(?:ust)?|sep(?:tember)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)(?:\s+(20\d\d))?\b/);if(m){const month=Object.keys(monthMap).find(x=>x.startsWith(m[2].slice(0,3)));const year=Number(m[3]||date(today()).getFullYear());const d=`${year}-${pad(monthMap[month])}-${pad(m[1])}`;if(validDate(d))return d;}
@@ -1081,7 +1214,7 @@ function dateInQuestion(q){let m=q.match(/\b(20\d\d)[-/.](\d{1,2})[-/.](\d{1,2})
 }
 function detectedWorker(q){const normalized=q.toLowerCase();return activeWorkers().find(w=>{const aliases=[w.name.toLowerCase()];if(w.id==='worker-janu')aliases.push('janu','ஜனு','ஜானு','சானு');if(w.id==='worker-niranjani')aliases.push('niranjani','நிரஞ்சனி','நிரஞ்சணி','நிரஞ்சனீ');return aliases.some(a=>normalized.includes(a));});}
 function answer(question){const q=question.toLowerCase().trim();const w=detectedWorker(q);const dt=dateInQuestion(q);const has=(arr)=>arr.some(s=>q.includes(s));const attendance=has(['attendance','attendence','attandance','present','absent','vanth','vandh','vanta','vantha','varala','varalai','work ku','workku','came','come','working','வேலைக்கு','வந்த','வரல','வருகை','ஆஜர்','போனார','போனாள','லீவு','innaiki','இன்னைக்கு','இன்று','netru','நேற்று','sunday','ஞாயிறு']);const salary=has(['salary','sallery','sambalam','wage','paid','payment','pay ','pay?','pending','due','balance','salary evlo','sambala','சம்பளம்','சம்பள','காசு','பணம்','payment history']);const count=has(['how many days','how many day','ethana naal','ethanai naal','evlo naal','days worked','present days','எத்தனை நாள்','எத்தனை நாட்கள்','எவ்வளவு நாள்','work days','working days']);
- if(has(['hi','hello','vanakkam','வணக்கம்'])&&q.length<20)return 'வணக்கம்! 👋 Kirushi Cool Spot attendance, salary பற்றி கேளுங்கள். Example: “Janu innaiki vanthala?”, “Niranjani pending salary evlo?”';
+ if(has(['hi','hello','vanakkam','வணக்கம்'])&&q.length<20)return 'வணக்கம்! 👋 Staff attendance, salary, shop status மற்றும் payday பற்றி கேளுங்கள். உங்கள் records-ஐச் சரிபார்த்துப் பதில் தருகிறேன்.';
  if(has(['backup','restore','data save','export','download','report','csv','பேக்கப்','சேமிக்க','தரவு']))return 'Data Supabase cloud database-ல் பாதுகாப்பாக save ஆகிறது. Same account கொண்டு phone, laptop இரண்டிலும் access செய்யலாம். Settings பகுதியில் JSON backup download, cloud revision history மற்றும் CSV report இருக்கிறது.';
  if(has(['how to add','add worker','add employee','new worker','worker add','new staff','ஆள் சேர','புதிய worker','புதிய ஆள்','staff add']))return `Team members → Add new worker செல்லுங்கள். பெயர், ஒரு நாள் salary, payday schedule (weekly / monthly / manual dates), join date நிரப்புங்கள். இப்போது ${MAX_WORKERS-activeWorkers().length} காலி slots உள்ளன.`;
  if(has(['change salary','edit salary','salary increase','increase salary','salary raise','salary edit','sambalam koot','salary koott','salary koot','salary math','சம்பளம் மாற்ற','சம்பளம் கூட்டு','சம்பளம் உயர்த்து']))return 'Team members → அந்த worker card → Change salary கிளிக் பண்ணுங்கள். புதிய தினசரி சம்பளம், அமலாகும் தேதி மற்றும் காரணம் (optional) சேமிக்கலாம். பழைய நாட்களின் daily rate மற்றும் ஏற்கெனவே paid ஆன salary மாறாது. Payroll-லும Change salary button இருக்கிறது.';
@@ -1104,17 +1237,18 @@ Pay செய்தபிறகு Payroll → Mark paid அழுத்து�
  if(has(['sunday','ஞாயிறு','shop close','shop open','கடை','closed','open ah','close ah','திறந்த','மூடிய'])){const target=dt||today();return `${fmt(target)} (${weekday(target)}) shop ${isClosed(target)?'CLOSED 🔴':'OPEN 🟢'}. Attendance அல்லது Calendar பக்கத்தில் அந்த தேதியின் Open / Closed button மூலம் மாற்றலாம். Sundays default Closed; ஆனால் Sunday Open செய்யலாம், மற்ற நாளையும் Closed செய்யலாம்.`;}
  if(has(['workers','employees','staff','team','எத்தனை பேர்','எத்தனை worker','வேலை செய்ற']))return `இப்போது ${activeWorkers().length} workers உள்ளனர்: ${activeWorkers().map(x=>x.name).join(', ')||'யாருமில்லை'}. மேலும் ${MAX_WORKERS-activeWorkers().length} காலி இடங்கள் உள்ளன.`;
  if(has(['help','விளக்கம்','this web','website','this app','app la','என்ன செய்ய','enna seiya','kirushi']))return 'Kirushi web-ல் (1) Attendance – Present/Absent mark; (2) Calendar – old date check; (3) Payroll – salary calculate / Mark paid / payment history; (4) Team – 5 staff வரை add/edit; (5) Settings – backup / CSV download செய்யலாம். Tamil / Tanglish கேள்விகளுக்கும் பதில் தருவேன்.';
- return 'இந்தக் கேள்வியை நான் முழுமையாகப் புரிந்துகொள்ளவில்லை. நான் saved attendance மற்றும் salary records-ஐப் பார்த்து உதவ முடியும். உதாரணம்:\n• Janu last Sunday work ku vanthatha?\n• Niranjani innaiki vanthala?\n• Janu salary evlo?\n• Janu salary eppadi kooturathu?\n• 28/10/2026 attendance\n• How to add worker?';
+ return 'இந்தக் கேள்வியை முழுமையாகப் புரிந்துகொள்ள முடியவில்லை. 😊 Worker பெயர், தேதி மற்றும் Attendance / Salary விவரத்தைச் சேர்த்துக் கேளுங்கள். Saved shop records அடிப்படையில்தான் பதில் தர முடியும்.';
 }
 function ask(q){if(!q.trim())return;state.chat.push({who:'user',text:q.trim()},{who:'bot',text:answer(q)});if(state.chat.length>80)state.chat=[state.chat[0],...state.chat.slice(-79)];renderChat();}
 // Navigation and buttons through one delegate so re-rendering does not lose listeners.
 document.addEventListener('click',e=>{
  if(e.target===$('#modalBackdrop')){closeModal();return;}
+ if(e.target===$('#chatBackdrop')){setChatOpen(false);return;}
  const pageEl=e.target.closest('[data-page]');if(pageEl){if(pageEl.dataset.page==='attendance'&&state.page==='calendar'){}navigate(pageEl.dataset.page);return;}
  const sug=e.target.closest('[data-suggest]');if(sug){setChatOpen(true);ask(sug.dataset.suggest);return;}
  const btn=e.target.closest('[data-action]');if(!btn||btn.disabled)return;
  const {action,id,status}=btn.dataset;switch(action){
- case 'open-chat':setChatOpen(true);break;case 'close-chat':setChatOpen(false);break;case 'toggle-chat':setChatOpen(!state.chatOpen);break;
+ case 'open-chat':setChatOpen(true);break;case 'close-chat':setChatOpen(false);break;case 'toggle-chat':setChatOpen(!state.chatOpen);break;case 'reset-chat':resetChat();break;
  case 'add-worker':workerModal();break;case 'edit-worker':workerModal(id);break;case 'edit-rate':rateModal(id);break;case 'close-modal':closeModal();break;
   case 'add-pay-date':{const input=$('#manualPayDate'),dt=input?.value;if(!validDate(dt)){toast('Select a valid payday first.');break;}if(manualPayDates.length>=365){toast('Maximum 365 manual dates.');break;}if(!manualPayDates.includes(dt))manualPayDates.push(dt);manualPayDates.sort();refreshPayDates();break;}
   case 'remove-pay-date':manualPayDates=manualPayDates.filter(x=>x!==btn.dataset.date);refreshPayDates();break;
