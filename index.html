@@ -580,6 +580,279 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 
 @media(min-width:651px) and (max-width:890px){.att-control{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.att-control button{min-width:0;padding:9px 6px;font-size:9px}}
 </style>
+<style id="kirushi-ultimate-redesign">
+/* Kirushi Cool Spot — Ultimate UI refresh. Pure CSS, no external dependencies. */
+:root{
+ --ink:#152d23;--muted:#718579;--main:#18764e;--main-2:#0f5b3d;--light:#e8f6ec;
+ --line:#e2ebe4;--bg:#f3f7f3;--shadow:0 16px 44px rgba(16,48,31,.075);
+ --shadow-hover:0 22px 54px rgba(16,48,31,.13);--radius:20px;
+ color:var(--ink);background:var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{background:radial-gradient(ellipse at 85% 0%,rgba(212,239,219,.38),transparent 34%),var(--bg);color:var(--ink);font-size:14px;line-height:1.55}
+::selection{background:#c8efd4;color:#103c29}
+button,input,select,textarea{font-family:inherit}
+button{ -webkit-tap-highlight-color:transparent; }
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #a4dfb9;outline-offset:3px}
+/* Premium dark green navigation rail */
+.sidebar{width:258px;padding:27px 16px 18px;background:linear-gradient(180deg,#0c2c20 0%,#123c2a 55%,#0d3023 100%);border:0;color:#e8f3eb;box-shadow:10px 0 38px rgba(12,43,29,.09);overflow-y:auto;scrollbar-width:thin;scrollbar-color:#315943 transparent}
+.sidebar:before{content:"";position:absolute;left:-110px;top:300px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(90,179,116,.14),transparent 70%);pointer-events:none}
+.brand{position:relative;gap:13px;padding:4px 10px 0;z-index:1}
+.brand-badge{width:47px;height:47px;border-radius:16px;background:linear-gradient(145deg,#d7f1ce,#a8d7ad);color:#14412d;font-size:28px;box-shadow:0 8px 22px #061c1240;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.brand:hover .brand-badge{transform:rotate(-7deg) scale(1.06)}
+.brand-badge span{color:#2d8550}
+.brand strong{font-size:23px;letter-spacing:-1.25px;color:#fff;font-weight:850}
+.brand strong .accent{color:#b8e7a6}
+.brand small{font-size:9px;letter-spacing:2.5px;color:#a7c3b0;font-weight:800}
+.sidebar-rule,.sidebar-divider{height:1px;background:linear-gradient(90deg,transparent,#315642,transparent);margin:27px 10px 24px}
+.nav-label{padding:0 14px;margin:0 0 10px;color:#83a591;font-size:9px;font-weight:850;letter-spacing:2.1px}
+.nav-list{gap:5px}
+.nav-item{position:relative;overflow:hidden;display:flex;align-items:center;gap:13px;border:1px solid transparent;border-radius:13px;padding:13px 14px;color:#afc7b6;font-size:12px;font-weight:720;transition:color .22s,background .22s,border-color .22s,transform .22s,box-shadow .22s}
+.nav-item:before{content:"";position:absolute;left:0;top:20%;bottom:20%;width:3px;border-radius:0 5px 5px 0;background:#a9e6a9;transform:scaleY(0);transition:transform .22s}
+.nav-item svg{width:19px;height:19px;flex:none;stroke-width:1.9}
+.nav-item:hover{color:#fff;background:rgba(255,255,255,.075);border-color:#ffffff12;transform:translateX(2px)}
+.nav-item.active{color:#113c28;background:linear-gradient(105deg,#d8f0d5,#edf8eb);border-color:#d6edd7;box-shadow:0 7px 18px rgba(0,0,0,.12)}
+.nav-item.active:before{transform:scaleY(1)}
+.nav-item.active svg{color:#19734b}
+.sidebar-bottom{margin-top:auto}
+.shop-user{margin:0 4px;padding:13px;border:1px solid #ffffff16;background:#ffffff09;border-radius:15px;display:flex;align-items:center;gap:10px;color:#e8f4eb}
+.shop-user-icon{width:37px;height:37px;display:grid;place-items:center;border-radius:12px;background:#d5edce;color:#16462e;font-weight:900;font-size:11px}
+.shop-user strong{font-size:11px;display:block}.shop-user small{display:block;color:#9bb7a4;font-size:10px;margin-top:2px}.shop-user-more{margin-left:auto;color:#8cb69a}
+/* Header and content canvas */
+.content-wrap{margin-left:258px;min-width:0}
+.topbar{height:76px;padding:0 clamp(20px,3vw,42px);position:sticky;top:0;z-index:35;background:rgba(250,252,249,.84);border-bottom:1px solid rgba(222,234,224,.86);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 6px 22px rgba(23,53,35,.025)}
+.breadcrumb{gap:12px;font-size:12px}.breadcrumb-label{letter-spacing:1.9px;font-size:9px;color:#90a195;font-weight:850}.breadcrumb strong{color:#315b43;font-weight:800}
+.topbar-date{font-size:11px;color:#6d8174;font-weight:750}
+.open-tag{border:1px solid #d5ebdb;background:#eaf7ed;color:#216d43;border-radius:999px;padding:9px 13px;font-size:10px;font-weight:850;box-shadow:inset 0 1px #ffffff}
+.open-tag.closed{background:#fff0e9;border-color:#f3d9c9;color:#a85c3a}
+.status-dot{width:7px;height:7px;box-shadow:0 0 0 4px #2eaa6420}
+.profile-chip{width:39px;height:39px;border-radius:14px;background:linear-gradient(145deg,#f7e7c5,#f2d7a2);color:#755523;border:1px solid #f0dfbe;font-size:11px;font-weight:900;transition:transform .2s,box-shadow .2s}
+.profile-chip:hover{transform:translateY(-2px) rotate(3deg);box-shadow:0 7px 16px #a77b3020}
+.main-content{max-width:1680px;margin:0 auto;padding:35px clamp(20px,3.4vw,52px) 50px;min-height:calc(100vh - 140px)}
+#appMain>.page-head,#appMain>.hero,#appMain>.stats-grid,#appMain>section,#appMain>.grid-two,#appMain>.cal-wrap,#appMain>.settings-grid{animation:kcPageRise .42s cubic-bezier(.2,.75,.25,1) both}
+#appMain>.page-head{animation-delay:.01s}#appMain>.hero{animation-delay:.035s}#appMain>.stats-grid{animation-delay:.06s}#appMain>.grid-two{animation-delay:.09s}
+.page-head{align-items:flex-end;gap:20px;margin-bottom:27px}
+.page-head .eyebrow{font-size:9px;letter-spacing:2.2px;color:#258455;font-weight:900;margin-bottom:9px}
+.page-head h1{font-size:clamp(27px,2.4vw,36px);letter-spacing:-1.65px;line-height:1.12;color:#172e23;font-weight:850;margin:0}
+.page-head p{font-size:12px;line-height:1.7;color:#7a8c80;margin:9px 0 0;max-width:670px}
+.head-actions{gap:9px}
+/* Button system: all interactive buttons share smooth motion and tactile feedback */
+.btn,.icon-button,.link-button,.chat-fab,.kc-chat-icon-btn,.mobile-bottom-nav button,.att-control button,.shop-switch button,.week-day,.cal-cell{transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s,border-color .2s,background .2s,color .2s,filter .2s}
+.btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:41px;padding:10px 15px;border-radius:12px;border:1px solid transparent;font-size:11px;font-weight:850;letter-spacing:.05px;box-shadow:0 2px 0 rgba(12,38,23,.025)}
+.btn svg{width:16px;height:16px}
+.btn:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 20%,#ffffff30 48%,transparent 75%);transform:translateX(-130%);transition:transform .55s;z-index:-1;pointer-events:none}
+.btn:hover:not(:disabled):after{transform:translateX(130%)}
+.btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 9px 20px rgba(22,83,49,.13);filter:saturate(1.06)}
+.btn:active:not(:disabled){transform:translateY(0) scale(.975);box-shadow:0 2px 7px rgba(22,83,49,.11)}
+.btn.primary,.btn.hero-primary{color:#fff;background:linear-gradient(135deg,#1c8053,#126342);border-color:#1a704b;box-shadow:0 7px 16px rgba(24,118,78,.18)}
+.btn.primary:hover:not(:disabled),.btn.hero-primary:hover:not(:disabled){background:linear-gradient(135deg,#23915f,#0f5b3d);box-shadow:0 11px 24px rgba(24,118,78,.25)}
+.btn.secondary{background:#fff;color:#315b42;border-color:#dfe9e0}
+.btn.secondary:hover:not(:disabled),.btn.soft:hover:not(:disabled),.btn.mini.soft:hover:not(:disabled){background:#eff8f0;border-color:#bcdcc4;color:#165e3b}
+.btn.soft,.btn.mini.soft{background:#edf7ee;border-color:#d8ebda;color:#276a45}
+.btn.danger,.btn.mini.danger{background:#fff2ee;color:#a64e39;border-color:#f1d2c8}
+.btn.danger:hover:not(:disabled){background:#ffe5dc;border-color:#e7b4a5}
+.btn.mini{min-height:34px;padding:8px 11px;border-radius:10px;font-size:10px}
+.btn:disabled{filter:grayscale(.2);box-shadow:none;transform:none}
+.icon-button{width:39px;height:39px;border-radius:12px;background:#fff;border:1px solid #e0e9e1;color:#426b50;display:grid;place-items:center;box-shadow:0 2px 5px #193d2510}
+.icon-button:hover:not(:disabled){transform:translateY(-2px);border-color:#b8d8c1;background:#f1faf2;box-shadow:0 7px 15px #193d2515}
+.icon-button:active:not(:disabled){transform:scale(.95)}
+.link-button{border:0;background:transparent;color:#21754c;font-size:11px;font-weight:850;padding:8px 4px;border-radius:8px}
+.link-button:hover{background:#eaf6ec;transform:translateX(2px)}
+/* Panels, stats, hero and lists */
+.panel,.salary-person-panel{background:rgba(255,255,255,.94);border:1px solid #e3ebe4;border-radius:20px;box-shadow:0 5px 18px rgba(19,54,32,.025);transition:transform .25s,box-shadow .25s,border-color .25s}
+.panel:hover,.salary-person-panel:hover{border-color:#d5e5d8;box-shadow:0 12px 30px rgba(19,54,32,.055)}
+.panel-pad{padding:24px}
+.panel-title-row{gap:15px;margin-bottom:18px}
+.panel-title-row h3,.panel h3{font-size:15px;letter-spacing:-.35px;font-weight:850;color:#1c3427}
+.panel-title-row p{font-size:11px;line-height:1.6;color:#829187;margin-top:5px}
+.hero{position:relative;overflow:hidden;min-height:260px;border:1px solid #1b6140;border-radius:25px;padding:34px 38px;background:radial-gradient(circle at 87% 18%,#2a7b4e 0,transparent 31%),linear-gradient(120deg,#0e3424 0%,#145337 54%,#1d6943 100%);box-shadow:0 17px 40px rgba(15,75,43,.15);color:#f4fff6}
+.hero:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.045) 41%,transparent 42%),radial-gradient(circle at 8% 100%,rgba(154,219,159,.12),transparent 32%)}
+.hero:after{content:"";position:absolute;right:-115px;top:-170px;width:370px;height:370px;border:1px solid #ffffff14;border-radius:50%;box-shadow:0 0 0 35px #ffffff08,0 0 0 72px #ffffff05;pointer-events:none}
+.hero-copy,.hero-decor{position:relative;z-index:1}
+.hero-kicker{font-size:9px;letter-spacing:2px;font-weight:900;color:#c0e4c6}
+.hero h2{font-size:clamp(29px,3vw,43px);line-height:1.12;letter-spacing:-1.9px;font-weight:850;margin:17px 0 12px;color:#fff}
+.hero h2 em{font-style:normal;color:#bde7a9}
+.hero p{font-size:12px;line-height:1.8;color:#c7dfce;max-width:520px}
+.hero-primary{background:#e3f3d9!important;border-color:#e3f3d9!important;color:#17482e!important;box-shadow:0 7px 18px #001e0f30!important}
+.hero-primary:hover{background:#f3ffe9!important}
+.hero-secondary{background:#ffffff10;border-color:#ffffff3d;color:#f2fff4}
+.hero-secondary:hover{background:#ffffff1d;border-color:#ffffff70}
+.hero-decor-card{border:1px solid #ffffff24;background:linear-gradient(145deg,#ffffff16,#ffffff08);backdrop-filter:blur(10px);box-shadow:0 18px 40px #00180d28;border-radius:20px;padding:23px;min-width:200px}
+.hero-decor-card>span{color:#b6d8be;letter-spacing:1.5px;font-size:9px;font-weight:850}
+.hero-tally strong{font-size:44px;letter-spacing:-2px}.hero-tally small{font-size:11px;color:#d1e6d5}
+.hero-progress{height:6px;background:#ffffff20;border-radius:20px;overflow:hidden}.hero-progress i{background:linear-gradient(90deg,#b8eaa9,#69d19a);border-radius:20px}
+.stats-grid{gap:15px;margin:20px 0 25px}
+.stat{position:relative;overflow:hidden;border:1px solid #e2ebe3;border-radius:18px;background:linear-gradient(150deg,#fff,#fbfdfb);padding:21px 22px;box-shadow:0 5px 16px rgba(19,54,32,.025);transition:transform .25s,box-shadow .25s,border-color .25s}
+.stat:after{content:"";position:absolute;right:-25px;bottom:-35px;width:95px;height:95px;border-radius:50%;background:#e9f6ec;opacity:.5;transition:transform .35s}
+.stat:hover{transform:translateY(-4px);box-shadow:0 15px 28px rgba(19,54,32,.08);border-color:#cfe4d3}.stat:hover:after{transform:scale(1.4)}
+.stat-top{position:relative;z-index:1;font-size:10px;font-weight:800;color:#718579}
+.stat-symbol{width:36px;height:36px;border-radius:12px;background:#e7f5e9;color:#27764c;box-shadow:inset 0 1px #fff}
+.stat-value{position:relative;z-index:1;font-size:29px;letter-spacing:-1.2px;font-weight:900;color:#1a5035;margin:18px 0 7px}
+.stat-label{position:relative;z-index:1;font-size:10px;color:#89998e}
+.grid-two{gap:17px;margin-top:17px}
+.person-row,.pay-row{padding:13px 0;border-color:#edf2ed;transition:background .2s,padding .2s}
+.person-row:hover,.pay-row:hover{background:linear-gradient(90deg,#f5faf5,transparent);padding-left:8px;padding-right:8px;border-radius:12px}
+.avatar,.worker-avatar{box-shadow:0 0 0 4px #f0f7f0;font-weight:900}
+.person-main strong{font-size:12px;color:#263f30}.person-main small{font-size:10px;color:#89978d}
+/* Attendance controls */
+.att-cards{gap:14px}.mini-count{border-radius:16px;border-color:#e2ebe3;padding:18px;background:linear-gradient(145deg,#fff,#fbfdfb);box-shadow:0 4px 12px #163b2410;transition:transform .22s,box-shadow .22s}
+.mini-count:hover{transform:translateY(-3px);box-shadow:0 11px 22px #163b2415}
+.count-icon{border-radius:13px;width:43px;height:43px}
+.att-row{grid-template-columns:minmax(175px,1fr) minmax(140px,.65fr) minmax(270px,1.15fr);gap:16px;padding:18px 24px;border-color:#edf2ed;transition:background .2s}
+.att-row:hover{background:#fbfefb}
+.att-control{gap:6px;flex-wrap:wrap}
+.att-control button{position:relative;overflow:hidden;border:1px solid #e1e9e2;border-radius:10px;padding:10px 12px;background:#fff;color:#587060;font-size:10px;font-weight:850;box-shadow:0 2px 4px #1a402710}
+.att-control button:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 7px 14px #183c2415;border-color:#bfd9c5}
+.att-control button:active:not(:disabled){transform:scale(.96)}
+.att-control button.active-present{background:linear-gradient(140deg,#dff6e4,#effaf0);border-color:#92d2a0;color:#176a3d}
+.att-control button.active-halfday{background:linear-gradient(140deg,#e2f0ff,#f2f8ff);border-color:#b5d4f3;color:#245f9a}
+.att-control button.active-absent{background:linear-gradient(140deg,#fff0e7,#fff8f4);border-color:#edc4b1;color:#a95737}
+.pill{font-weight:850;letter-spacing:.05px}
+.pill.present{background:#e5f6e8;color:#1c7543;border:1px solid #cdebd3}.pill.halfday{background:#eaf4ff;color:#2a649e;border:1px solid #d1e6fb}.pill.absent{background:#fff0e8;color:#a65b3b;border:1px solid #f5d8c9}
+.shop-status{border:1px solid #e0eae1;background:linear-gradient(145deg,#fbfefb,#f4f9f4);border-radius:16px;padding:15px;gap:14px}
+.shop-status-heading strong{font-size:12px}.shop-status-heading small{font-size:10px;color:#829387}
+.shop-switch{padding:4px;border:1px solid #e0eae1;border-radius:12px;background:#eef4ef;gap:4px}
+.shop-switch button{border-radius:9px;padding:9px 13px;font-size:10px;font-weight:900}
+.shop-switch button:hover{transform:translateY(-1px)}
+.shop-switch button.selected.open{background:linear-gradient(135deg,#d9f2df,#c8ebd1);color:#17653b;box-shadow:0 3px 8px #1b75421a}
+.shop-switch button.selected.closed{background:linear-gradient(135deg,#ffe7dc,#ffd9ca);color:#a14d30;box-shadow:0 3px 8px #a14d301a}
+/* Calendar */
+.cal-grid{gap:7px}.weekday-row{color:#829488;font-size:9px;font-weight:900;letter-spacing:.6px}
+.cal-cell{min-height:91px;border:1px solid #e5ece5;border-radius:13px;background:#fff;padding:10px 8px;text-align:left;box-shadow:0 2px 6px #193d2508}
+.cal-cell:hover{transform:translateY(-3px);border-color:#b9d9c0;box-shadow:0 9px 18px #193d2514;z-index:1}
+.cal-cell.active{border-color:#1f8054;box-shadow:0 0 0 2px #1f80541a,0 8px 17px #193d2510;background:#f1faf2}
+.cal-cell.today strong{background:#1b754d;color:#fff;border-radius:9px;padding:3px 7px}
+.cal-cell.sun{background:#fff7f3;border-color:#f0ded5}.cal-cell small{font-size:9px;line-height:1.4}
+.cal-toolbar h3{font-size:18px;letter-spacing:-.5px}
+/* Employee cards and salary cards */
+.worker-grid{gap:18px}.worker-card{position:relative;overflow:hidden;border:1px solid #e0eae1;border-radius:20px;background:#fff;box-shadow:0 6px 18px #173d2507;transition:transform .25s,box-shadow .25s,border-color .25s}
+.worker-card:hover{transform:translateY(-5px);box-shadow:0 18px 35px #173d2515;border-color:#cfe3d2}
+.worker-cover{background:radial-gradient(circle at 82% 12%,#bde5bf,transparent 31%),linear-gradient(120deg,#123c29,#1d6a45 72%,#348256);height:75px}
+.worker-avatar{border:4px solid #fff;background:linear-gradient(145deg,#dff1d9,#b9e0bf);color:#1b603a;width:58px;height:58px;font-size:16px}
+.worker-body{padding:7px 22px 22px}.worker-body h3{font-size:18px;letter-spacing:-.5px;color:#193729}
+.worker-subtitle{font-size:10px;color:#84958a}
+.worker-details{gap:9px}.worker-details>div{border:1px solid #edf2ed;background:#f9fcf9;border-radius:11px;padding:11px}
+.worker-details span{font-size:9px;color:#85958a}.worker-details strong{font-size:11px;color:#294a35}
+.rate-box{border-radius:14px;border:1px solid #dfece1;background:linear-gradient(145deg,#f3faf4,#fff);padding:15px}
+.rate-box b{font-size:22px;letter-spacing:-.6px;color:#1d6842}
+.salary-by-person-grid{gap:18px}.salary-person-panel{padding:22px;background:linear-gradient(145deg,#fff,#f9fcf9)}
+.salary-person-card{border-radius:16px;background:linear-gradient(145deg,#f6fbf6,#fff 72%);border-color:#dce9de;box-shadow:inset 0 1px #fff;transition:transform .25s,box-shadow .25s,border-color .25s}
+.salary-person-card:hover{transform:translateY(-3px);box-shadow:0 12px 25px #1a49250e;border-color:#bddac4}
+.salary-person-id h4{font-size:17px;color:#193b2a;letter-spacing:-.4px}
+.salary-person-metrics>div{border:1px solid #e5eee6;background:#fff;border-radius:12px;padding:12px}
+.salary-person-metrics strong{font-size:18px;color:#1b6842}.salary-person-metrics span{font-size:9px;color:#819286}
+.payday-rule-grid>div{border:1px solid #e1ece2;border-radius:15px;background:linear-gradient(145deg,#f7fbf7,#fff);padding:17px;transition:transform .22s,box-shadow .22s}
+.payday-rule-grid>div:hover{transform:translateY(-3px);box-shadow:0 10px 22px #173d2510}
+.table-scroller{border-radius:14px}.table{font-size:11px}.table th{background:#f5f9f5;color:#708578;font-size:9px;letter-spacing:.8px}.table td{border-color:#edf2ed}.table tbody tr{transition:background .15s}.table tbody tr:hover td{background:#f5fbf6}
+/* Forms and modal surfaces */
+.date-field,.field input,.field select,.field textarea,.auth-field input{border:1px solid #dce7de;border-radius:11px;background:#fff;min-height:43px;padding:10px 12px;color:#294b35;transition:border-color .2s,box-shadow .2s,background .2s}
+.date-field:focus,.field input:focus,.field select:focus,.field textarea:focus,.auth-field input:focus{border-color:#78bb8c;box-shadow:0 0 0 4px #2e9a5815;background:#fcfffc;outline:none}
+.field>span,.auth-field{font-size:10px;color:#536d5a;font-weight:850}
+.modal-backdrop{background:rgba(9,32,20,.48);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);animation:kcFadeIn .18s ease-out}
+.modal-dialog{border:1px solid #e0ebe1;border-radius:23px;box-shadow:0 28px 90px rgba(8,36,20,.25);animation:kcModalIn .24s cubic-bezier(.2,.8,.2,1)}
+.modal-title{border-bottom:1px solid #eaf0ea;padding-bottom:17px}.modal-title h2{font-size:22px;letter-spacing:-.8px;color:#173627}.modal-title p{font-size:11px;color:#839288}
+.form-buttons{gap:9px;padding-top:18px}.hint-box{border:1px solid #d8ebdc;border-radius:13px;background:linear-gradient(135deg,#eef8ef,#f8fcf8);color:#45614e;padding:14px 16px;font-size:11px;line-height:1.7}
+.empty-state{border:1px dashed #dce8de;border-radius:15px;background:#fafdfa;color:#829187}
+/* Chat assistant and cloud/login surfaces */
+.chat-fab{border:1px solid #2b8b5b;background:linear-gradient(135deg,#18784e,#105b3b);box-shadow:0 12px 28px #145c3b42;padding:13px 17px;border-radius:16px;font-weight:850}
+.chat-fab:hover{transform:translateY(-4px);box-shadow:0 18px 32px #145c3b50}
+.chat-fab:active{transform:scale(.97)}
+.kc-chat{border-radius:23px;box-shadow:0 25px 75px rgba(7,35,19,.28);border:1px solid #d8e8dc;overflow:hidden}
+.kc-chat-header{background:radial-gradient(circle at 90% 0%,#2c7650,transparent 40%),linear-gradient(125deg,#0c3021,#18533a 70%,#1b6843)}
+.kc-chat-icon-btn{border:1px solid #ffffff32;background:#ffffff12;border-radius:11px;color:#f4fff5;width:37px;height:37px}
+.kc-chat-icon-btn:hover{background:#ffffff24;transform:translateY(-2px)}
+.chat-suggestions button{border:1px solid #dcebe0;background:#f7fbf7;color:#2f6343;border-radius:11px;font-weight:800;transition:transform .2s,background .2s,border-color .2s,box-shadow .2s}
+.chat-suggestions button:hover{transform:translateY(-2px);background:#eaf7ec;border-color:#badfc3;box-shadow:0 6px 14px #1b563013}
+.chat-form{border:1px solid #dbe8dd;border-radius:14px;background:#fff;box-shadow:0 4px 13px #153b230a}
+.chat-form:focus-within{border-color:#8dc69b;box-shadow:0 0 0 4px #21814c13}
+.chat-form>button{border-radius:11px;background:linear-gradient(135deg,#1d8054,#145e3d);box-shadow:0 5px 12px #17623f2a;transition:transform .2s,box-shadow .2s}
+.chat-form>button:hover{transform:translateY(-2px) rotate(-3deg);box-shadow:0 9px 17px #17623f36}
+.chat-form>button:active{transform:scale(.94)}
+.chat-bubble{line-height:1.7;box-shadow:0 2px 7px #153b2307}
+.chat-bubble.user{background:linear-gradient(135deg,#1a7a50,#135d3c);box-shadow:0 5px 14px #145e3c24}
+.kc-chat-welcome{border:1px solid #e1eee3;border-radius:18px;background:radial-gradient(circle at 90% 0%,#e4f4e5,transparent 38%),linear-gradient(145deg,#f8fcf8,#fff);padding:20px}
+.auth-gate{background:radial-gradient(circle at 12% 12%,#d7eedc,transparent 38%),radial-gradient(circle at 90% 80%,#dff1e3,transparent 34%),linear-gradient(140deg,#f8fbf7,#eaf3eb)}
+.auth-box{border:1px solid #dfeae1;border-radius:25px;box-shadow:0 28px 90px rgba(19,63,37,.13);animation:kcModalIn .35s cubic-bezier(.2,.8,.2,1)}
+.auth-submit{min-height:47px;border-radius:13px}
+.saving-shield{backdrop-filter:blur(5px);background:#0d2b1d55}
+.saving-card{border:1px solid #d8e9dc;border-radius:20px;box-shadow:0 22px 70px #0b2b1c30}
+.toast{border:1px solid #d4e7d7;border-radius:14px;background:#123c29;color:#f3fff5;box-shadow:0 14px 34px #0e382345;font-weight:750;animation:kcToastIn .25s cubic-bezier(.2,.8,.2,1)}
+.footer-bar{border-top:1px solid #e4ece5;color:#89988d;font-size:10px}
+.footer-bar button{border-radius:9px;padding:7px 10px}.footer-bar button:hover{background:#e8f5e9;color:#1b7046}
+/* Animated entry, subtle ambient movement and reduced-motion support */
+@keyframes kcPageRise{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@keyframes kcFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes kcModalIn{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes kcToastIn{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@keyframes kcSoftPulse{0%,100%{box-shadow:0 0 0 0 rgba(47,156,89,.14)}50%{box-shadow:0 0 0 7px rgba(47,156,89,0)}}
+.status-dot{animation:kcSoftPulse 2.5s ease-out infinite}
+@media(min-width:761px){.nav-item.active{animation:kcNavSettle .25s ease-out}@keyframes kcNavSettle{from{transform:translateX(-3px)}to{transform:translateX(0)}}}
+/* Tablet and mobile: keep every primary control easy to tap */
+@media(max-width:1100px){.main-content{padding-left:25px;padding-right:25px}.sidebar{width:235px}.content-wrap{margin-left:235px}.topbar{padding:0 24px}.att-row{grid-template-columns:minmax(140px,1fr) minmax(120px,.65fr);}.att-control{grid-column:1/-1;justify-content:flex-start;padding-left:0}.hero{padding:29px}.hero-decor-card{min-width:175px}}
+@media(max-width:760px){
+ body{padding-bottom:calc(78px + env(safe-area-inset-bottom))}
+ .sidebar{display:none}.content-wrap{margin-left:0}.topbar{height:65px;padding:0 15px;gap:8px}.topbar-left{gap:8px}.mobile-logo{width:36px;height:36px;border-radius:12px;font-size:22px}.breadcrumb{gap:7px}.breadcrumb-label{display:none}.topbar-date{display:none}.topbar-divider{display:none}.open-tag{font-size:9px;padding:8px 10px}.profile-chip{width:34px;height:34px;border-radius:11px}.topbar-right{gap:8px}
+ .main-content{padding:24px 14px 34px;min-height:calc(100vh - 135px)}
+ .page-head{align-items:flex-start;flex-direction:column;margin-bottom:20px;gap:12px}.page-head h1{font-size:28px;letter-spacing:-1.1px}.page-head p{font-size:11px}.head-actions{width:100%}.head-actions .btn{width:auto}
+ .hero{min-height:0;border-radius:20px;padding:25px 21px;margin-bottom:17px}.hero h2{font-size:29px;letter-spacing:-1.2px}.hero p{font-size:11px}.hero-decor{display:none}.hero-actions{gap:8px;flex-wrap:wrap}.hero-actions .btn{padding:10px 12px;font-size:10px}
+ .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 19px}.stat{padding:15px 14px;border-radius:15px}.stat-top{font-size:9px;gap:7px}.stat-symbol{width:29px;height:29px;border-radius:10px}.stat-value{font-size:23px;margin:13px 0 6px}.stat-label{font-size:9px;line-height:1.45}
+ .panel,.salary-person-panel{border-radius:17px}.panel-pad,.salary-person-panel{padding:17px}.panel-title-row{align-items:flex-start;gap:10px}.panel-title-row h3{font-size:14px}.panel-title-row p{font-size:10px}
+ .grid-two{grid-template-columns:1fr;gap:12px;margin-top:13px}.week-strip{gap:4px}.week-day{padding:9px 2px;border-radius:10px}.week-day strong{font-size:17px}.week-day i{font-size:7px;line-height:1.3}.week-day span{font-size:8px}
+ .att-cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.mini-count{display:block;padding:12px 9px;border-radius:13px}.count-icon{width:32px;height:32px;margin-bottom:8px}.mini-count strong{font-size:19px}.mini-count small{font-size:8px;line-height:1.35}
+ .att-row{grid-template-columns:minmax(0,1fr);gap:10px;padding:16px}.att-row .person-row{min-width:0}.att-control{grid-column:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));justify-content:stretch;gap:7px}.att-control button{width:100%;min-height:39px;padding:9px 7px;font-size:10px}.att-row>.pill{justify-self:start}
+ .date-picker-row{width:100%;gap:6px}.date-field{min-width:0;flex:1}.date-picker-row .btn{font-size:9px;padding:8px}.shop-status{align-items:flex-start;flex-direction:column}.shop-switch{width:100%;display:grid;grid-template-columns:1fr 1fr}.shop-switch button{min-height:39px}
+ .cal-wrap{grid-template-columns:minmax(0,1fr)}.cal-grid{gap:4px}.weekday-row{gap:4px}.cal-cell{min-height:68px;padding:7px 4px;border-radius:10px}.cal-cell strong{font-size:12px}.cal-cell small{font-size:7px;line-height:1.25}.cal-cell em{font-size:7px}.cal-detail{margin-top:12px}
+ .worker-grid{grid-template-columns:1fr;gap:13px}.worker-body{padding:6px 17px 18px}.worker-cover{height:61px}.worker-avatar{width:52px;height:52px}.worker-body h3{font-size:17px}.worker-details{grid-template-columns:repeat(2,minmax(0,1fr))}.worker-details>div{padding:10px}.worker-details strong{font-size:10px;overflow-wrap:anywhere}
+ .salary-by-person-grid{grid-template-columns:1fr;gap:12px}.salary-person-panel{padding:16px}.salary-person-title{align-items:flex-start}.salary-person-title h3{font-size:18px}.salary-person-card{padding:14px;gap:12px}.salary-person-metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.salary-person-metrics>div{padding:10px}.salary-person-metrics strong{font-size:16px}.payday-rule-grid{grid-template-columns:1fr}.table{min-width:520px}
+ .settings-grid{grid-template-columns:1fr;gap:12px}.backup-actions{display:grid;grid-template-columns:1fr}.backup-actions .btn{width:100%}
+ .footer-bar{padding:15px 10px 20px;flex-direction:column;gap:8px;text-align:center}
+ .mobile-bottom-nav{display:flex;position:fixed;bottom:0;left:0;right:0;height:calc(67px + env(safe-area-inset-bottom));padding:6px 4px env(safe-area-inset-bottom);z-index:48;background:rgba(255,255,255,.93);border-top:1px solid #dfe9e1;box-shadow:0 -10px 30px rgba(15,51,29,.09);backdrop-filter:blur(18px);justify-content:space-around;align-items:center}
+ .mobile-bottom-nav button{border:0;background:transparent;color:#7f9285;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-width:0;width:20%;font-size:9px;font-weight:850;padding:7px 1px;border-radius:12px}
+ .mobile-bottom-nav button.active{color:#1a7449;background:#eaf6eb}.mobile-bottom-nav button.active svg{transform:translateY(-1px)}.mobile-bottom-nav svg{width:19px;height:19px}.mobile-bottom-nav button small{font-size:9px}
+ .chat-fab{right:13px;bottom:calc(79px + env(safe-area-inset-bottom));padding:12px 13px;border-radius:15px}.chat-fab .chat-fab-text{display:inline!important;font-size:10px}.chat-fab svg{width:18px;height:18px}
+ .chat-window{top:auto;bottom:calc(78px + env(safe-area-inset-bottom));right:9px;left:9px;width:auto;height:min(650px,calc(100dvh - 150px));min-height:390px;border-radius:20px}.kc-chat-header{padding:17px 16px 13px}.kc-chat-header-title h2{font-size:17px}.kc-chat-header-sub{font-size:10px}.chat-scroll{padding:14px}.kc-chat-composer{padding:12px}.chat-suggestions{gap:6px}.chat-suggestions button{font-size:9px;padding:8px 9px}
+ .modal-backdrop{padding:12px}.modal-dialog{width:min(100%,560px);max-height:calc(100dvh - 24px);overflow:auto;border-radius:19px}.modal-title h2{font-size:20px}.form-grid{grid-template-columns:1fr}.span-two{grid-column:auto}.form-buttons{position:sticky;bottom:0;background:#fff;padding:12px 0 0}
+ .toast{bottom:calc(80px + env(safe-area-inset-bottom));left:12px;right:12px;width:auto;max-width:none}
+}
+@media(max-width:380px){.page-head h1{font-size:25px}.hero h2{font-size:26px}.hero-actions .btn{font-size:9px}.stats-grid{gap:8px}.stat{padding:12px 10px}.stat-value{font-size:21px}.att-cards .mini-count{padding:9px 6px}.att-control{grid-template-columns:1fr 1fr}.open-tag{padding:7px 8px}.chat-fab{padding:10px 11px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+
+/* Mobile assistant control: keep the label inside the button, never below it. */
+@media(max-width:760px){
+ .chat-fab{width:auto!important;min-width:38px;height:38px!important;display:flex!important;align-items:center;justify-content:center;gap:8px;padding:9px 11px!important;border-radius:13px!important;white-space:nowrap;overflow:visible}
+ .chat-fab .chat-fab-text{display:inline!important;white-space:nowrap;font-size:10px;line-height:1}
+ .chat-fab .kc-fab-sparkle{display:none!important}
+ .topbar-right{min-width:0;gap:7px}
+}
+@media(max-width:350px){
+ .chat-fab{width:36px!important;min-width:36px;height:36px!important;padding:8px!important;display:grid!important;place-items:center!important;border-radius:11px!important}
+ .chat-fab .chat-fab-text{display:none!important}
+}
+/* Small-tablet refinement: avoid compressed desktop columns around 768px. */
+@media (min-width:761px) and (max-width:900px){
+ body{padding-bottom:78px}
+ .sidebar{display:none}
+ .content-wrap{margin-left:0}
+ .topbar{padding:0 22px}
+ .main-content{padding:28px 22px 40px}
+ .mobile-bottom-nav{display:flex;position:fixed;left:0;right:0;bottom:0;height:70px;z-index:48;background:rgba(255,255,255,.94);border-top:1px solid #dfe9e1;box-shadow:0 -10px 30px rgba(15,51,29,.08);backdrop-filter:blur(18px);justify-content:space-around;align-items:center;padding:6px 10px}
+ .mobile-bottom-nav button{border:0;background:transparent;color:#7f9285;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-width:0;width:20%;font-size:9px;font-weight:850;padding:7px 1px;border-radius:12px}
+ .mobile-bottom-nav button.active{color:#1a7449;background:#eaf6eb}
+ .mobile-bottom-nav svg{width:19px;height:19px}
+ .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .grid-two{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+ .att-row{grid-template-columns:minmax(0,1fr);gap:10px;padding:17px 20px}
+ .att-control{grid-column:auto;justify-content:flex-start;flex-wrap:wrap}
+ .cal-wrap{grid-template-columns:minmax(0,1fr)}
+ .cal-detail{margin-top:14px}
+ .salary-by-person-grid{grid-template-columns:1fr}
+ .settings-grid{grid-template-columns:1fr}
+ .worker-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .chat-window{right:20px;width:min(440px,calc(100vw - 40px))}
+}
+
+</style>
 </head>
 <body class="is-locked">
   <div class="app-shell">
@@ -1081,7 +1354,7 @@ function renderDashboard(){const td=today(),t=totals(td),ws=activeWorkers(),curr
  `<section class="panel panel-pad salary-calendar-panel"><div class="panel-title-row"><div><h3>🗓 Upcoming salary dates</h3><p>Each worker has their own editable payment schedule</p></div><button type="button" class="link-button" data-page="payroll">View payroll →</button></div><div class="salary-saturday-strip">${upcomingPaydays(td).map(x=>`<div class="salary-saturday ${x.date===td?'salary-today':''}"><b>${fmt(x.date,{day:'numeric',month:'short'})}</b><span>${x.workers.length?x.workers.map(w=>escapeHTML(w.name)).join(' + '):'No salary scheduled'}</span></div>`).join('')}</div></section>`+
  `<div class="grid-two"><section class="panel panel-pad"><div class="panel-title-row"><div><h3>Salary overview</h3><p>Unpaid wages up to today</p></div><button type="button" class="link-button" data-page="payroll">All payroll →</button></div>${currentDues.length?currentDues.map(({w,amount,present,fullDays=present,halfDays=0,nextPayDate,isDue},i)=>`<div class="pay-row">${avatar(w,i)}<div class="person-main"><strong>${escapeHTML(w.name)}</strong><small>${fullDays} full + ${halfDays} half day(s) unpaid · ${escapeHTML(salaryScheduleLabel(w))}</small></div><div class="pay-amount"><strong>${moneyShort(amount)}</strong><small>${isDue?'Salary payment due':nextPayDate?`Pay ${fmt(nextPayDate,{day:'numeric',month:'short'})}`:'Set payday'}</small></div></div>`).join(''):'<div class="empty-state">No workers added.</div>'}</section><section class="panel panel-pad"><div class="panel-title-row"><div><h3>Quick actions</h3><p>Your everyday shortcuts</p></div></div><div class="flex-wrap"><button type="button" class="btn secondary" data-page="attendance">${ic('check')} Attendance</button><button type="button" class="btn secondary" data-page="payroll">${ic('wallet')} Salaries</button><button type="button" class="btn secondary" data-action="add-worker" ${ws.length>=MAX_WORKERS?'disabled':''}>${ic('plus')} Add worker</button><button type="button" class="btn secondary" data-page="settings">${ic('download')} Backup & reports</button></div><div class="hint-box"><strong>✳ Tip:</strong> Open or close your shop on ANY date in Attendance / Calendar. Closed days are not counted as absences or paid workdays. Wages start Monday 26 Oct 2026 for current staff. To choose or change any employee’s payday, use Team members → Edit profile or Payroll → Change payday.</div></section></div>`;
 }
-function renderAttendance(){const dt=state.selectedDate,ws=workersOnDate(state.selectedDate),closed=isClosed(dt),future=dt>today(),t=totals(dt),disabled=closed||future;
+function renderAttendance(){const dt=state.selectedDate,ws=workersOnDate(state.selectedDate),closed=isClosed(dt),future=dt>today(),t=totals(dt),disabled=closed||future||dt<START;
  return pageHeader('Attendance register','Select a date and mark who came to work.',headButton('export-attendance','Export attendance','download','secondary'))+
  `<section class="panel panel-pad" style="margin-bottom:16px"><div class="panel-title-row tight"><div><h3>Attendance date</h3><p>${weekday(dt)}, ${fmt(dt)}</p></div><div class="date-picker-row"><button type="button" class="icon-button" data-action="prev-day" aria-label="Previous day" ${dt<=START?'disabled':''}>${ic('chevronLeft')}</button><input id="attDateInput" type="date" class="date-field" value="${dt}" min="${START}" aria-label="Attendance date"/><button type="button" class="icon-button" data-action="next-day" aria-label="Next day">${ic('chevronRight')}</button><button type="button" class="btn mini soft" data-action="week-monday">Start 26 Oct</button><button type="button" class="btn mini soft" data-action="today">Today</button></div></div></section>`+
  `<div class="shop-status-panel">${shopToggle(dt)}<p>Every date can be opened or closed — including Sundays. A closed date does not count as Absent or earn salary. Changes are saved to your cloud account.</p></div>`+
