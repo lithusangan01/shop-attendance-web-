@@ -548,7 +548,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 @media(max-height:520px){.chat-window.kc-chat{top:7px;bottom:7px;height:auto;min-height:0}.kc-chat-header-sub,.kc-chat-quick-heading{display:none}.kc-chat-header{padding:12px 14px}.kc-chat-composer{padding:9px 12px}}
 @media(prefers-reduced-motion:reduce){.kc-chat-backdrop,.chat-window.kc-chat.open,.kc-chat-msg{animation:none!important}}
 
-  </style>
+  
+</style>
 <style id="former-staff-styles">
 .former-staff-panel{margin-top:24px;margin-bottom:32px}
 .former-staff-list,.former-pay-list{display:grid;gap:12px}
@@ -969,7 +970,6 @@ button,input,select{font-family:inherit;letter-spacing:normal}
 .credit-entry-numbers b.credit-removed{color:#7c8780}
 .credit-history-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid #e9efea;margin-top:15px;padding-top:15px;color:#819184;font-size:11px;line-height:1.5}
 .credit-help{line-height:1.7}
-.nav-item[data-page="credit"] svg{flex-shrink:0}
 .mobile-bottom-nav button{width:16.666%;}
 @media(max-width:1050px){.credit-entry{grid-template-columns:minmax(0,1fr);gap:12px}.credit-entry-actions{justify-content:flex-start;align-items:center}.credit-filterbar{grid-template-columns:minmax(0,1fr) minmax(135px,.6fr)}.credit-filterbar>.btn{grid-column:1/-1;justify-self:start}}
 @media(max-width:650px){.credit-head-actions{width:100%;justify-content:stretch}.credit-head-actions .btn{flex:1;white-space:normal}.credit-filterbar{grid-template-columns:1fr;gap:8px}.credit-filterbar>.btn{grid-column:auto;justify-self:stretch}.credit-search-field{min-height:46px}.credit-entry-numbers{grid-template-columns:repeat(3,minmax(0,1fr))}.credit-entry-numbers small{font-size:9px}.credit-entry-numbers b{font-size:11px}.credit-history-footer{align-items:stretch;flex-direction:column}.credit-history-footer .btn{width:100%}.mobile-bottom-nav button{width:16.666%;font-size:8px}.mobile-bottom-nav small{font-size:8px}.mobile-bottom-nav svg{width:17px;height:17px}}
@@ -994,7 +994,637 @@ button,input,select{font-family:inherit;letter-spacing:normal}
 .worker-card .rate-box b{font-size:clamp(24px,2.1vw,30px);line-height:1.18;letter-spacing:-.6px;white-space:normal;overflow-wrap:anywhere}
 .worker-card .rate-box .rate-detail{font-size:11px;line-height:1.5;white-space:normal;overflow-wrap:anywhere}
 @media(max-width:650px){.page-head h1{font-size:25px}.page-head p{font-size:12px}.panel-title-row h3{font-size:14px}.panel-title-row p{font-size:11px}.btn{font-size:11px}.head-actions .btn[data-credit-primary] .hide-on-mobile{display:inline!important}.worker-body h3{font-size:21px}.worker-card .rate-box b{font-size:25px}}
+/* Team-first credit history: no separate Shop Credit navigation page. */
+.worker-name-link{display:inline-flex;align-items:center;gap:7px;max-width:100%;padding:0;border:0;background:transparent;color:#193b2a;font:inherit;font-weight:850;letter-spacing:inherit;text-align:left;overflow-wrap:anywhere;cursor:pointer}
+.worker-name-link span{font-size:.72em;color:#2f8b5d;opacity:.7;transition:transform .18s,opacity .18s}
+.worker-name-link:hover{color:#187449;text-decoration:underline;text-decoration-color:#b6d8c0;text-underline-offset:4px}
+.worker-name-link:hover span{opacity:1;transform:translate(2px,-2px)}
+.worker-credit-open{width:100%;text-align:left;font:inherit;cursor:pointer;display:flex;flex-direction:column;gap:7px;border:1px solid #dceade;border-radius:12px;background:#f7fbf7;padding:12px;min-width:0;transition:background .18s,border-color .18s,transform .18s}
+.worker-credit-open:hover{background:#edf7ee;border-color:#acd4b6;transform:translateY(-1px)}
+.worker-credit-open span{font-size:10px;color:#748b7a;font-weight:650}
+.worker-credit-open strong{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:13px;color:#236744;overflow-wrap:anywhere}
+.worker-credit-open strong small{font-size:9px;font-weight:800;color:#31865b}
+.former-worker-name-link{font-size:13px;font-weight:850}
+.modal-dialog.worker-credit-modal{width:min(820px,100%)}
+.worker-credit-history{padding-bottom:20px}
+.worker-credit-history .modal-title{padding:22px 24px 18px}
+.worker-credit-history .modal-title .eyebrow{margin-bottom:6px}
+.worker-credit-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:18px 24px 0}
+.worker-credit-summary>div{border:1px solid #e1ece3;border-radius:13px;background:linear-gradient(145deg,#f7fbf7,#fff);padding:13px;min-width:0}
+.worker-credit-summary span,.worker-credit-row-amounts small{display:block;font-size:10px;line-height:1.45;color:#829388}
+.worker-credit-summary strong{display:block;margin-top:8px;font-size:clamp(14px,2vw,20px);line-height:1.25;color:#1c6243;overflow-wrap:anywhere}
+.worker-credit-summary small{display:block;margin-top:4px;font-size:9px;color:#819286}
+.worker-credit-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:21px 24px 12px}
+.worker-credit-toolbar>div{display:grid;gap:4px;min-width:0}
+.worker-credit-toolbar>div strong{font-size:14px;color:#233d2d}
+.worker-credit-toolbar>div span{font-size:10px;color:#8a998e}
+.worker-credit-history-list{display:grid;gap:9px;padding:0 24px}
+.worker-credit-row{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.15fr) auto;align-items:center;gap:14px;border:1px solid #e3ece4;border-radius:14px;padding:14px;background:#fff;min-width:0}
+.worker-credit-row.is-voided{background:#fafafa;opacity:.82}
+.worker-credit-row-main{display:flex;align-items:flex-start;gap:10px;min-width:0}
+.worker-credit-date{flex:0 0 auto;border-radius:9px;background:#eaf4eb;color:#2c744e;font-size:10px;font-weight:800;padding:8px 9px;white-space:nowrap}
+.worker-credit-description{min-width:0;display:grid;gap:5px}
+.worker-credit-description strong{font-size:12px;line-height:1.45;color:#263e30;overflow-wrap:anywhere}
+.worker-credit-description small{font-size:9px;line-height:1.5;color:#8a998e;overflow-wrap:anywhere}
+.worker-credit-row-amounts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;min-width:0}
+.worker-credit-row-amounts strong{display:block;margin-top:5px;font-size:11px;line-height:1.45;color:#365a42;overflow-wrap:anywhere}
+.worker-credit-row-actions{display:flex;flex-direction:column;align-items:flex-end;gap:8px;min-width:105px}
+.worker-credit-row-actions .btn{white-space:normal}
+.worker-credit-note{margin:16px 24px 0;font-size:10px}
+.worker-credit-empty{margin:0 24px;padding:23px;display:grid;gap:7px}
+.worker-credit-empty strong{font-size:13px;color:#2a4834}
+.worker-credit-empty span{font-size:11px;line-height:1.6;color:#829286}
+.former-staff-name .worker-name-link{line-height:1.35}
+.mobile-bottom-nav button{width:20%}
+@media(max-width:720px){.modal-dialog.worker-credit-modal{width:min(100%,600px)}.worker-credit-summary{grid-template-columns:repeat(2,minmax(0,1fr));padding:14px 15px 0}.worker-credit-toolbar{padding:18px 15px 11px;align-items:flex-start;flex-wrap:wrap}.worker-credit-history-list{padding:0 15px}.worker-credit-row{grid-template-columns:minmax(0,1fr);gap:11px;padding:12px}.worker-credit-row-amounts{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.worker-credit-row-actions{flex-direction:row;align-items:center;justify-content:space-between;min-width:0;flex-wrap:wrap}.worker-credit-note{margin:14px 15px 0}.worker-credit-empty{margin:0 15px}.worker-credit-history .modal-title{padding:19px 15px 15px}}
+@media(max-width:390px){.worker-credit-summary>div{padding:10px}.worker-credit-summary span,.worker-credit-row-amounts small{font-size:9px}.worker-credit-row-amounts strong{font-size:10px}.worker-credit-date{font-size:9px;padding:7px}.worker-credit-toolbar .btn{width:100%}}
+
 </style>
+
+
+<style id="kirushi-professional-final-redesign">
+:root{font-family:Inter,"Segoe UI Variable",Segoe UI,Roboto,Arial,sans-serif;font-feature-settings:"ss01" on;--ink:#18372a;--muted:#6e8175;--line:#e0eae1;--main:#176544;--light:#e9f5eb;--bg:#f5f8f5;--shadow:0 12px 32px rgba(23,65,42,.055);--kc-ease:cubic-bezier(.2,.75,.25,1)}
+body{font-family:Inter,"Segoe UI Variable",Segoe UI,Roboto,Arial,sans-serif;color:#20392c;background:linear-gradient(180deg,#f7faf7 0%,#f2f6f2 100%);font-size:14px;line-height:1.55;font-optical-sizing:auto}
+button,input,select,textarea{font-family:inherit;letter-spacing:normal}button{touch-action:manipulation}
+.sidebar{background:rgba(255,255,255,.96);border-right-color:#dfe9e1;box-shadow:5px 0 28px rgba(24,58,38,.025);padding-top:25px}
+.brand strong{font-size:22px;letter-spacing:-.7px}.brand small{letter-spacing:2.5px}
+.nav-label{margin-top:42px}.nav-list{gap:6px}.nav-item{border-radius:13px;min-height:46px;font-size:13px;transition:background .2s,border-color .2s,color .2s,transform .2s var(--kc-ease)}
+.nav-item.active{box-shadow:inset 3px 0 #238556}.nav-item:hover{transform:translateX(2px)}
+.content-wrap{min-width:0}.topbar{height:76px;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom-color:#e2ebe3}.breadcrumb{font-size:11px;letter-spacing:1.25px}.topbar-right{gap:18px}
+.main-content{padding-top:34px}.page-head{align-items:flex-start;margin-bottom:24px}.page-head h1{font-size:clamp(27px,2.2vw,35px);letter-spacing:-1.1px;line-height:1.18;font-weight:780}.page-head p{font-size:13px;line-height:1.7;color:#728478}
+.eyebrow{letter-spacing:1.65px;font-size:10px}.panel,.stat,.worker-card,.former-staff-row{border-color:#e0e9e1;border-radius:18px;box-shadow:0 8px 24px rgba(27,69,43,.035)}
+.panel{overflow:hidden}.panel-pad{padding:24px}.panel-title-row h3{font-size:16px;line-height:1.4;font-weight:750}.panel-title-row p{font-size:12px;line-height:1.65;color:#788b7e}
+.stat{padding:21px}.stat-top{font-size:12px}.stat-value{font-size:clamp(23px,2vw,30px);letter-spacing:-.65px;font-weight:780;line-height:1.2;white-space:normal;overflow-wrap:anywhere}.stat-label{font-size:11px;line-height:1.55}
+.btn{min-height:42px;padding:10px 15px;border-radius:12px;font-size:12px;line-height:1.35;font-weight:720;white-space:normal;text-align:center;box-shadow:none;transition:transform .18s var(--kc-ease),box-shadow .18s,border-color .18s,background .18s,color .18s;overflow-wrap:anywhere}.btn svg{width:16px;height:16px;flex:0 0 auto}.btn.primary{background:linear-gradient(135deg,#1d7650,#155c3e);box-shadow:0 5px 13px rgba(25,103,68,.13)}.btn.primary:hover{background:linear-gradient(135deg,#23885b,#176846);box-shadow:0 8px 18px rgba(25,103,68,.18);transform:translateY(-2px)}.btn.secondary:hover,.btn.soft:hover,.btn.warn:hover,.btn.danger:hover{transform:translateY(-1px);box-shadow:0 5px 13px rgba(25,70,43,.07)}.btn:active{transform:translateY(0) scale(.985)}.btn.mini{min-height:38px;padding:8px 11px;font-size:11px}
+input,select,textarea{border-radius:11px;min-height:43px;font-size:14px!important;line-height:1.4}input::placeholder,textarea::placeholder{color:#91a095;opacity:1}label{line-height:1.5}
+.hero{border-radius:22px;box-shadow:0 18px 38px rgba(21,81,54,.12);padding:34px 40px}.hero h2{font-size:clamp(27px,2.4vw,35px);line-height:1.2;letter-spacing:-.8px}.hero p{font-size:13px;line-height:1.75}
+.worker-grid{gap:20px;align-items:stretch}.worker-card{overflow:hidden;transition:transform .22s var(--kc-ease),box-shadow .22s,border-color .22s;background:#fff;animation:kcRise .42s both;animation-delay:calc(var(--worker-index,0)*35ms)}.worker-card:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(26,71,44,.075);border-color:#cfe2d2}.worker-cover{height:74px}.worker-avatar{width:76px;height:76px;border-radius:22px;border:5px solid #fff;box-shadow:0 0 0 1px #e5eee6;margin-top:-37px;font-size:22px}.worker-body{padding:0 22px 22px}.worker-body h3{font-size:22px;line-height:1.3;letter-spacing:-.45px;margin:0 0 5px}.worker-name-link{gap:6px}.worker-subtitle{font-size:12px;line-height:1.6;color:#819185}.worker-card .rate-box{display:grid;grid-template-columns:minmax(0,1fr);gap:5px;margin:19px 0 15px;padding:18px 19px;border:1px solid #dfebe0;border-radius:16px;background:linear-gradient(135deg,#f4faf5,#fff)}.worker-card .rate-box small{font-size:12px;color:#74887a}.worker-card .rate-box b{font-size:clamp(25px,2.2vw,32px);line-height:1.2;letter-spacing:-.6px;color:#1d6947;overflow-wrap:anywhere}.worker-card .rate-box .rate-detail{font-size:11px;line-height:1.55;color:#829487}.worker-details{gap:10px}.worker-details>div{min-width:0;padding:14px;border:1px solid #e8efe8;border-radius:14px;background:#fafcf9}.worker-details>div span{font-size:11px;line-height:1.5;color:#819084}.worker-details>div strong{font-size:13px;line-height:1.5;overflow-wrap:anywhere}.worker-credit-open{padding:14px;border-radius:14px;background:#f4faf5}.worker-credit-open span{font-size:11px}.worker-credit-open strong{font-size:14px;line-height:1.45}.worker-actions{gap:8px;margin-top:17px}.worker-actions .btn{flex:1 1 auto;min-width:0}
+.worker-credit-modal .modal-dialog,.modal-dialog.worker-credit-modal{border-radius:22px;overflow:hidden;box-shadow:0 25px 90px rgba(12,36,22,.24)}.worker-credit-history .modal-title{padding:25px 26px 19px}.worker-credit-history .modal-title h2{font-size:clamp(22px,3vw,29px);letter-spacing:-.7px;line-height:1.25}.worker-credit-summary{gap:11px;padding:20px 26px 0}.worker-credit-summary>div{border-radius:15px;background:#f8fbf8;padding:15px}.worker-credit-summary span{font-size:11px;line-height:1.5}.worker-credit-summary strong{font-size:clamp(15px,2vw,21px);line-height:1.3;overflow-wrap:anywhere}.worker-credit-toolbar{padding:23px 26px 13px}.worker-credit-toolbar>div strong{font-size:15px}.worker-credit-toolbar>div span{font-size:11px}.credit-entry{border-radius:16px;padding:16px;gap:17px}.credit-entry-copy strong{font-size:14px;line-height:1.5}.credit-entry-copy span{font-size:12px;line-height:1.6}.credit-entry-numbers small{font-size:11px;line-height:1.5}.credit-entry-numbers b{font-size:13px;line-height:1.5}.credit-status-tag{font-size:11px;padding:7px 10px}.credit-help,.hint-box{font-size:12px;line-height:1.7;border-radius:14px}
+.table{font-size:12px}.table th{font-size:10px;letter-spacing:.35px}.table td{line-height:1.55}.toast{border-radius:14px;box-shadow:0 12px 35px rgba(15,42,25,.16);font-size:12px}
+.chat-window{border-radius:22px;box-shadow:0 25px 75px rgba(12,38,23,.2);overflow:hidden}.chat-head{padding:17px 18px}.chat-bubble{font-size:13px;line-height:1.75;border-radius:16px}.chat-form input{font-size:14px!important;min-height:46px}.chat-form button{min-width:46px;min-height:46px;border-radius:13px}.chat-suggestions button{font-size:11px;min-height:36px}.chat-fab{box-shadow:0 10px 25px rgba(20,99,64,.22);transition:transform .2s var(--kc-ease),box-shadow .2s}.chat-fab:hover{transform:translateY(-3px);box-shadow:0 15px 32px rgba(20,99,64,.27)}
+@keyframes kcRise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1180px){.worker-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.main-content{padding-left:27px;padding-right:27px}}
+@media(max-width:890px){.main-content{padding-top:27px}.worker-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.worker-body{padding-left:17px;padding-right:17px}.worker-actions .btn{font-size:11px}}
+@media(max-width:650px){body{font-size:14px}.topbar{height:64px}.main-content{padding:23px 14px 35px}.page-head{gap:12px;flex-direction:column}.page-head h1{font-size:26px;letter-spacing:-.7px}.page-head p{font-size:12px}.head-actions{width:100%}.head-actions .btn{flex:1}.hero{padding:25px 21px;border-radius:18px}.hero h2{font-size:26px}.stats-grid{gap:10px}.stat{padding:14px;border-radius:15px}.stat-value{font-size:23px}.panel{border-radius:16px}.panel-pad{padding:16px}.worker-grid{grid-template-columns:1fr;gap:14px}.worker-card{border-radius:18px}.worker-cover{height:67px}.worker-avatar{width:69px;height:69px;margin-top:-34px;border-radius:20px}.worker-body{padding:0 17px 18px}.worker-body h3{font-size:22px}.worker-card .rate-box{margin-top:16px;padding:15px}.worker-card .rate-box b{font-size:28px}.worker-details{gap:8px}.worker-details>div{padding:12px}.worker-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.worker-actions .btn{width:100%;font-size:11px;padding:10px 8px}.worker-credit-summary{grid-template-columns:repeat(2,minmax(0,1fr));padding:16px 16px 0}.worker-credit-summary>div{padding:12px}.worker-credit-toolbar{padding:19px 16px 12px;align-items:flex-start;flex-direction:column}.worker-credit-toolbar .btn{width:100%}.worker-credit-history .modal-title{padding:20px 16px 14px}.credit-entry{padding:13px}.credit-entry-numbers{grid-template-columns:repeat(3,minmax(0,1fr))}.credit-entry-numbers small{font-size:10px}.credit-entry-numbers b{font-size:12px}.credit-entry-actions{justify-content:flex-start}.credit-entry-actions .btn{flex:1}.footer-bar{padding:16px}.chat-window{right:8px;width:calc(100vw - 16px);border-radius:18px}}
+@media(max-width:380px){.worker-actions{grid-template-columns:1fr}.worker-details{grid-template-columns:1fr 1fr}.worker-credit-summary{gap:7px}.worker-credit-summary strong{font-size:15px}.credit-entry-numbers{grid-template-columns:1fr 1fr}.credit-entry-numbers>div:last-child{grid-column:1/-1}.credit-entry-actions{width:100%}.credit-entry-actions .btn{min-width:0}.btn{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.worker-card{animation:none!important}.worker-card,.btn,.nav-item,.chat-fab{transition:none!important}}
+</style>
+
+
+  <style id="kirushi-october-dashboard-overhaul">
+    :root {
+      --ink: #173629;
+      --muted: #718479;
+      --line: #e1ebe3;
+      --main: #176747;
+      --light: #e8f5e9;
+      --bg: #f3f7f4;
+      --kc-deep: #0d3c2b;
+      --kc-green: #176b49;
+      --kc-mint: #d5f0c8;
+      --kc-shadow: 0 18px 46px rgba(18, 58, 37, .075);
+      --kc-ease: cubic-bezier(.2, .75, .25, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 88% 0%, rgba(209, 234, 215, .38), transparent 30rem),
+        #f3f7f4;
+      font-feature-settings: "ss01" on;
+    }
+    .app-shell { background: transparent; }
+    .sidebar {
+      width: 270px;
+      padding: 27px 17px 18px;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdfb 62%, #f5faf6 100%);
+      border-right: 1px solid #e4ece5;
+      box-shadow: 10px 0 40px rgba(19, 60, 38, .025);
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #c7dccd transparent;
+    }
+    .content-wrap { margin-left: 270px; min-width: 0; }
+    .brand-badge, .mobile-logo {
+      box-shadow: 0 10px 24px rgba(27, 105, 70, .2);
+      background: linear-gradient(145deg, #d5f1cf, #a9dfb4);
+      color: #164a32;
+    }
+    .brand strong { letter-spacing: -1.15px; }
+    .nav-label { margin-top: 44px; }
+    .nav-item {
+      position: relative;
+      min-height: 49px;
+      border: 1px solid transparent;
+      border-radius: 14px;
+      padding: 13px 14px;
+      transition: background .24s var(--kc-ease), color .24s var(--kc-ease),
+                  transform .24s var(--kc-ease), box-shadow .24s var(--kc-ease);
+    }
+    .nav-item:hover { transform: translateX(3px); background: #f1f8f2; }
+    .nav-item.active {
+      color: #135c3d;
+      background: linear-gradient(110deg, #e5f5e5, #f1f9ef);
+      border-color: #d9eddc;
+      box-shadow: inset 3px 0 #299361, 0 7px 20px rgba(28, 102, 65, .055);
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 35;
+      height: 76px;
+      padding: 0 clamp(22px, 3vw, 46px);
+      background: rgba(255, 255, 255, .88);
+      border-bottom-color: rgba(224, 235, 226, .9);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+    .main-content {
+      max-width: 1640px;
+      padding: 35px clamp(22px, 3vw, 48px) 62px;
+    }
+    .page-head { margin-bottom: 26px; }
+    .page-head h1 {
+      font-size: clamp(27px, 2.15vw, 35px);
+      letter-spacing: -1.35px;
+      color: #153b2a;
+    }
+    .page-head p { font-size: 13px; color: #778b7e; }
+    .eyebrow { letter-spacing: 2.2px; }
+
+    /* Buttons: clear hierarchy, polished feedback and accessible focus. */
+    .btn, .icon-button, .link-button, .salary-person-link, .profile-chip,
+    .chat-fab, .kc-chat-icon-btn {
+      transition: transform .22s var(--kc-ease), box-shadow .22s var(--kc-ease),
+                  background .22s var(--kc-ease), border-color .22s var(--kc-ease),
+                  color .22s var(--kc-ease);
+    }
+    .btn {
+      min-height: 42px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 780;
+      letter-spacing: -.1px;
+    }
+    .btn:not(:disabled):hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 23px rgba(20, 91, 58, .13);
+    }
+    .btn:not(:disabled):active { transform: translateY(0) scale(.985); }
+    .btn.primary {
+      background: linear-gradient(135deg, #1d7952, #105b3c);
+      box-shadow: 0 8px 20px rgba(24, 106, 70, .17);
+    }
+    .btn.secondary {
+      background: linear-gradient(180deg, #fff, #f9fcf9);
+      border-color: #dce8de;
+      color: #315b43;
+    }
+    .btn.secondary:hover { background: #eef7ef; border-color: #c8e2ce; }
+    .link-button { border-radius: 8px; padding: 8px 10px; }
+    .link-button:hover { background: #edf7ef; text-decoration: none; }
+    .icon-button { border-radius: 13px; }
+    .icon-button:hover { transform: rotate(4deg); background: #f0f7f1; }
+    .profile-chip:hover { transform: translateY(-2px) rotate(-3deg); box-shadow: 0 8px 18px #8e6b3022; }
+
+    /* Overview hero — deep forest green, layered lighting and a gentle float. */
+    .hero {
+      min-height: 300px;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding: clamp(30px, 3.3vw, 48px);
+      margin-bottom: 23px;
+      border: 1px solid rgba(218, 247, 220, .13);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 78% 25%, rgba(91, 184, 117, .26), transparent 20rem),
+        radial-gradient(circle at 3% 110%, rgba(161, 222, 153, .13), transparent 23rem),
+        linear-gradient(118deg, #0b3b2a 0%, #10553a 48%, #1e7950 100%);
+      box-shadow: 0 22px 52px rgba(13, 67, 42, .17);
+      animation: kcDashboardEnter .66s var(--kc-ease) both;
+    }
+    .hero:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      pointer-events: none;
+      opacity: .55;
+      background:
+        linear-gradient(112deg, transparent 43%, rgba(255,255,255,.055) 43.2%, transparent 43.7%),
+        radial-gradient(circle at 12% 12%, rgba(202, 243, 171, .12), transparent 17rem);
+    }
+    .hero:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+      width: 440px;
+      height: 440px;
+      right: -125px;
+      top: -205px;
+      border: 1px solid rgba(230, 255, 223, .16);
+      border-radius: 50%;
+      box-shadow: 0 0 0 36px rgba(229,255,226,.035), 0 0 0 82px rgba(229,255,226,.025);
+      animation: kcOrbit 28s linear infinite;
+    }
+    .hero-copy { max-width: 660px; }
+    .hero-kicker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #d0edc4;
+      letter-spacing: 1.8px;
+      font-size: 10px;
+    }
+    .hero-kicker-dot { box-shadow: 0 0 0 5px rgba(204, 242, 169, .13), 0 0 18px rgba(204, 242, 169, .5); }
+    .hero h2 {
+      margin: 17px 0 14px;
+      max-width: 690px;
+      font-size: clamp(31px, 3vw, 45px);
+      line-height: 1.12;
+      letter-spacing: -1.9px;
+      font-weight: 850;
+    }
+    .hero h2 em { color: #ccefad; }
+    .hero p { max-width: 510px; font-size: 13px; line-height: 1.85; color: #d0e5d5; }
+    .hero-actions { margin-top: 25px; gap: 11px; }
+    .hero .btn { min-height: 47px; margin-top: 0; padding: 13px 18px; border-radius: 13px; font-size: 12px; }
+    .hero .hero-primary {
+      color: #123e2a;
+      background: linear-gradient(135deg, #e1f7d5, #c8edb7);
+      border: 1px solid rgba(237, 255, 227, .75);
+      box-shadow: 0 8px 22px rgba(0, 22, 11, .16);
+    }
+    .hero .hero-primary:hover { background: #efffe7; }
+    .hero .hero-secondary {
+      color: #f4fff5;
+      background: rgba(255,255,255,.075);
+      border: 1px solid rgba(231,255,235,.28);
+      backdrop-filter: blur(8px);
+    }
+    .hero .hero-secondary:hover { background: rgba(255,255,255,.15); }
+    .hero-decor { margin-right: clamp(0px, 2vw, 28px); transform: none; }
+    .hero-orbit { border-color: rgba(222, 249, 217, .18); }
+    .orbit-one { animation: kcOrbit 34s linear infinite; }
+    .orbit-two { animation: kcOrbit 24s linear infinite reverse; }
+    .hero-decor-card {
+      min-width: 215px;
+      width: 215px;
+      padding: 23px;
+      border: 1px solid rgba(236, 255, 229, .23);
+      border-radius: 22px;
+      color: #efffed;
+      background: linear-gradient(145deg, rgba(255,255,255,.16), rgba(255,255,255,.07));
+      box-shadow: 0 24px 48px rgba(0, 24, 12, .2);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      animation: kcGlassFloat 7s ease-in-out infinite;
+    }
+    .hero-decor-card > span { color: #c5e4ca; font-size: 9px; letter-spacing: 1.5px; }
+    .hero-tally { margin: 17px 0; gap: 12px; }
+    .hero-tally strong { color: #e6ffdc; font-size: 57px; }
+    .hero-tally small { color: #e1f2e2; line-height: 1.55; }
+    .hero-progress { height: 7px; background: rgba(255,255,255,.18); }
+    .hero-progress i {
+      background: linear-gradient(90deg, #d9ff9f, #72e0a3);
+      box-shadow: 0 0 14px rgba(172, 255, 173, .48);
+    }
+    .hero-tally-foot { color: #d2f0d1; }
+
+    /* KPI cards: richer hierarchy, light color coding, staggered entry. */
+    .stats-grid { gap: 16px; margin: 22px 0 26px; }
+    .stat {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #e1ebe3;
+      border-radius: 20px;
+      padding: 22px;
+      background: linear-gradient(145deg, #fff 0%, #fbfefb 100%);
+      box-shadow: 0 7px 24px rgba(18, 57, 36, .035);
+      transition: transform .28s var(--kc-ease), box-shadow .28s var(--kc-ease), border-color .28s;
+      animation: kcDashboardEnter .58s var(--kc-ease) both;
+    }
+    .stats-grid .stat:nth-child(1) { animation-delay: 70ms; }
+    .stats-grid .stat:nth-child(2) { animation-delay: 130ms; }
+    .stats-grid .stat:nth-child(3) { animation-delay: 190ms; }
+    .stats-grid .stat:nth-child(4) { animation-delay: 250ms; }
+    .stat:after {
+      content: "";
+      position: absolute;
+      top: -32px;
+      right: -27px;
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(197, 231, 200, .38), rgba(197, 231, 200, 0) 70%);
+      pointer-events: none;
+    }
+    .stat:hover {
+      transform: translateY(-5px);
+      border-color: #cfe4d3;
+      box-shadow: 0 17px 36px rgba(18, 72, 42, .09);
+    }
+    .stat-top { color: #6e8376; font-size: 11px; }
+    .stat-symbol { width: 39px; height: 39px; border-radius: 13px; }
+    .stat-value { margin: 15px 0 8px; font-size: clamp(23px, 2vw, 31px); color: #1b4b34; letter-spacing: -1.1px; }
+    .stat-label { font-size: 11px; color: #82958a; }
+
+    /* Employee salary cards and panels. */
+    .salary-person-panel, .panel {
+      border: 1px solid #e1ebe3;
+      border-radius: 22px;
+      background: rgba(255,255,255,.94);
+      box-shadow: 0 8px 28px rgba(19, 57, 36, .035);
+    }
+    .salary-person-panel { padding: clamp(18px, 2vw, 28px); margin-bottom: 24px; }
+    .salary-person-title { margin-bottom: 23px; align-items: center; }
+    .salary-person-title h3 { font-size: clamp(20px, 1.8vw, 25px); letter-spacing: -.8px; }
+    .salary-person-title p { font-size: 12px; line-height: 1.7; }
+    .salary-by-person-grid { gap: 16px; }
+    .salary-person-card {
+      position: relative;
+      gap: 16px;
+      padding: 21px;
+      border: 1px solid #dfebe1;
+      border-radius: 19px;
+      background: linear-gradient(145deg, #fbfefb 0%, #ffffff 72%);
+      box-shadow: 0 4px 15px rgba(21, 67, 40, .025);
+      animation: kcDashboardEnter .55s var(--kc-ease) both;
+      transition: transform .25s var(--kc-ease), box-shadow .25s var(--kc-ease), border-color .25s;
+    }
+    .salary-person-card:nth-child(2n) { background: linear-gradient(145deg, #fffdf8, #fff 72%); border-color: #ece7da; }
+    .salary-person-card:nth-child(1) { animation-delay: 70ms; }
+    .salary-person-card:nth-child(2) { animation-delay: 130ms; }
+    .salary-person-card:nth-child(3) { animation-delay: 190ms; }
+    .salary-person-card:nth-child(4) { animation-delay: 250ms; }
+    .salary-person-card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(20, 73, 43, .08); border-color: #c9e1ce; }
+    .salary-person-id h4 { font-size: 17px; letter-spacing: -.35px; }
+    .salary-person-primary {
+      background: linear-gradient(135deg, #edf8ec, #f7fcf4);
+      border-color: #d9ebd8;
+      border-radius: 15px;
+    }
+    .salary-person-primary > strong { font-size: clamp(26px, 2.1vw, 34px); }
+    .salary-person-metrics > div { border-radius: 13px; background: #fff; border-color: #e5eee6; transition: background .2s, transform .2s; }
+    .salary-person-metrics > div:hover { background: #f7fbf7; transform: translateY(-2px); }
+    .salary-person-link { padding: 8px 10px; border-radius: 9px; }
+    .salary-person-link:hover { background: #edf7ef; text-decoration: none; }
+    .grid-two { gap: 20px; margin-bottom: 22px; }
+    .panel { overflow: hidden; animation: kcDashboardEnter .62s var(--kc-ease) both; }
+    .grid-two > .panel:nth-child(2) { animation-delay: 90ms; }
+    .panel-pad { padding: clamp(18px, 2vw, 27px); }
+    .panel-title-row { margin-bottom: 20px; }
+    .panel-title-row h3 { font-size: 16px; letter-spacing: -.45px; color: #214631; }
+    .panel-title-row p { font-size: 11px; line-height: 1.6; }
+    .week-strip { gap: 8px; }
+    .week-day {
+      min-height: 112px;
+      padding: 13px 5px;
+      border-radius: 13px;
+      border-color: #e3ece4;
+      background: linear-gradient(180deg, #fff, #f8fbf8);
+      transition: transform .22s var(--kc-ease), border-color .22s, box-shadow .22s, background .22s;
+    }
+    .week-day:hover { transform: translateY(-3px); border-color: #bddcc4; box-shadow: 0 8px 18px rgba(24, 88, 50, .07); }
+    .week-day.current { border-color: #69b187; background: linear-gradient(180deg, #e8f7e9, #f6fcf5); box-shadow: inset 0 0 0 1px rgba(79, 163, 109, .1); }
+    .week-day strong { color: #244d35; font-size: 21px; }
+    .week-day i { white-space: normal; line-height: 1.45; }
+    .person-row, .pay-row { transition: background .2s, padding .2s; border-radius: 12px; padding-left: 7px; padding-right: 7px; }
+    .person-row:hover, .pay-row:hover { background: #f7fbf7; }
+    .vacancy { border-radius: 14px; background: linear-gradient(120deg, #f5faf5, #fbfdfb); }
+    .salary-calendar-panel { margin-bottom: 22px; }
+    .salary-saturday-strip { gap: 11px; }
+    .salary-saturday {
+      border-radius: 14px;
+      background: linear-gradient(145deg, #f7fbf7, #fff);
+      border-color: #dce9df;
+      transition: transform .22s var(--kc-ease), box-shadow .22s;
+    }
+    .salary-saturday:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(20, 75, 44, .07); }
+    .salary-saturday.salary-today { background: linear-gradient(135deg, #e1f5e5, #f4fcf3); border-color: #65ad83; }
+    .footer-bar { border-top-color: #e2ebe3; background: rgba(255,255,255,.5); }
+
+    /* Credit history: the dialog itself is the scroll container.
+       Previously overflow:hidden clipped records below the first viewport. */
+    .modal-backdrop {
+      display: grid;
+      place-items: center;
+      padding: clamp(10px, 2.4vh, 24px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      background: rgba(7, 29, 19, .58);
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+    }
+    #modalContent.modal-dialog.worker-credit-modal {
+      display: block;
+      width: min(1080px, calc(100vw - 32px));
+      max-width: 1080px;
+      max-height: calc(100dvh - 28px);
+      height: auto;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+      scrollbar-color: #a9cbb2 #f3f8f3;
+      border: 1px solid rgba(255,255,255,.8);
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: 0 30px 100px rgba(2, 28, 15, .28);
+      -webkit-overflow-scrolling: touch;
+    }
+    .worker-credit-history { padding-bottom: 22px; }
+    .worker-credit-history .modal-title {
+      position: sticky;
+      top: 0;
+      z-index: 8;
+      padding: 25px 28px 20px;
+      background: rgba(255,255,255,.96);
+      border-bottom-color: #e6eee7;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .worker-credit-history .modal-title h2 {
+      margin: 0;
+      color: #153d2b;
+      font-size: clamp(23px, 2.2vw, 31px);
+      letter-spacing: -1px;
+      line-height: 1.2;
+    }
+    .worker-credit-history .modal-title p { font-size: 12px; line-height: 1.6; }
+    .worker-credit-summary { padding: 20px 28px 0; gap: 12px; }
+    .worker-credit-summary > div {
+      border-radius: 16px;
+      background: linear-gradient(145deg, #f6fbf6, #fff);
+      border-color: #e0ebe2;
+      padding: 16px;
+    }
+    .worker-credit-toolbar { padding: 23px 28px 14px; }
+    .worker-credit-history-list { padding: 0 28px; }
+    .worker-credit-row {
+      border-radius: 16px;
+      padding: 16px;
+      border-color: #e2ece4;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+    }
+    .worker-credit-row:hover { border-color: #c9e1cf; box-shadow: 0 7px 20px rgba(23, 83, 46, .055); }
+    .worker-credit-row-actions .btn { min-height: 39px; }
+    .worker-credit-note { margin: 17px 28px 0; }
+    .worker-credit-empty { margin: 0 28px; }
+    #modalContent.modal-dialog.worker-credit-modal::-webkit-scrollbar { width: 10px; }
+    #modalContent.modal-dialog.worker-credit-modal::-webkit-scrollbar-track { background: #f5f9f5; border-radius: 10px; }
+    #modalContent.modal-dialog.worker-credit-modal::-webkit-scrollbar-thumb { background: #c5ddcb; border: 2px solid #f5f9f5; border-radius: 10px; }
+    #modalContent.modal-dialog.worker-credit-modal::-webkit-scrollbar-thumb:hover { background: #8eb99b; }
+
+    @keyframes kcDashboardEnter {
+      from { opacity: 0; translate: 0 15px; scale: .992; }
+      to { opacity: 1; translate: 0 0; scale: 1; }
+    }
+    @keyframes kcGlassFloat {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-9px) rotate(1deg); }
+    }
+    @keyframes kcOrbit { to { transform: rotate(360deg); } }
+
+    @media (max-width: 1250px) {
+      .main-content { padding-left: 28px; padding-right: 28px; }
+      .hero { padding: 34px; gap: 20px; }
+      .hero-decor-card { min-width: 190px; width: 190px; padding: 19px; }
+      .hero-tally strong { font-size: 49px; }
+      .stats-grid { gap: 12px; }
+      .stat { padding: 19px; }
+    }
+    @media (max-width: 1000px) {
+      .sidebar { width: 240px; }
+      .content-wrap { margin-left: 240px; }
+      .topbar { padding-left: 24px; padding-right: 24px; }
+      .hero { min-height: 270px; }
+      .hero-decor-card { min-width: 170px; width: 170px; padding: 17px; }
+      .hero-tally strong { font-size: 43px; }
+      .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .salary-by-person-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 900px) {
+      .hero { min-height: 0; }
+      .hero-decor { display: none; }
+      .hero-copy { max-width: 720px; }
+    }
+    @media (max-width: 760px) {
+      .sidebar { display: none; }
+      .content-wrap { margin-left: 0; }
+      .topbar { height: 66px; padding: 0 14px; }
+      .main-content { padding: 24px 15px 38px; }
+      .hero { min-height: 0; padding: 28px 23px; border-radius: 22px; }
+      .hero h2 { font-size: clamp(28px, 7vw, 36px); letter-spacing: -1.2px; }
+      .hero p { font-size: 12px; }
+      .hero-decor { display: none; }
+      .stats-grid { gap: 10px; margin: 15px 0 20px; }
+      .stat { padding: 15px 14px; border-radius: 16px; }
+      .stat-value { font-size: clamp(20px, 5vw, 25px); }
+      .salary-person-panel, .panel { border-radius: 18px; }
+      .salary-person-title { align-items: flex-start; flex-wrap: wrap; }
+      .salary-person-title .btn { width: 100%; }
+      .salary-by-person-grid { grid-template-columns: 1fr; }
+      .grid-two { grid-template-columns: 1fr; gap: 14px; }
+      .panel-pad { padding: 17px; }
+      .week-strip { gap: 5px; }
+      .week-day { min-height: 96px; padding: 10px 3px; }
+      .week-day i { font-size: 8px; }
+      #modalContent.modal-dialog.worker-credit-modal {
+        width: calc(100vw - 16px);
+        max-height: calc(100dvh - 16px);
+        border-radius: 19px;
+      }
+      .worker-credit-history .modal-title { padding: 19px 16px 15px; }
+      .worker-credit-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 15px 16px 0; gap: 8px; }
+      .worker-credit-summary > div { padding: 12px; }
+      .worker-credit-toolbar { padding: 19px 16px 12px; align-items: flex-start; flex-direction: column; }
+      .worker-credit-toolbar .btn { width: 100%; }
+      .worker-credit-history-list { padding: 0 16px; }
+      .worker-credit-row { padding: 13px; }
+      .worker-credit-note { margin: 14px 16px 0; }
+      .worker-credit-empty { margin: 0 16px; }
+    }
+    @media (max-width: 420px) {
+      .main-content { padding-left: 11px; padding-right: 11px; }
+      .hero { padding: 24px 18px; }
+      .hero-actions { align-items: stretch; }
+      .hero-actions .btn { flex: 1 1 100%; }
+      .stats-grid { gap: 8px; }
+      .stat { padding: 12px 10px; }
+      .stat-top { font-size: 9px; }
+      .stat-symbol { width: 29px; height: 29px; }
+      .stat-label { font-size: 9px; }
+      .salary-person-metrics { gap: 7px; }
+      .salary-person-metrics > div { padding: 10px; }
+      .worker-credit-summary { gap: 7px; }
+      .worker-credit-summary strong { font-size: 15px; }
+      .worker-credit-row-amounts { gap: 5px; }
+      .worker-credit-row-amounts strong { font-size: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+
+
+  <style id="kirushi-sidebar-readable-contrast-fix">
+    /* Final accessibility pass: keep the light sidebar, but use readable dark text.
+       This intentionally overrides legacy sidebar rules left by previous redesigns. */
+    .sidebar .brand strong { color: #173f2c !important; }
+    .sidebar .brand strong .accent { color: #258653 !important; }
+    .sidebar .brand small { color: #4f725c !important; font-weight: 800 !important; }
+    .sidebar .nav-label { color: #557563 !important; font-weight: 850 !important; }
+    .sidebar .nav-item,
+    .sidebar .nav-item:not(.active) {
+      color: #355b46 !important;
+      font-weight: 700 !important;
+      opacity: 1 !important;
+    }
+    .sidebar .nav-item svg,
+    .sidebar .nav-item [data-icon] { color: #557b63 !important; }
+    .sidebar .nav-item:hover:not(.active),
+    .sidebar .nav-item:focus-visible:not(.active) {
+      color: #164b31 !important;
+      background: #e8f5e9 !important;
+      border-color: #d5ead8 !important;
+    }
+    .sidebar .nav-item:hover:not(.active) svg,
+    .sidebar .nav-item:focus-visible:not(.active) svg,
+    .sidebar .nav-item:hover:not(.active) [data-icon],
+    .sidebar .nav-item:focus-visible:not(.active) [data-icon] {
+      color: #176b43 !important;
+    }
+    .sidebar .nav-item.active,
+    .sidebar .nav-item.active:hover,
+    .sidebar .nav-item.active:focus-visible {
+      color: #12462e !important;
+      background: linear-gradient(110deg, #e2f4e1, #f0f8ee) !important;
+      border-color: #cfe7d2 !important;
+    }
+    .sidebar .nav-item.active svg,
+    .sidebar .nav-item.active [data-icon] { color: #176c45 !important; }
+    .sidebar .shop-user strong { color: #294b37 !important; }
+    .sidebar .shop-user small { color: #5d7766 !important; }
+    .sidebar .sidebar-rule,
+    .sidebar .sidebar-divider { background: #dce9de !important; }
+    @media (forced-colors: active) {
+      .sidebar .nav-item, .sidebar .nav-label, .sidebar .brand small { forced-color-adjust: auto; }
+    }
+  </style>
 
 </head>
 <body class="is-locked">
@@ -1011,7 +1641,6 @@ button,input,select{font-family:inherit;letter-spacing:normal}
         <button type="button" class="nav-item" data-page="attendance"><span data-icon="check"></span><span>Attendance</span></button>
         <button type="button" class="nav-item" data-page="calendar"><span data-icon="calendar"></span><span>Calendar</span></button>
         <button type="button" class="nav-item" data-page="payroll"><span data-icon="wallet"></span><span>Payroll</span></button>
-        <button type="button" class="nav-item" data-page="credit"><span data-icon="file"></span><span>Shop credit</span></button>
         <button type="button" class="nav-item" data-page="team"><span data-icon="users"></span><span>Team members</span></button>
       </nav>
       <div class="nav-label nav-label-tools">ACCOUNT</div>
@@ -1043,7 +1672,6 @@ button,input,select{font-family:inherit;letter-spacing:normal}
     <button type="button" data-page="attendance"><span data-icon="check"></span><small>Attend</small></button>
     <button type="button" data-page="calendar"><span data-icon="calendar"></span><small>Calendar</small></button>
     <button type="button" data-page="payroll"><span data-icon="wallet"></span><small>Salary</small></button>
-    <button type="button" data-page="credit"><span data-icon="file"></span><small>Credit</small></button>
     <button type="button" data-page="team"><span data-icon="users"></span><small>Team</small></button>
   </nav>
   <div class="kc-chat-backdrop" id="chatBackdrop" hidden></div>
@@ -1084,8 +1712,8 @@ button,input,select{font-family:inherit;letter-spacing:normal}
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <input type="file" id="restoreInput" accept=".json,application/json" hidden />
   <script>
-/* config.js */
-/* Kirushi Cool Spot — public Supabase frontend configuration.
+/* Inline frontend configuration (kept in index.html for GitHub Pages single-file deployment).
+   Kirushi Cool Spot — public Supabase frontend configuration.
    This publishable key is safe for GitHub Pages when RLS remains enabled.
    Never paste a secret key, service_role key or login password here. */
 window.KIRUSHI_CONFIG = {
@@ -1212,7 +1840,7 @@ const STORAGE = 'kirushi-cool-spot-standalone-v2';
 const LEGACY = 'kirushi-cool-spot-data-v1';
 const START = '2026-10-26'; // Monday of the launch week (Sri Lanka)
 const MAX_WORKERS = 5;
-const LABELS = { dashboard:'Overview',attendance:'Attendance',calendar:'Calendar',payroll:'Payroll',credit:'Shop credit',team:'Team members',settings:'Settings & backup' };
+const LABELS = { dashboard:'Overview',attendance:'Attendance',calendar:'Calendar',payroll:'Payroll',team:'Team members',settings:'Settings & backup' };
 const ICONS = {
  settings:'<circle cx="12" cy="12" r="3"/><path d="M20 12a8 8 0 0 0-.1-1l2-1.5-2-3.5-2.3 1a8 8 0 0 0-1.8-1L15.5 3h-4l-.4 2.8a8 8 0 0 0-1.8 1L7 5.8l-2 3.5L7 10.8A8 8 0 0 0 7 13l-2 1.5 2 3.5 2.3-1a8 8 0 0 0 1.8 1l.4 2.8h4l.4-2.8a8 8 0 0 0 1.8-1l2.3 1 2-3.5-2-1.5A8 8 0 0 0 20 12z"/>',
  home:'<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',
@@ -1337,6 +1965,7 @@ function safelyBackedUpThisVersion(){try{return localStorage.getItem(backupMarke
 function markBackupRequested(){try{localStorage.setItem(backupMarker(),'yes');}catch{}}
 
 let state={page:'dashboard',selectedDate:today(),calendarMonth:today().slice(0,7),chatOpen:false,chat:[],creditFilter:'all',creditSearch:''};
+let pendingPastAttendanceAction=null;
 function updateStatus(status){const before=cloudStatus;cloudStatus=status;/* The floating saved badge is intentionally gone. */if(status==='offline'&&before!=='offline'&&cloudReady)toast('Cloud connection unavailable. New changes are not being saved. Check internet.');}
 function commit(mutator,label,after){
  if(!cloudReady){toast('Sign in and connect to your database first.');return Promise.resolve(false);}
@@ -1383,7 +2012,9 @@ function setShopStatus(dt,status){if(!validDate(dt)||!['open','closed'].includes
  if(status==='closed'){
    if(Object.keys(recorded).length&&!window.confirm(`Close shop on ${fmt(dt)}? ${Object.keys(recorded).length} recorded attendance mark(s) will remain in history but be excluded from salary until you reopen this day.`))return;
  }
- commit(()=>{db.shopDays??={};db.shopDays[dt]=status;},`Shop ${status.toUpperCase()} · ${fmt(dt)}`);
+ const saveStatus=()=>commit(()=>{db.shopDays??={};db.shopDays[dt]=status;},`Shop ${status.toUpperCase()} · ${fmt(dt)}`);
+ if(dt<today()){requestPastAttendancePassword(dt,`Change shop status to ${status.toUpperCase()}. This can affect historical salary calculations.`,saveStatus);return;}
+ saveStatus();
 }
 function activeWorkers(){return db.workers.filter(w=>w.active!==false);}
 function formerWorkers(){return db.formerWorkers||[];}
@@ -1454,6 +2085,14 @@ function deductionRemaining(entry){if(!entry||entry.voidedAt)return 0;return Mat
 function outstandingDeductions(w,through=today()){
  return roundMoney((db.deductions||[]).filter(x=>x.workerId===w.id&&!x.voidedAt&&x.date<=through).reduce((sum,x)=>sum+deductionRemaining(x),0));
 }
+// Net unpaid balance for the overview: gross accrued wages less the worker's
+// outstanding shop-credit balance. Any excess credit carries forward; the
+// actual deduction ledger is updated only when a salary payment is confirmed.
+function netUnpaidSalary(w,grossAmount,through=today()){
+ const gross=Math.max(0,cents(grossAmount));
+ const credit=Math.max(0,cents(outstandingDeductions(w,through)));
+ return Math.max(0,gross-credit)/100;
+}
 function allocateDeductions(w,through,grossAmount){
  let available=Math.max(0,cents(grossAmount)),applied=0;const allocations=[];
  const rows=(db.deductions||[]).filter(x=>x.workerId===w.id&&!x.voidedAt&&x.date<=through&&deductionRemaining(x)>0).sort((a,b)=>a.date.localeCompare(b.date)||(a.createdAt||'').localeCompare(b.createdAt||'')||a.id.localeCompare(b.id));
@@ -1497,13 +2136,17 @@ function workerSalaryCards(rows){
  if(!rows.length)return '<div class="empty-state">No workers added yet. New employees will appear here automatically.</div>';
  return `<div class="salary-by-person-grid">${rows.map(({w,amount,present,fullDays=present,halfDays=0,isDue,payableAmount,netPayableAmount=payableAmount,deductionAmount=0,nextPayDate},i)=>{
    const paid=db.payments.filter(payment=>payment.workerId===w.id).reduce((sum,payment)=>sum+Number(payment.amount||0),0);
+   const grossUnpaid=Math.max(0,roundMoney(Number(amount)||0));
    const credit=outstandingDeductions(w);
+   const netUnpaid=netUnpaidSalary(w,grossUnpaid);
+   const creditUsed=Math.min(grossUnpaid,credit);
+   const creditCarryForward=Math.max(0,roundMoney(credit-grossUnpaid));
    const ready=isDue?netPayableAmount:0;
    const payday=isDue?'Payment due / overdue':nextPayDate?`Next payday · ${fmt(nextPayDate,{day:'numeric',month:'short',year:'numeric'})}`:'Payday not selected';
    return `<article class="salary-person-card" aria-label="Salary details for ${escapeHTML(w.name)}">
      <div class="salary-person-head">${avatar(w,i)}<div class="salary-person-id"><h4>${escapeHTML(w.name)}</h4><span>${escapeHTML(salaryScheduleLabel(w))}</span></div><div class="salary-person-rate">${currency(rateOn(w))}<small>per day</small></div></div>
-     <div class="salary-person-primary"><span>Unpaid wages · before deductions</span><strong>${currency(amount)}</strong><small>${fullDays} full day${fullDays===1?'':'s'} · ${halfDays} half day${halfDays===1?'':'s'} · credit balance ${currency(credit)}</small></div>
-     <div class="salary-person-metrics"><div><span>Net salary due</span><strong>${currency(ready)}</strong></div><div><span>Already paid (cash)</span><strong>${currency(paid)}</strong></div><div><span>Credit purchases left</span><strong>${currency(credit)}</strong></div></div>
+     <div class="salary-person-primary"><span>Salary to pay · after credit</span><strong>${currency(netUnpaid)}</strong><small>${fullDays} full day${fullDays===1?'':'s'} · ${halfDays} half day${halfDays===1?'':'s'} · gross ${currency(grossUnpaid)} − credit ${currency(creditUsed)}${creditCarryForward>0?` · ${currency(creditCarryForward)} credit carries forward`:''}</small></div>
+     <div class="salary-person-metrics"><div><span>Net pay this payday</span><strong>${currency(ready)}</strong></div><div><span>Already paid (cash)</span><strong>${currency(paid)}</strong></div><div><span>Credit balance left</span><strong>${currency(credit)}</strong></div></div>
      <div class="salary-person-foot"><span class="${isDue?'salary-person-due':'salary-person-next'}">${isDue?'●':'◷'} ${escapeHTML(payday)}${isDue&&deductionAmount?` · ${currency(deductionAmount)} credit deduction`:''}</span><button type="button" data-page="payroll" class="salary-person-link">View payroll →</button></div>
    </article>`;
  }).join('')}</div>`;
@@ -1514,20 +2157,21 @@ function workerSalarySection(rows,compact=false){
    ${workerSalaryCards(rows)}
  </section>`;
 }
-function renderDashboard(){const td=today(),t=totals(td),ws=activeWorkers(),currentDues=ws.map(w=>({w,...due(w)})),formerDues=formerWorkers().map(w=>({w,...due(w)})),formerBalance=formerDues.reduce((v,o)=>v+o.amount,0),sum=currentDues.reduce((v,o)=>v+o.amount,0)+formerBalance,days=getWeek(td);
+function renderDashboard(){const td=today(),t=totals(td),ws=activeWorkers(),currentDues=ws.map(w=>({w,...due(w)})),formerDues=formerWorkers().map(w=>({w,...due(w)})),netOf=row=>netUnpaidSalary(row.w,row.amount,td),formerBalance=formerDues.reduce((v,o)=>v+netOf(o),0),sum=currentDues.reduce((v,o)=>v+netOf(o),0)+formerBalance,days=getWeek(td);
  return pageHeader('Business overview','Your shop, your people, all in one clear view.',headButton('export-json','Backup data','download','secondary'))+
  `<section class="hero"><div class="hero-copy"><span class="hero-kicker"><span class="hero-kicker-dot"></span> DAILY OPERATIONS / ${fmt(td,{day:'numeric',month:'short',year:'numeric'})}</span><h2>One place for <em>your people</em><br>and your payroll.</h2><p>Stay on top of attendance, shop hours, and every team member’s salary — without the paperwork.</p><div class="hero-actions"><button type="button" class="btn hero-primary" data-page="attendance">${ic('check')} Mark attendance <span aria-hidden="true">↗</span></button><button type="button" class="btn hero-secondary" data-page="payroll">View payroll <span aria-hidden="true">→</span></button></div></div><div class="hero-decor" aria-hidden="true"><div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div><div class="hero-decor-card"><span>ON THE FLOOR TODAY</span><div class="hero-tally"><strong>${t.present+t.halfDay}</strong><small>of ${ws.length} staff<br>at work (${t.halfDay} half-day)</small></div><div class="hero-progress"><i style="width:${ws.length?Math.round((t.present+t.halfDay)/ws.length*100):0}%"></i></div><div class="hero-tally-foot">${isClosed(td)?'Shop closed today':t.unmarked?`${t.unmarked} awaiting attendance`:'Up to date'}</div></div></div></section>`+
- `<section class="stats-grid">${stat('Active employees',ws.length.toString(),'users',`${MAX_WORKERS-ws.length} vacant slots`)}${stat('At work today',isClosed(td)?'Closed':String(t.present+t.halfDay),'checkcircle',isClosed(td)?'Shop is closed today':`${t.present} full · ${t.halfDay} half · ${t.absent} absent`)}${stat('Pending salary',moneyShort(sum),'wallet',formerBalance?'Includes former staff wages':'Gross wages before credit deductions','orange')}${stat('Salary due now',[...currentDues,...formerDues].filter(x=>x.isDue&&(x.payableAmount>0||x.deductionAmount>0)).length.toString(),'clock','Active + former staff due payments','blue')}</section>`+
+ `<section class="stats-grid">${stat('Active employees',ws.length.toString(),'users',`${MAX_WORKERS-ws.length} vacant slots`)}${stat('At work today',isClosed(td)?'Closed':String(t.present+t.halfDay),'checkcircle',isClosed(td)?'Shop is closed today':`${t.present} full · ${t.halfDay} half · ${t.absent} absent`)}${stat('Net salary pending',moneyShort(sum),'wallet',formerBalance?'Includes former staff · after credit':'After outstanding shop-credit deductions','orange')}${stat('Salary due now',[...currentDues,...formerDues].filter(x=>x.isDue&&(x.payableAmount>0||x.deductionAmount>0)).length.toString(),'clock','Active + former staff due payments','blue')}</section>`+
  workerSalarySection(currentDues)+
- (formerBalance>0?`<section class="panel panel-pad" style="margin:0 0 18px;border-color:#e7d7a9;background:#fffdf6"><div class="panel-title-row" style="margin-bottom:0"><div><h3>Former staff salary pending: ${currency(formerBalance)}</h3><p>${formerDues.filter(x=>x.amount>0).map(x=>escapeHTML(x.w.name)).join(' · ')} · Final payments are managed separately from active workers.</p></div><button type="button" class="btn mini secondary" data-page="payroll">Settle final wages →</button></div></section>`:'')+
+ (formerBalance>0?`<section class="panel panel-pad" style="margin:0 0 18px;border-color:#e7d7a9;background:#fffdf6"><div class="panel-title-row" style="margin-bottom:0"><div><h3>Former staff net salary pending after credit: ${currency(formerBalance)}</h3><p>${formerDues.filter(x=>x.amount>0).map(x=>escapeHTML(x.w.name)).join(' · ')} · Final payments are managed separately from active workers.</p></div><button type="button" class="btn mini secondary" data-page="payroll">Settle final wages →</button></div></section>`:'')+
  `<div class="grid-two"><section class="panel panel-pad"><div class="panel-title-row"><div><h3>Weekly attendance snapshot</h3><p>${fmt(days[0])} – ${fmt(days[6])}</p></div><button type="button" class="link-button" data-page="calendar">View calendar →</button></div><div class="week-strip">${days.map(d=>{const c=totals(d),closed=isClosed(d);return `<button type="button" class="week-day ${d===td?'current':''} ${closed?'closed-day':''}" data-action="select-day" data-date="${d}"><span>${fmt(d,{weekday:'short'})}</span><strong>${date(d).getDate()}</strong><i>${closed?'Closed':d>td?'Upcoming':c.present||c.halfDay?`${c.present} full · ${c.halfDay} half`:c.absent?`${c.absent} absent`:'No entry'}</i></button>`}).join('')}</div><div class="legend"><span><b class="green"></b> Present recorded</span><span><b class="orange"></b> Pending/absent</span><span><b class="grey"></b> Shop closed</span></div></section>`+
  `<section class="panel panel-pad"><div class="panel-title-row"><div><h3>Today’s team</h3><p>${fmt(td,{weekday:'long',day:'numeric',month:'long'})}</p></div><button type="button" class="link-button" data-page="attendance">Manage →</button></div>${ws.length?ws.map((w,i)=>`<div class="person-row">${avatar(w,i)}<div class="person-main"><strong>${escapeHTML(w.name)}</strong><small>${moneyShort(rateOn(w))} / working day</small></div>${statusHTML(attendanceFor(w,td))}</div>`).join(''):'<div class="empty-state">No workers yet.</div>'}<div class="vacancy"><div class="plus-round">+</div><div class="person-main"><strong>${MAX_WORKERS-ws.length} staff positions available</strong><small>Add workers whenever they join</small></div><button type="button" class="btn mini soft" data-action="add-worker" ${ws.length>=MAX_WORKERS?'disabled':''}>Add</button></div></section></div>`+
  `<section class="panel panel-pad salary-calendar-panel"><div class="panel-title-row"><div><h3>🗓 Upcoming salary dates</h3><p>Each worker has their own editable payment schedule</p></div><button type="button" class="link-button" data-page="payroll">View payroll →</button></div><div class="salary-saturday-strip">${upcomingPaydays(td).map(x=>`<div class="salary-saturday ${x.date===td?'salary-today':''}"><b>${fmt(x.date,{day:'numeric',month:'short'})}</b><span>${x.workers.length?x.workers.map(w=>escapeHTML(w.name)).join(' + '):'No salary scheduled'}</span></div>`).join('')}</div></section>`+
- `<div class="grid-two"><section class="panel panel-pad"><div class="panel-title-row"><div><h3>Salary overview</h3><p>Unpaid wages up to today</p></div><button type="button" class="link-button" data-page="payroll">All payroll →</button></div>${currentDues.length?currentDues.map(({w,amount,present,fullDays=present,halfDays=0,nextPayDate,isDue},i)=>`<div class="pay-row">${avatar(w,i)}<div class="person-main"><strong>${escapeHTML(w.name)}</strong><small>${fullDays} full + ${halfDays} half day(s) unpaid · ${escapeHTML(salaryScheduleLabel(w))}</small></div><div class="pay-amount"><strong>${moneyShort(amount)}</strong><small>${isDue?'Salary payment due':nextPayDate?`Pay ${fmt(nextPayDate,{day:'numeric',month:'short'})}`:'Set payday'}</small></div></div>`).join(''):'<div class="empty-state">No workers added.</div>'}</section><section class="panel panel-pad"><div class="panel-title-row"><div><h3>Quick actions</h3><p>Your everyday shortcuts</p></div></div><div class="flex-wrap"><button type="button" class="btn secondary" data-page="attendance">${ic('check')} Attendance</button><button type="button" class="btn secondary" data-page="payroll">${ic('wallet')} Salaries</button><button type="button" class="btn secondary" data-action="add-worker" ${ws.length>=MAX_WORKERS?'disabled':''}>${ic('plus')} Add worker</button><button type="button" class="btn secondary" data-page="settings">${ic('download')} Backup & reports</button></div><div class="hint-box"><strong>✳ Tip:</strong> Open or close your shop on ANY date in Attendance / Calendar. Closed days are not counted as absences or paid workdays. Wages start Monday 26 Oct 2026 for current staff. To choose or change any employee’s payday, use Team members → Edit profile or Payroll → Change payday.</div></section></div>`;
+ `<div class="grid-two"><section class="panel panel-pad"><div class="panel-title-row"><div><h3>Salary overview</h3><p>Unpaid wages up to today</p></div><button type="button" class="link-button" data-page="payroll">All payroll →</button></div>${currentDues.length?currentDues.map(({w,amount,present,fullDays=present,halfDays=0,nextPayDate,isDue},i)=>{const netAmount=netUnpaidSalary(w,amount,td);return `<div class="pay-row">${avatar(w,i)}<div class="person-main"><strong>${escapeHTML(w.name)}</strong><small>${fullDays} full + ${halfDays} half day(s) unpaid · ${escapeHTML(salaryScheduleLabel(w))}</small></div><div class="pay-amount"><strong>${moneyShort(netAmount)}</strong><small>${isDue?'Payment due / overdue':nextPayDate?`Pay ${fmt(nextPayDate,{day:'numeric',month:'short'})}`:'Set payday'} · after credit</small></div></div>`}).join(''):'<div class="empty-state">No workers added.</div>'}</section><section class="panel panel-pad"><div class="panel-title-row"><div><h3>Quick actions</h3><p>Your everyday shortcuts</p></div></div><div class="flex-wrap"><button type="button" class="btn secondary" data-page="attendance">${ic('check')} Attendance</button><button type="button" class="btn secondary" data-page="payroll">${ic('wallet')} Salaries</button><button type="button" class="btn secondary" data-action="add-worker" ${ws.length>=MAX_WORKERS?'disabled':''}>${ic('plus')} Add worker</button><button type="button" class="btn secondary" data-page="settings">${ic('download')} Backup & reports</button></div><div class="hint-box"><strong>✳ Tip:</strong> Open or close your shop on ANY date in Attendance / Calendar. Closed days are not counted as absences or paid workdays. Wages start Monday 26 Oct 2026 for current staff. To choose or change any employee’s payday, use Team members → Edit profile or Payroll → Change payday.</div></section></div>`;
 }
 function renderAttendance(){const dt=state.selectedDate,ws=workersOnDate(state.selectedDate),closed=isClosed(dt),future=dt>today(),t=totals(dt),disabled=closed||future||dt<START;
  return pageHeader('Attendance register','Select a date and mark who came to work.',headButton('export-attendance','Export attendance','download','secondary'))+
  `<section class="panel panel-pad" style="margin-bottom:16px"><div class="panel-title-row tight"><div><h3>Attendance date</h3><p>${weekday(dt)}, ${fmt(dt)}</p></div><div class="date-picker-row"><button type="button" class="icon-button" data-action="prev-day" aria-label="Previous day" ${dt<=START?'disabled':''}>${ic('chevronLeft')}</button><input id="attDateInput" type="date" class="date-field" value="${dt}" min="${START}" aria-label="Attendance date"/><button type="button" class="icon-button" data-action="next-day" aria-label="Next day">${ic('chevronRight')}</button><button type="button" class="btn mini soft" data-action="week-monday">Start 26 Oct</button><button type="button" class="btn mini soft" data-action="today">Today</button></div></div></section>`+
+ (dt<today()?`<div class="hint-box" style="margin-bottom:16px"><strong>🔐 Past-date protection:</strong> Changing attendance or shop status for this date requires the manager password.</div>`:'')+
  `<div class="shop-status-panel">${shopToggle(dt)}<p>Every date can be opened or closed — including Sundays. A closed date does not count as Absent or earn salary. Changes are saved to your cloud account.</p></div>`+
  (closed?`<div class="notice">${ic('sunny')}<div><strong>Shop closed on this date</strong><br>Change the status above to <b>Open</b> if workers attended. Attendance records stay stored, but no wages are counted while Closed.</div></div>`:future?`<div class="notice">${ic('info')}<div><strong>Future date</strong><br>Attendance can be recorded only on the day or earlier.</div></div>`:'')+
  `<section class="att-cards"><div class="mini-count"><div class="count-icon">${ic('checkcircle')}</div><div><strong>${closed?'—':t.present}</strong><small>Full day</small></div></div><div class="mini-count"><div class="count-icon blue">◐</div><div><strong>${closed?'—':t.halfDay}</strong><small>Half day · 50% pay</small></div></div><div class="mini-count"><div class="count-icon orange">${ic('close')}</div><div><strong>${closed?'—':t.absent}</strong><small>Absent</small></div></div><div class="mini-count"><div class="count-icon grey">${ic('clock')}</div><div><strong>${closed?'—':t.unmarked}</strong><small>Not marked</small></div></div></section>`+
@@ -1586,16 +2230,14 @@ function renderDeductions(full=false){
  const recorded=roundMoney(active.reduce((sum,x)=>sum+Number(x.amount||0),0));
  const filteredForCounts=entries.filter(x=>!x.voidedAt);
  return `<section class="panel panel-pad credit-ledger-panel" aria-label="Shop credit and salary deductions">
-  <div class="panel-title-row"><div><h3>${full?'Shop credit history':'Shop credit · salary deductions'}</h3><p>${full?'Search every purchase, see its deduction status, and remove an unused entry without erasing its history.':'Record shop items taken on credit. See recent purchases here or open the full history.'}</p></div><div class="credit-head-actions">${!full?`<button type="button" class="btn secondary" data-page="credit">${ic('file')} View full history</button><button type="button" class="btn primary" data-action="add-deduction">${ic('plus')} Record credit purchase</button>`:''}</div></div>
+  <div class="panel-title-row"><div><h3>${full?'Shop credit history':'Shop credit · salary deductions'}</h3><p>${full?'Search every purchase, see its deduction status, and remove an unused entry without erasing its history.':'Recent shop-credit purchases. Open a worker’s name in Team members to see that person’s complete history.'}</p></div><div class="credit-head-actions">${!full?`<button type="button" class="btn secondary" data-page="team">${ic('users')} View by worker</button><button type="button" class="btn primary" data-action="add-deduction">${ic('plus')} Record credit purchase</button>`:''}</div></div>
   <div class="credit-summary"><div><span>Outstanding credit balance</span><strong>${currency(outstanding)}</strong></div><div><span>Active purchase value</span><strong>${currency(recorded)}</strong></div><div><span>Purchase history</span><strong>${entries.length} records</strong><small>${entries.filter(x=>x.voidedAt).length} removed · ${filteredForCounts.length} active</small></div></div>
   ${full?`<div class="credit-filterbar"><label class="credit-search-field"><span>${ic('file')}</span><input id="creditSearch" type="search" value="${escapeHTML(state.creditSearch)}" placeholder="Search worker, item, date or amount…" aria-label="Search credit history" /></label><label class="credit-filter-select"><span>Status</span><select id="creditFilter" aria-label="Filter credit history">${[['all','All records'],['outstanding','Outstanding'],['partial','Partly deducted'],['settled','Fully deducted'],['removed','Removed']].map(([v,l])=>`<option value="${v}" ${state.creditFilter===v?'selected':''}>${l}</option>`).join('')}</select></label><button type="button" class="btn secondary" data-action="clear-credit-filters">Clear filters</button></div>`:''}
   <div class="credit-ledger-list" id="creditHistoryResults">${creditEntriesHTML(entries,full)}</div>
-  ${!full&&entries.length>3?`<div class="credit-history-footer"><span>Showing the latest ${Math.min(3,entries.length)} records. Older and removed entries remain in full history.</span><button type="button" class="btn secondary" data-page="credit">Open complete credit history →</button></div>`:''}
+  ${!full&&entries.length>3?`<div class="credit-history-footer"><span>Showing the latest ${Math.min(3,entries.length)} records. Older and removed entries are available from each worker’s Team profile.</span><button type="button" class="btn secondary" data-page="team">Open Team members →</button></div>`:''}
   <div class="hint-box credit-help"><strong>How it works:</strong> Eligible credit is deducted only when you confirm a salary payment. Unused entries can be removed; they stay in the Removed history and no longer affect salary. Once a purchase has been deducted, it is locked to protect the payment audit trail. Undo the relevant salary payment first if you need to remove that purchase.</div>
  </section>`;
 }
-function renderCreditPage(){return pageHeader('Shop credit history','Every item, date, amount and salary deduction — all in one searchable ledger.',headButton('add-deduction','Record credit purchase','plus','primary','data-credit-primary="true"'))+renderDeductions(true);}
-
 function renderPayroll(){
  const ws=activeWorkers(),rows=ws.map(w=>({w,...due(w)}));
  const history=[...db.payments].sort((a,b)=>(b.paidAt||'').localeCompare(a.paidAt||''));
@@ -1608,22 +2250,70 @@ function renderPayroll(){
  `<section class="panel" style="margin-bottom:18px"><div class="panel-pad" style="padding-bottom:0"><div class="panel-title-row"><div><h3>Employee salary balances</h3><p>Gross wages accrued, outstanding credit and net salary due.</p></div></div></div><div class="table-scroller payroll-desktop-table"><table class="table"><thead><tr><th>Employee / schedule</th><th>Daily rate</th><th>Unpaid days</th><th>Gross wages unpaid</th><th>Credit balance</th><th>Next payday</th><th>Net payout now</th></tr></thead><tbody>${rows.map(({w,fullDays=0,halfDays=0,amount,nextPayDate,isDue,payableAmount,netPayableAmount=payableAmount,deductionAmount=0,payableFullDays=0,payableHalfDays=0,missing,canSettle})=>{const credit=outstandingDeductions(w);return `<tr><td><strong>${escapeHTML(w.name)}</strong><small>${escapeHTML(salaryScheduleLabel(w))}<br>From ${fmt(due(w).start)}</small><div class="flex-wrap"><button type="button" class="btn mini secondary" data-action="edit-worker" data-id="${escapeHTML(w.id)}">Edit payday</button><button type="button" class="btn mini salary-edit-button" data-action="edit-rate" data-id="${escapeHTML(w.id)}">Change salary</button><button type="button" class="btn mini soft" data-action="add-deduction" data-id="${escapeHTML(w.id)}">Add credit</button></div></td><td>${currency(rateOn(w))}</td><td>${fullDays} full · ${halfDays} half</td><td><strong>${currency(amount)}</strong></td><td><strong>${currency(credit)}</strong></td><td><strong>${fmt(nextPayDate)}</strong><small>${isDue?'<span class="pill due">Due / overdue</span>':nextPayDate?'Upcoming':'<span class="pay-warning">Choose payday dates</span>'}</small></td><td>${isDue?`<strong>${currency(netPayableAmount)}</strong><small>Gross ${currency(payableAmount)} · Deduct ${currency(deductionAmount)}</small><small>${payableFullDays} full · ${payableHalfDays} half</small>${missing.length?`<small class="pay-warning">⚠ ${missing.length} date(s) not marked</small>`:''}<button type="button" class="btn mini ${canSettle?'primary':'secondary'}" data-action="pay-worker" data-id="${escapeHTML(w.id)}" ${canSettle?'':'disabled'}>${ic('checkcircle')} ${netPayableAmount===0?'Settle period':'Pay net salary'}</button>`:`<span class="pill unmarked">Scheduled for later</span><small>${currency(amount)} accrued so far</small>`}</td></tr>`;}).join('')||'<tr><td colspan="7" class="empty-state">Add a worker to start payroll.</td></tr>'}</tbody></table></div><div class="mobile-payroll-cards">${rows.map(({w,fullDays=0,halfDays=0,amount,nextPayDate,isDue,payableAmount,netPayableAmount=payableAmount,deductionAmount=0,payableFullDays=0,payableHalfDays=0,missing,canSettle})=>{const credit=outstandingDeductions(w);return `<article class="payroll-mobile-card"><div class="payroll-mobile-head"><strong>${escapeHTML(w.name)}</strong><span>${moneyShort(rateOn(w))} / day</span></div><div class="payroll-mobile-plan">${escapeHTML(salaryScheduleLabel(w))}</div><div class="payroll-mobile-totals"><div><small>Gross unpaid wages</small><b>${currency(amount)}</b></div><div><small>Credit balance</small><b>${currency(credit)}</b></div></div><div class="payroll-mobile-due"><span>${isDue?'Payment due / overdue':'Next payday'}</span><strong>${fmt(nextPayDate)}</strong></div>${isDue?`<div class="payroll-mobile-totals"><div><small>Gross for this period</small><b>${currency(payableAmount)}</b></div><div><small>Credit to deduct</small><b>${currency(deductionAmount)}</b></div><div><small>Cash to pay</small><b>${currency(netPayableAmount)}</b></div><div><small>Full / half days</small><b>${payableFullDays} / ${payableHalfDays}</b></div></div>${missing.length?`<div class="pay-warning">⚠ ${missing.length} open day(s) need attendance first.</div>`:''}<button type="button" class="btn primary payroll-mobile-pay" data-action="pay-worker" data-id="${escapeHTML(w.id)}" ${canSettle?'':'disabled'}>${ic('checkcircle')} ${netPayableAmount===0?'Settle period':'Pay net salary'}</button>`:''}<div class="flex-wrap"><button type="button" class="btn mini secondary" data-action="edit-worker" data-id="${escapeHTML(w.id)}">Edit payday</button><button type="button" class="btn mini salary-edit-button" data-action="edit-rate" data-id="${escapeHTML(w.id)}">Change salary</button><button type="button" class="btn mini soft" data-action="add-deduction" data-id="${escapeHTML(w.id)}">Add credit</button></div></article>`;}).join('')}</div><div class="table-note">Only mark paid after actually handing over the net cash amount. Gross wages and credit deductions are stored separately. If credit is more than this period’s wages, the remaining balance carries forward.</div></section>`+
  `<section class="panel" style="margin-bottom:18px"><div class="panel-pad" style="padding-bottom:0"><div class="panel-title-row"><div><h3>Payment history</h3><p>Cash paid, gross wages and shop-credit deductions saved in cloud history.</p></div><button type="button" class="link-button" data-action="export-payroll">Export →</button></div></div><div class="table-scroller"><table class="table"><thead><tr><th>Employee</th><th>Paid on</th><th>Period</th><th>Days</th><th>Gross wages</th><th>Credit deducted</th><th>Net cash paid</th><th>Correction</th></tr></thead><tbody>${history.map(p=>{const worker=workerById(p.workerId),latest=worker&&worker.lastPaidDate===p.paidThrough&&!history.some(o=>o.workerId===p.workerId&&(o.paidAt||'')>(p.paidAt||''));return `<tr><td><strong>${escapeHTML(p.workerName)}</strong></td><td>${fmt(p.paidOn||today())}</td><td>${fmt(p.periodStart,{day:'numeric',month:'short'})} – ${fmt(p.paidThrough,{day:'numeric',month:'short',year:'numeric'})}</td><td>${p.fullDays!=null||p.halfDays!=null?`${Number(p.fullDays||0)} full + ${Number(p.halfDays||0)} half`:p.days}</td><td>${currency(p.grossAmount??p.amount)}</td><td>${currency(p.deductionAmount||0)}</td><td><strong>${currency(p.amount)}</strong></td><td>${latest?`<button type="button" class="btn mini danger" data-action="undo-payment" data-id="${escapeHTML(p.id)}">Undo</button>`:'—'}</td></tr>`;}).join('')||'<tr><td colspan="8"><div class="empty-state">No salary payments recorded yet.</div></td></tr>'}</tbody></table></div></section>`;
 }
+function workerCreditHistoryRows(w){
+ const rows=(db.deductions||[]).filter(x=>x.workerId===w.id).slice().sort((a,b)=>b.date.localeCompare(a.date)||(b.createdAt||'').localeCompare(a.createdAt||''));
+ if(!rows.length)return '<div class="empty-state worker-credit-empty"><strong>No shop-credit purchases recorded for this worker.</strong><span>Use “Add credit purchase” whenever this worker takes shop items on credit.</span></div>';
+ return `<div class="worker-credit-history-list">${rows.map(x=>{
+   const remaining=deductionRemaining(x),deducted=roundMoney(x.deductedAmount||0),status=creditStatus(x);
+   const label={outstanding:'Outstanding',partial:'Partly deducted',settled:'Fully deducted',removed:'Removed'}[status]||'Outstanding';
+   const cls=status==='removed'?'credit-removed':status==='settled'?'credit-settled':status==='partial'?'credit-partial':'credit-open';
+   let action='';
+   if(status==='removed')action=`<button type="button" class="btn mini soft" data-action="restore-worker-credit" data-id="${escapeHTML(x.id)}" data-worker-id="${escapeHTML(w.id)}">${ic('rotate')} Restore</button>`;
+   else if(deducted<=0)action=`<button type="button" class="btn mini danger" data-action="remove-worker-credit" data-id="${escapeHTML(x.id)}" data-worker-id="${escapeHTML(w.id)}">${ic('trash')} Remove</button>`;
+   else action='<span class="credit-lock-note">🔒 Linked to salary history</span>';
+   return `<article class="worker-credit-row ${status==='removed'?'is-voided':''}"><div class="worker-credit-row-main"><span class="worker-credit-date">${fmt(x.date)}</span><div class="worker-credit-description"><strong>${escapeHTML(x.description||'Shop credit purchase')}</strong><small>Recorded ${x.createdAt?escapeHTML(new Date(x.createdAt).toLocaleString('en-GB',{timeZone:'Asia/Colombo',day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'})):'date not recorded'}${x.voidedAt?` · Removed ${fmt(String(x.voidedAt).slice(0,10))}`:''}</small></div></div><div class="worker-credit-row-amounts"><div><small>Purchase</small><strong>${currency(x.amount)}</strong></div><div><small>Deducted</small><strong>${currency(deducted)}</strong></div><div><small>Balance</small><strong class="${cls}">${status==='removed'?'Cancelled':currency(remaining)}</strong></div></div><div class="worker-credit-row-actions"><span class="credit-status-tag ${cls}">${label}</span>${action}</div></article>`;
+ }).join('')}</div>`;
+}
+function showWorkerCreditHistory(workerId){
+ const w=workerById(workerId);if(!w){toast('Worker record not found.');return;}
+ const all=(db.deductions||[]).filter(x=>x.workerId===w.id),active=all.filter(x=>!x.voidedAt);
+ const purchaseTotal=roundMoney(active.reduce((sum,x)=>sum+Number(x.amount||0),0));
+ const deductedTotal=roundMoney(active.reduce((sum,x)=>sum+Number(x.deductedAmount||0),0));
+ const balance=outstandingDeductions(w);
+ openModal(`<div class="worker-credit-history"><div class="modal-title"><div><span class="eyebrow">INDIVIDUAL EMPLOYEE RECORD</span><h2>${escapeHTML(w.name)} · Credit history</h2><p>Every shop-credit item for this worker, including deductions and removed records.</p></div><button type="button" class="icon-button" data-action="close-modal" aria-label="Close">×</button></div><div class="worker-credit-summary"><div><span>Active purchase total</span><strong>${currency(purchaseTotal)}</strong></div><div><span>Already deducted</span><strong>${currency(deductedTotal)}</strong></div><div><span>Outstanding balance</span><strong>${currency(balance)}</strong></div><div><span>All records</span><strong>${all.length}</strong><small>${all.filter(x=>x.voidedAt).length} removed · ${active.length} active</small></div></div><div class="worker-credit-toolbar"><div><strong>Purchase history</strong><span>${all.length?`${all.length} record${all.length===1?'':'s'} · newest first`:'No records yet'}</span></div><button type="button" class="btn primary" data-action="add-worker-credit" data-id="${escapeHTML(w.id)}">${ic('plus')} Add credit purchase</button></div>${workerCreditHistoryRows(w)}<div class="hint-box worker-credit-note"><strong>Salary deduction:</strong> Credit is deducted only when you confirm a salary payment. Removed records stay visible here for audit history. If a purchase has already been deducted, undo the relevant salary payment before removing it.</div></div>`);
+}
+
 function renderTeam(){const ws=activeWorkers(),former=formerWorkers(),left=MAX_WORKERS-ws.length;
  return pageHeader('Your team','Manage each employee’s profile, daily wage, shop-credit purchases and safe exits.',headButton('add-worker','Add new worker','plus','primary',left<=0?'disabled':''))+
  `<div class="hint-box team-intro" style="margin:0 0 18px"><strong>${ws.length} / ${MAX_WORKERS} active positions filled.</strong> ${left} available slots · ${former.length} former staff. Shop-credit purchases are recorded per worker and deducted from their next salary.</div>
- <div class="worker-grid">${ws.map((w,i)=>{const p=due(w),credit=outstandingDeductions(w),historyNow=rateHistory(w).filter(e=>e.from<=today());return `<article class="worker-card"><div class="worker-cover"></div><div class="worker-avatar">${escapeHTML(w.name.trim().split(/\s+/).slice(0,2).map(s=>s[0]||'').join('').toUpperCase())}</div><div class="worker-body"><h3>${escapeHTML(w.name)}</h3><div class="worker-subtitle">Employee ${String(i+1).padStart(2,'0')} · Active</div><div class="rate-box"><small>Current daily salary</small><b>${currency(rateOn(w))}</b><span class="rate-detail">${historyNow.length>1?`Latest change · ${fmt(historyNow.at(-1).from)}`:'Salary history is tracked by date'}</span></div><div class="worker-details"><div><span>Pay schedule</span><strong>${escapeHTML(salaryScheduleLabel(w))}</strong></div><div><span>Joined</span><strong>${fmt(w.joinDate)}</strong></div><div><span>Unpaid workdays</span><strong>${p.fullDays} full · ${p.halfDays} half</strong></div><div><span>Gross wages pending</span><strong>${moneyShort(p.amount)}</strong></div><div class="worker-credit-metric"><span>Shop credit left</span><strong>${moneyShort(credit)}</strong></div><div><span>Estimated net balance</span><strong>${moneyShort(Math.max(0,p.amount-credit))}</strong></div></div><div class="flex-wrap worker-actions"><button type="button" class="btn mini secondary" data-action="edit-worker" data-id="${escapeHTML(w.id)}">${ic('edit')} Edit profile</button><button type="button" class="btn mini salary-edit-button" data-action="edit-rate" data-id="${escapeHTML(w.id)}">${ic('trend')} Change salary</button><button type="button" class="btn mini soft" data-action="add-deduction" data-id="${escapeHTML(w.id)}">${ic('plus')} Add credit purchase</button><button type="button" class="btn mini danger" data-action="remove-worker" data-id="${escapeHTML(w.id)}">${ic('close')} Stop working</button></div></div></article>`;}).join('')}${Array.from({length:left},()=>`<button type="button" class="add-worker-card" data-action="add-worker"><div class="big-plus">+</div><strong>Available position</strong><p>Add a new worker when they join Kirushi Cool Spot.</p><span class="btn mini soft">${ic('plus')} Add member</span></button>`).join('')}</div>`+
+ <div class="worker-grid">${ws.map((w,i)=>{const p=due(w),credit=outstandingDeductions(w),historyNow=rateHistory(w).filter(e=>e.from<=today());return `<article class="worker-card"><div class="worker-cover"></div><div class="worker-avatar">${escapeHTML(w.name.trim().split(/\s+/).slice(0,2).map(s=>s[0]||'').join('').toUpperCase())}</div><div class="worker-body"><h3><button type="button" class="worker-name-link" data-action="view-worker-credit" data-id="${escapeHTML(w.id)}" aria-label="View ${escapeHTML(w.name)} credit history">${escapeHTML(w.name)} <span aria-hidden="true">↗</span></button></h3><div class="worker-subtitle">Employee ${String(i+1).padStart(2,'0')} · Active · click name for credit history</div><div class="rate-box"><small>Current daily salary</small><b>${currency(rateOn(w))}</b><span class="rate-detail">${historyNow.length>1?`Latest change · ${fmt(historyNow.at(-1).from)}`:'Salary history is tracked by date'}</span></div><div class="worker-details"><div><span>Pay schedule</span><strong>${escapeHTML(salaryScheduleLabel(w))}</strong></div><div><span>Joined</span><strong>${fmt(w.joinDate)}</strong></div><div><span>Unpaid workdays</span><strong>${p.fullDays} full · ${p.halfDays} half</strong></div><div><span>Gross wages pending</span><strong>${moneyShort(p.amount)}</strong></div><button type="button" class="worker-credit-metric worker-credit-open" data-action="view-worker-credit" data-id="${escapeHTML(w.id)}" aria-label="View ${escapeHTML(w.name)} credit history"><span>Shop credit left</span><strong>${moneyShort(credit)} <small>View history →</small></strong></button><div><span>Estimated net balance</span><strong>${moneyShort(Math.max(0,p.amount-credit))}</strong></div></div><div class="flex-wrap worker-actions"><button type="button" class="btn mini secondary" data-action="edit-worker" data-id="${escapeHTML(w.id)}">${ic('edit')} Edit profile</button><button type="button" class="btn mini salary-edit-button" data-action="edit-rate" data-id="${escapeHTML(w.id)}">${ic('trend')} Change salary</button><button type="button" class="btn mini soft" data-action="add-deduction" data-id="${escapeHTML(w.id)}">${ic('plus')} Add credit purchase</button><button type="button" class="btn mini danger" data-action="remove-worker" data-id="${escapeHTML(w.id)}">${ic('close')} Stop working</button></div></div></article>`;}).join('')}${Array.from({length:left},()=>`<button type="button" class="add-worker-card" data-action="add-worker"><div class="big-plus">+</div><strong>Available position</strong><p>Add a new worker when they join Kirushi Cool Spot.</p><span class="btn mini soft">${ic('plus')} Add member</span></button>`).join('')}</div>`+
  `<section class="panel panel-pad former-staff-panel" aria-label="Former employees"><div class="panel-title-row"><div><h3>Former staff history</h3><p>Employees who left the shop. Previous attendance, credit and payments remain available.</p></div><span class="pill unmarked">${former.length} archived</span></div>
- ${former.length?`<div class="former-staff-list">${former.slice().reverse().map(w=>{const p=due(w),paid=db.payments.filter(x=>x.workerId===w.id).reduce((t,x)=>t+Number(x.amount||0),0),credit=outstandingDeductions(w);return `<article class="former-staff-row"><div class="former-staff-name">${avatar(w)}<div><strong>${escapeHTML(w.name)}</strong><small>Joined ${fmt(w.joinDate)} · Left ${fmt(w.endDate)}</small>${w.exitReason?`<small>Reason: ${escapeHTML(w.exitReason)}</small>`:''}</div></div><div class="former-staff-values"><span>Gross unpaid <b>${currency(p.amount)}</b></span><span>Credit left <b>${currency(credit)}</b></span><span>Paid <b>${currency(paid)}</b></span><button type="button" class="btn mini secondary" data-page="payroll">Salary history →</button><button type="button" class="btn mini soft" data-action="restore-worker" data-id="${escapeHTML(w.id)}" ${left===0?'disabled title="All staff slots filled"':''}>${ic('rotate')} Undo exit</button></div></article>`}).join('')}</div>`:'<div class="empty-state">No former staff yet. When someone leaves, their history will appear here.</div>'}
+ ${former.length?`<div class="former-staff-list">${former.slice().reverse().map(w=>{const p=due(w),paid=db.payments.filter(x=>x.workerId===w.id).reduce((t,x)=>t+Number(x.amount||0),0),credit=outstandingDeductions(w);return `<article class="former-staff-row"><div class="former-staff-name">${avatar(w)}<div><button type="button" class="worker-name-link former-worker-name-link" data-action="view-worker-credit" data-id="${escapeHTML(w.id)}" aria-label="View ${escapeHTML(w.name)} credit history">${escapeHTML(w.name)} <span aria-hidden="true">↗</span></button><small>Joined ${fmt(w.joinDate)} · Left ${fmt(w.endDate)}</small>${w.exitReason?`<small>Reason: ${escapeHTML(w.exitReason)}</small>`:''}</div></div><div class="former-staff-values"><span>Gross unpaid <b>${currency(p.amount)}</b></span><span>Credit left <b>${currency(credit)}</b></span><span>Paid <b>${currency(paid)}</b></span><button type="button" class="btn mini secondary" data-page="payroll">Salary history →</button><button type="button" class="btn mini soft" data-action="restore-worker" data-id="${escapeHTML(w.id)}" ${left===0?'disabled title="All staff slots filled"':''}>${ic('rotate')} Undo exit</button></div></article>`}).join('')}</div>`:'<div class="empty-state">No former staff yet. When someone leaves, their history will appear here.</div>'}
  </section>`;
 }
 function renderSettings(){return pageHeader('Settings & backup','Keep a safe copy of attendance and salary information.')+
  `<div class="hint-box" style="margin:0 0 17px"><strong>Cloud account:</strong> ${escapeHTML(window.KirushiCloud.user?.email||'Signed in')} · Version ${cloudVersion} · ${escapeHTML(cloudStatus)}. <button type="button" class="btn mini secondary" data-action="refresh-cloud">Refresh cloud</button> <button type="button" class="btn mini secondary" data-action="show-history">Cloud revisions</button> <button type="button" class="btn mini danger" data-action="sign-out">Sign out</button></div><div class="settings-grid"><section class="panel panel-pad"><div class="panel-title-row"><div><h3>Back up and restore</h3><p>Recommended at the end of every shift</p></div>${ic('download')}</div><p class="settings-info">Records are stored in your <strong>private Supabase cloud database</strong> (not GitHub and not only this browser). Sign into the same account on your phone or laptop to see the same information. Export a separate JSON file regularly for off-site protection.</p><div class="backup-actions"><button type="button" class="btn primary" data-action="export-json">${ic('download')} Download backup (.json)</button><button type="button" class="btn secondary" data-action="import-json">${ic('upload')} Restore from backup</button></div><div class="hint-box"><strong>Important:</strong> Restoring a backup creates a new cloud revision (the previous revision remains in history). Confirm the correct account before importing.</div></section><section class="panel panel-pad"><div class="panel-title-row"><div><h3>CSV reports</h3><p>Open in Excel or Google Sheets</p></div>${ic('file')}</div><p class="settings-info">Download attendance and payment history spreadsheets. JSON backup is the one you can restore; CSV is for reviewing or printing.</p><div class="backup-actions"><button type="button" class="btn secondary" data-action="export-attendance">${ic('download')} Attendance CSV</button><button type="button" class="btn secondary" data-action="export-payroll">${ic('download')} Payroll CSV</button></div><div class="hint-box"><strong>Flexible shop days:</strong> Every date has its own Open / Closed switch. Sundays start as Closed by default but can be changed. Closed dates never count as Absent or earned wages.</div></section></div>`;}
-function render(){const titles={dashboard:renderDashboard,attendance:renderAttendance,calendar:renderCalendar,payroll:renderPayroll,credit:renderCreditPage,team:renderTeam,settings:renderSettings};$('#appMain').innerHTML=(titles[state.page]||titles.dashboard)();$('#breadcrumbTitle').textContent=LABELS[state.page]||'Overview';const now=today();$('#topbarDate').textContent=fmt(now,{day:'numeric',month:'short',year:'numeric'});$('#openTag').classList.toggle('closed',isClosed(now));$('#openTag').innerHTML=`<span class="status-dot"></span> ${isClosed(now)?'Shop closed':'Open today'}`;document.querySelectorAll('[data-page]').forEach(el=>{el.classList.toggle('active',el.dataset.page===state.page);if(el.dataset.page===state.page)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});iconsOnPage();}
-function navigate(p){if(!LABELS[p])return;state.page=p;render();window.scrollTo(0,0);}
+function render(){const titles={dashboard:renderDashboard,attendance:renderAttendance,calendar:renderCalendar,payroll:renderPayroll,team:renderTeam,settings:renderSettings};$('#appMain').innerHTML=(titles[state.page]||titles.dashboard)();$('#breadcrumbTitle').textContent=LABELS[state.page]||'Overview';const now=today();$('#topbarDate').textContent=fmt(now,{day:'numeric',month:'short',year:'numeric'});$('#openTag').classList.toggle('closed',isClosed(now));$('#openTag').innerHTML=`<span class="status-dot"></span> ${isClosed(now)?'Shop closed':'Open today'}`;document.querySelectorAll('[data-page]').forEach(el=>{el.classList.toggle('active',el.dataset.page===state.page);if(el.dataset.page===state.page)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});iconsOnPage();}
+function navigate(p){if(p==='credit')p='team';if(!LABELS[p])return;state.page=p;render();window.scrollTo(0,0);}
 let toastTimer;function toast(msg){const el=$('#toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2800);}
-function openModal(html){$('#modalContent').innerHTML=html;$('#modalBackdrop').hidden=false;document.body.style.overflow='hidden';$('#modalContent').querySelector('input:not([type="hidden"])')?.focus();}
-function closeModal(){$('#modalBackdrop').hidden=true;$('#modalContent').innerHTML='';document.body.style.overflow='';}
+function openModal(html){const dialog=$('#modalContent');dialog.classList.toggle('worker-credit-modal',html.includes('worker-credit-history'));dialog.innerHTML=html;dialog.scrollTop=0;$('#modalBackdrop').hidden=false;document.body.style.overflow='hidden';dialog.querySelector('input:not([type="hidden"])')?.focus();}
+function closeModal(){pendingPastAttendanceAction=null;$('#modalBackdrop').hidden=true;const dialog=$('#modalContent');dialog.innerHTML='';dialog.classList.remove('worker-credit-modal');document.body.style.overflow='';}
 function modalHead(title,desc){return `<div class="modal-title"><div><h2>${title}</h2><p>${desc}</p></div><button type="button" class="icon-button" data-action="close-modal" aria-label="Close">×</button></div>`;}
+function requestPastAttendancePassword(dt,description,action){
+ if(dt>=today()){action();return;}
+ const user=window.KirushiCloud?.user;
+ if(!user?.email||!user?.id){toast('Please sign in again before changing past attendance.');return;}
+ pendingPastAttendanceAction={dt,description,action,userId:user.id,email:user.email};
+ openModal(modalHead('Manager password required','Verify your existing Kirushi manager account before editing a past record.')+
+ `<form class="modal-inner" id="pastAttendancePasswordForm"><div class="hint-box"><strong>Past date:</strong> ${fmt(dt)}<br><span>${escapeHTML(description)}</span></div><label class="field span-two"><span>Manager password *</span><input type="password" name="managerPassword" autocomplete="current-password" placeholder="Enter your manager login password" required /></label><div id="pastAttendanceAuthError" class="auth-error" role="alert" hidden></div><p class="field-help">Your password is checked by Supabase and is not saved in the website.</p><div class="form-buttons"><button type="button" class="btn secondary" data-action="close-modal">Cancel</button><button type="submit" class="btn primary">Verify &amp; continue</button></div></form>`);
+}
+async function verifyPastAttendancePassword(form){
+ const pending=pendingPastAttendanceAction;
+ if(!pending){closeModal();return;}
+ const fd=new FormData(form),password=String(fd.get('managerPassword')||''),button=form.querySelector('button[type="submit"]'),input=form.querySelector('input[name="managerPassword"]'),errorBox=$('#pastAttendanceAuthError');
+ if(!password){input?.focus();return;}
+ button.disabled=true;button.textContent='Verifying…';if(errorBox)errorBox.hidden=true;
+ try{
+  await window.KirushiCloud.signIn(pending.email,password);
+  if(window.KirushiCloud.user?.id!==pending.userId)throw new Error('Manager account verification failed.');
+  const action=pending.action;pendingPastAttendanceAction=null;closeModal();action();
+ }catch(err){
+  console.warn('Past attendance password verification failed:',err);
+  if(errorBox){errorBox.textContent='Password could not be verified. No changes were made. Please try again.';errorBox.hidden=false;}
+  if(input){input.value='';input.focus();}
+  button.disabled=false;button.textContent='Verify & continue';
+ }
+}
 let manualPayDates=[];
 function refreshPayDates(){
  const el=$('#manualPayDateList');if(!el)return;
@@ -1709,11 +2399,15 @@ function undoPayment(id){
  if(!window.confirm(`Undo salary settlement for ${p.workerName}? Cash paid ${currency(p.amount)}, credit deducted ${currency(p.deductionAmount||0)}. This restores the unpaid salary and the shop-credit balance.`))return;
  commit(()=>{const pay=db.payments.find(o=>o.id===id),worker=workerById(pay.workerId);worker.lastPaidDate=pay.previousPaidDate||'';for(const a of (pay.deductionAllocations||[])){const entry=(db.deductions||[]).find(x=>x.id===a.deductionId);if(entry)entry.deductedAmount=Math.max(0,roundMoney(Number(entry.deductedAmount||0)-Number(a.amount||0)));}db.payments=db.payments.filter(o=>o.id!==id);},'Salary settlement undone; credit restored');
 }
-function markAttendance(id,status){const w=workerById(id),dt=state.selectedDate;if(!w||isClosed(dt)||dt>today()||dt<START||dt<w.joinDate||(lastWorkingDate(w)&&dt>w.endDate))return;if(w.lastPaidDate&&dt<=w.lastPaidDate){toast('Paid date is locked. Undo the latest payment before editing attendance.');return;}
- commit(()=>{if(!db.attendance[dt])db.attendance[dt]={};if(status==='clear')delete db.attendance[dt][id];else if(['present','halfday','absent'].includes(status))db.attendance[dt][id]=status;else return false;if(!Object.keys(db.attendance[dt]).length)delete db.attendance[dt];},`${w.name}: ${status==='clear'?'record cleared':status} · ${fmt(dt)}`);
+function markAttendance(id,status){const w=workerById(id),dt=state.selectedDate;if(!w||isClosed(dt)||dt>today()||dt<START||dt<w.joinDate||(lastWorkingDate(w)&&dt>w.endDate))return;if(w.lastPaidDate&&dt<=w.lastPaidDate){toast('Paid date is locked. Undo the latest payment before editing attendance.');return;}if(!['present','halfday','absent','clear'].includes(status))return;
+ const saveAttendance=()=>commit(()=>{if(!db.attendance[dt])db.attendance[dt]={};if(status==='clear')delete db.attendance[dt][id];else db.attendance[dt][id]=status;if(!Object.keys(db.attendance[dt]).length)delete db.attendance[dt];},`${w.name}: ${status==='clear'?'record cleared':status} · ${fmt(dt)}`);
+ if(dt<today()){requestPastAttendancePassword(dt,`Change ${w.name}'s attendance to ${status==='clear'?'unmarked':status}.`,saveAttendance);return;}
+ saveAttendance();
 }
 function markAll(){const dt=state.selectedDate;if(isClosed(dt)||dt>today()||dt<START)return;const eligible=workersOnDate(dt).filter(w=>!w.lastPaidDate||dt>w.lastPaidDate);if(!eligible.length){toast('No editable staff records: settled salary dates are locked.');return;}
- commit(()=>{if(!db.attendance[dt])db.attendance[dt]={};eligible.forEach(w=>db.attendance[dt][w.id]='present');},`${eligible.length} workers marked present`);
+ const saveAll=()=>commit(()=>{if(!db.attendance[dt])db.attendance[dt]={};eligible.forEach(w=>db.attendance[dt][w.id]='present');},`${eligible.length} workers marked present`);
+ if(dt<today()){requestPastAttendancePassword(dt,`Mark ${eligible.length} eligible worker(s) as present on this past date.`,saveAll);return;}
+ saveAll();
 }
 function removeWorker(id){
  const w=workerById(id);if(!w||w.active===false)return;
@@ -1743,32 +2437,33 @@ function restoreWorker(id){
  commit(()=>{const worker=workerById(id);if(!worker||worker.active!==false||activeWorkers().length>=MAX_WORKERS)return false;worker.active=true;worker.endDate='';worker.exitReason='';worker.archivedAt='';db.formerWorkers=db.formerWorkers.filter(w=>w.id!==id);db.workers.push(worker);},`${w.name} restored to active staff`);
 }
 
-function creditPurchaseModal(workerId=''){
+function creditPurchaseModal(workerId='',returnToWorkerHistory=false){
  const workers=activeWorkers();if(!workers.length){toast('Add a worker before recording a credit purchase.');return;}
  const selected=workers.find(w=>w.id===workerId)||workers[0];
  openModal(modalHead('Record shop-credit purchase','Enter what the worker took, the date, and the amount. It will be deducted from salary.')+
- `<form class="modal-inner" id="deductionForm"><div class="form-grid"><label class="field"><span>Worker *</span><select name="workerId" required>${workers.map(w=>`<option value="${escapeHTML(w.id)}" ${w.id===selected.id?'selected':''}>${escapeHTML(w.name)}</option>`).join('')}</select></label><label class="field"><span>Purchase date *</span><input name="deductionDate" type="date" min="${selected.joinDate}" max="${today()}" value="${today()}" required /></label><label class="field span-two"><span>What item / why? *</span><input name="description" type="text" maxlength="200" placeholder="e.g. 2 milk packets, biscuits, groceries…" required /></label><label class="field span-two"><span>Amount (Rs.) *</span><input name="amount" type="number" min="0.01" max="1000000" step="0.01" placeholder="0.00" required /></label></div><div class="hint-box"><strong>Automatic salary deduction:</strong> This purchase will be included in the next salary payment on or after the purchase date. If the credit balance is greater than that salary, the remaining amount carries forward. This does not change attendance or gross wages.</div><div class="form-buttons"><button type="button" class="btn secondary" data-action="close-modal">Cancel</button><button type="submit" class="btn primary">${ic('checkcircle')} Save credit purchase</button></div></form>`);
+ `<form class="modal-inner" id="deductionForm"><input type="hidden" name="returnToWorkerHistory" value="${returnToWorkerHistory?'1':'0'}" /><div class="form-grid"><label class="field"><span>Worker *</span><select name="workerId" required>${workers.map(w=>`<option value="${escapeHTML(w.id)}" ${w.id===selected.id?'selected':''}>${escapeHTML(w.name)}</option>`).join('')}</select></label><label class="field"><span>Purchase date *</span><input name="deductionDate" type="date" min="${selected.joinDate}" max="${today()}" value="${today()}" required /></label><label class="field span-two"><span>What item / why? *</span><input name="description" type="text" maxlength="200" placeholder="e.g. 2 milk packets, biscuits, groceries…" required /></label><label class="field span-two"><span>Amount (Rs.) *</span><input name="amount" type="number" min="0.01" max="1000000" step="0.01" placeholder="0.00" required /></label></div><div class="hint-box"><strong>Automatic salary deduction:</strong> This purchase will be included in the next salary payment on or after the purchase date. If the credit balance is greater than that salary, the remaining amount carries forward. This does not change attendance or gross wages.</div><div class="form-buttons"><button type="button" class="btn secondary" data-action="close-modal">Cancel</button><button type="submit" class="btn primary">${ic('checkcircle')} Save credit purchase</button></div></form>`);
  const dateInput=$('#deductionForm [name="deductionDate"]'),workerSelect=$('#deductionForm [name="workerId"]');
  workerSelect?.addEventListener('change',()=>{const w=activeWorkers().find(x=>x.id===workerSelect.value);if(w){dateInput.min=w.joinDate;if(dateInput.value<w.joinDate)dateInput.value=w.joinDate;}});
 }
 function saveCreditPurchase(form){
  const fd=new FormData(form),worker=workerById(String(fd.get('workerId')||'')),dt=String(fd.get('deductionDate')||''),description=String(fd.get('description')||'').trim(),amount=safeRate(fd.get('amount'));
  if(!worker||worker.active===false||!validDate(dt)||dt<worker.joinDate||dt>today()||!description||description.length>200||amount===null||amount<=0){toast('Check the worker, purchase date, item description and amount.');return;}
- commit(()=>{db.deductions??=[];db.deductions.push({id:uid(),workerId:worker.id,date:dt,description,amount,deductedAmount:0,createdAt:new Date().toISOString()});},`${worker.name}: credit purchase ${currency(amount)} recorded` ,closeModal);
+ const returnToWorkerHistory=String(fd.get('returnToWorkerHistory')||'0')==='1';
+ commit(()=>{db.deductions??=[];db.deductions.push({id:uid(),workerId:worker.id,date:dt,description,amount,deductedAmount:0,createdAt:new Date().toISOString()});},`${worker.name}: credit purchase ${currency(amount)} recorded`,()=>{closeModal();if(returnToWorkerHistory)showWorkerCreditHistory(worker.id);});
 }
-function removeCreditPurchase(id){
+function removeCreditPurchase(id,returnToWorkerHistory=''){ 
  const entry=(db.deductions||[]).find(x=>x.id===id);if(!entry)return;
  if(entry.voidedAt){toast('This credit purchase is already in Removed history.');return;}
  if(Number(entry.deductedAmount||0)>0){toast('This purchase is linked to a salary payment. Undo the relevant salary payment first; then you can remove it.');return;}
  const w=workerById(entry.workerId);
  if(!window.confirm(`Remove this credit purchase from salary deductions?\n\n${w?.name||'Worker'} · ${fmt(entry.date)} · ${entry.description} · ${currency(entry.amount)}\n\nThe record will stay in Removed history for audit purposes.`))return;
- commit(()=>{const current=(db.deductions||[]).find(x=>x.id===id);if(!current||current.voidedAt||Number(current.deductedAmount||0)>0)return false;current.voidedAt=new Date().toISOString();current.voidReason='Removed by manager';},'Credit purchase removed from salary deductions');
+ commit(()=>{const current=(db.deductions||[]).find(x=>x.id===id);if(!current||current.voidedAt||Number(current.deductedAmount||0)>0)return false;current.voidedAt=new Date().toISOString();current.voidReason='Removed by manager';},'Credit purchase removed from salary deductions',()=>{if(returnToWorkerHistory)showWorkerCreditHistory(returnToWorkerHistory);});
 }
-function restoreCreditPurchase(id){
+function restoreCreditPurchase(id,returnToWorkerHistory=''){ 
  const entry=(db.deductions||[]).find(x=>x.id===id);if(!entry||!entry.voidedAt)return;
  if(Number(entry.deductedAmount||0)>0){toast('This record cannot be restored because it is linked to salary history.');return;}
  if(!window.confirm(`Restore this credit purchase to the active salary deductions?\n\n${entry.description} · ${currency(entry.amount)}\n\nIt may be deducted at the next eligible salary payment.`))return;
- commit(()=>{const current=(db.deductions||[]).find(x=>x.id===id);if(!current||!current.voidedAt||Number(current.deductedAmount||0)>0)return false;current.voidedAt='';current.voidReason='';},'Credit purchase restored');
+ commit(()=>{const current=(db.deductions||[]).find(x=>x.id===id);if(!current||!current.voidedAt||Number(current.deductedAmount||0)>0)return false;current.voidedAt='';current.voidReason='';},'Credit purchase restored',()=>{if(returnToWorkerHistory)showWorkerCreditHistory(returnToWorkerHistory);});
 }
 
 function csvCell(s){let x=String(s??'');if(/^[\s]*[=+@-]/.test(x)&&!(/^[-+]?\d+(?:\.\d+)?$/.test(x)))x="'"+x;return /[,\n\r"]/.test(x)?'"'+x.replace(/"/g,'""')+'"':x;}
@@ -1839,7 +2534,7 @@ function answer(question){const q=question.toLowerCase().trim();const w=detected
  if(has(['how to add','add worker','add employee','new worker','worker add','new staff','ஆள் சேர','புதிய worker','புதிய ஆள்','staff add']))return `Team members → Add new worker செல்லுங்கள். பெயர், ஒரு நாள் salary, payday schedule (weekly / monthly / manual dates), join date நிரப்புங்கள். இப்போது ${MAX_WORKERS-activeWorkers().length} காலி slots உள்ளன.`;
  if(has(['credit purchase','credit balance','shop credit','deduction','deduct','kadanukku','kadan','kadana','கடன்','கடைக்கடன்','salary cut','salary deduction','saamaan kadan','சாமான் கடன்'])){
    const targets=w?[w]:activeWorkers();
-   return targets.map(x=>{const entries=(db.deductions||[]).filter(d=>d.workerId===x.id).sort((a,b)=>b.date.localeCompare(a.date));const balance=outstandingDeductions(x);const list=entries.slice(0,5).map(d=>`• ${fmt(d.date)} · ${d.description}: ${currency(d.amount)} (${d.voidedAt?'removed':`left ${currency(deductionRemaining(d))}`})`).join('\n');return `${x.name} shop-credit balance: ${currency(balance)}. Only active, non-removed purchases are deducted at salary; removed records stay in history.\n${list||'No credit purchase records.'}`;}).join('\n\n')+`\n\nபுதிய கடன் பதிவு செய்ய: Shop credit → Record credit purchase. History பார்க்க/Remove செய்ய Shop credit பக்கத்தைத் திறக்கவும்.`;
+   return targets.map(x=>{const entries=(db.deductions||[]).filter(d=>d.workerId===x.id).sort((a,b)=>b.date.localeCompare(a.date));const balance=outstandingDeductions(x);const list=entries.slice(0,5).map(d=>`• ${fmt(d.date)} · ${d.description}: ${currency(d.amount)} (${d.voidedAt?'removed':`left ${currency(deductionRemaining(d))}`})`).join('\n');return `${x.name} shop-credit balance: ${currency(balance)}. Only active, non-removed purchases are deducted at salary; removed records stay in history.\n${list||'No credit purchase records.'}`;}).join('\n\n')+`\n\nபுதிய கடன் பதிவு செய்ய Team members பக்கத்தில் அந்த worker-ன் “Add credit purchase” button-ஐ அழுத்தவும். History பார்க்க worker பெயர் அல்லது “Shop credit left” தொகுதியை அழுத்தவும். Remove / Restore செய்ய அதே worker-ன் Credit history-ஐ திறக்கவும்.`;
  }
  if(has(['change salary','edit salary','salary increase','increase salary','salary raise','salary edit','sambalam koot','salary koott','salary koot','salary math','சம்பளம் மாற்ற','சம்பளம் கூட்டு','சம்பளம் உயர்த்து']))return 'Team members → அந்த worker card → Change salary கிளிக் பண்ணுங்கள். புதிய தினசரி சம்பளம், அமலாகும் தேதி மற்றும் காரணம் (optional) சேமிக்கலாம். பழைய நாட்களின் daily rate மற்றும் ஏற்கெனவே paid ஆன salary மாறாது. Payroll-லும Change salary button இருக்கிறது.';
  if(has(['how to mark','mark attendance','mark present','attendance eppadi','எப்படி attendance','எப்படி வருகை','attendance எப்படி','half day','halfday','அரை நாள்']))return 'Attendance பக்கத்தில் date select செய்து Full day / Half day / Absent தேர்ந்தெடுக்கலாம். Full day = 100% salary; Half day = 50% salary; Absent = salary இல்லை. Cloud-ல் save ஆனதும் payroll தானாக update ஆகும். Closed என்று உள்ள நாளில் mark செய்ய முடியாது.';
@@ -1874,7 +2569,7 @@ document.addEventListener('click',e=>{
  const btn=e.target.closest('[data-action]');if(!btn||btn.disabled)return;
  const {action,id,status}=btn.dataset;switch(action){
  case 'open-chat':setChatOpen(true);break;case 'close-chat':setChatOpen(false);break;case 'toggle-chat':setChatOpen(!state.chatOpen);break;case 'reset-chat':resetChat();break;
- case 'add-worker':workerModal();break;case 'edit-worker':workerModal(id);break;case 'edit-rate':rateModal(id);break;case 'add-deduction':creditPurchaseModal(id||'');break;case 'remove-deduction':removeCreditPurchase(id);break;case 'restore-deduction':restoreCreditPurchase(id);break;case 'clear-credit-filters':state.creditFilter='all';state.creditSearch='';render();break;case 'close-modal':closeModal();break;
+ case 'add-worker':workerModal();break;case 'edit-worker':workerModal(id);break;case 'edit-rate':rateModal(id);break;case 'add-deduction':creditPurchaseModal(id||'');break;case 'add-worker-credit':creditPurchaseModal(id||'',true);break;case 'view-worker-credit':showWorkerCreditHistory(id);break;case 'remove-worker-credit':removeCreditPurchase(id,btn.dataset.workerId||'');break;case 'restore-worker-credit':restoreCreditPurchase(id,btn.dataset.workerId||'');break;case 'remove-deduction':removeCreditPurchase(id);break;case 'restore-deduction':restoreCreditPurchase(id);break;case 'clear-credit-filters':state.creditFilter='all';state.creditSearch='';render();break;case 'close-modal':closeModal();break;
   case 'add-pay-date':{const input=$('#manualPayDate'),dt=input?.value;if(!validDate(dt)){toast('Select a valid payday first.');break;}if(manualPayDates.length>=365){toast('Maximum 365 manual dates.');break;}if(!manualPayDates.includes(dt))manualPayDates.push(dt);manualPayDates.sort();refreshPayDates();break;}
   case 'remove-pay-date':manualPayDates=manualPayDates.filter(x=>x!==btn.dataset.date);refreshPayDates();break;
  case 'pay-worker':payModal(id);break;case 'confirm-pay':markPaid(id);break;case 'undo-payment':undoPayment(id);break;
@@ -1893,7 +2588,7 @@ document.addEventListener('click',e=>{
 });
 document.addEventListener('input',e=>{if(e.target.id==='creditSearch'){state.creditSearch=e.target.value;const list=$('#creditHistoryResults');if(list)list.innerHTML=creditEntriesHTML([...(db.deductions||[])].sort((a,b)=>b.date.localeCompare(a.date)||(b.createdAt||'').localeCompare(a.createdAt||'')),true);}});
 document.addEventListener('change',e=>{if(e.target.id==='creditFilter'){state.creditFilter=e.target.value;const list=$('#creditHistoryResults');if(list)list.innerHTML=creditEntriesHTML([...(db.deductions||[])].sort((a,b)=>b.date.localeCompare(a.date)||(b.createdAt||'').localeCompare(a.createdAt||'')),true);return;}if(e.target.id==='payMode'){updateScheduleFields();return;}if(e.target.id==='attDateInput'){if(validDate(e.target.value)&&e.target.value>=START){state.selectedDate=e.target.value;state.calendarMonth=state.selectedDate.slice(0,7);render();}else toast('Please choose a valid date.');}});
-document.addEventListener('submit',e=>{if(e.target.id==='deductionForm'){e.preventDefault();saveCreditPurchase(e.target);return;}if(e.target.id==='archiveForm'){e.preventDefault();archiveEmployee(e.target);return;}if(e.target.id==='rateForm'){e.preventDefault();updateRate(e.target);return;}if(e.target.id==='chatForm'){e.preventDefault();const input=$('#chatInput');const q=input.value.trim();input.value='';ask(q);return;}
+document.addEventListener('submit',e=>{if(e.target.id==='pastAttendancePasswordForm'){e.preventDefault();verifyPastAttendancePassword(e.target);return;}if(e.target.id==='deductionForm'){e.preventDefault();saveCreditPurchase(e.target);return;}if(e.target.id==='archiveForm'){e.preventDefault();archiveEmployee(e.target);return;}if(e.target.id==='rateForm'){e.preventDefault();updateRate(e.target);return;}if(e.target.id==='chatForm'){e.preventDefault();const input=$('#chatInput');const q=input.value.trim();input.value='';ask(q);return;}
  if(e.target.id==='workerForm'){e.preventDefault();const form=e.target;const fd=new FormData(form);
   const name=String(fd.get('workerName')||'').trim(),rate=Number(fd.get('dailyRate'));
   const join=String(fd.get('joinDate')||''),last=String(fd.get('lastPaidDate')||'');
@@ -1942,7 +2637,7 @@ function unlock(){cloudReady=true;$('#authGate').hidden=true;document.body.class
 function loginGate(msg=''){
  showGate(`<div class="auth-logo">K<span>✦</span></div><div class="auth-overline">KIRUSHI COOL SPOT</div><h1>Welcome back 👋</h1><p class="auth-explain">Private Attendance & Salary Manager<br>Sign in to load your records securely from the cloud.</p>${msg?`<div class="auth-error" role="alert">${escapeHTML(msg)}</div>`:''}<form id="loginForm"><label class="auth-field">Manager email<input type="email" name="email" placeholder="you@example.com" autocomplete="username" required /></label><label class="auth-field">Password<input type="password" name="password" placeholder="Your Supabase Auth password" autocomplete="current-password" required /></label><button class="btn primary auth-submit" type="submit">Sign in securely →</button></form><div class="auth-foot">Use the <strong>same account on phone and laptop</strong> to see identical records. No public sign-up.</div>`);
 }
-function setupGate(){showGate(`<div class="auth-logo">K<span>✦</span></div><div class="auth-overline">ONE-TIME SETUP</div><h1>Connect your cloud database</h1><p class="auth-explain">GitHub Pages hosts the website. Supabase stores staff, attendance, payment history and previous versions.</p><div class="setup-instructions"><b>1.</b> Create a Supabase project and run <code>supabase-schema.sql</code> in SQL Editor.<br><b>2.</b> In Authentication → Users, add your private manager email/password.<br><b>3.</b> Edit <code>config.js</code> with Project URL and <strong>publishable key</strong> (never a secret key).<br><b>4.</b> Reload this page and sign in.</div><p class="auth-foot">Detailed steps: <code>README.md</code>. Until setup is complete, no attendance can be falsely marked “saved”.</p>`);}
+function setupGate(){showGate(`<div class="auth-logo">K<span>✦</span></div><div class="auth-overline">ONE-TIME SETUP</div><h1>Connect your cloud database</h1><p class="auth-explain">GitHub Pages hosts the website. Supabase stores staff, attendance, payment history and previous versions.</p><div class="setup-instructions"><b>1.</b> Create a Supabase project and run <code>supabase-schema.sql</code> in SQL Editor.<br><b>2.</b> In Authentication → Users, add your private manager email/password.<br><b>3.</b> Open <code>index.html</code> and edit the <code>window.KIRUSHI_CONFIG</code> block near the top with your Project URL and <strong>publishable key</strong> (never a secret or service-role key).<br><b>4.</b> Reload this page and sign in.</div><p class="auth-foot">Detailed steps: <code>README.md</code>. Until setup is complete, no attendance can be falsely marked “saved”.</p>`);}
 function firstUseGate(){const local=previousLocal;
  showGate(`<div class="auth-logo">K<span>✦</span></div><div class="auth-overline">FIRST CLOUD SETUP</div><h1>Start your private workspace</h1><p class="auth-explain">Your Supabase account has no Kirushi records yet. Nothing will overwrite existing cloud data.</p><div class="initial-card"><strong>Default workers</strong><div>Janu — Rs. 1,750/day · 2nd &amp; 4th Saturday<br>Niranjani — Rs. 1,300/day · every Saturday<br>+ 3 available positions<br>26 Oct 2026 start (Mon & Tue unmarked) · Sundays closed by default (editable) · 28 Oct both Present</div></div><button class="btn primary auth-submit" type="button" data-action="initialize-cloud">Create cloud records</button>${local?`<button class="btn secondary auth-submit" type="button" data-action="import-local-initial">Use existing browser records instead</button>`:''}<button class="btn secondary auth-submit" type="button" data-action="initial-backup">Import old JSON backup instead</button><button class="btn secondary auth-submit" type="button" data-action="sign-out">Sign out</button><div class="auth-foot">If your old records are on a different computer or browser, export JSON there and import it here before creating new entries.</div>`);
 }
