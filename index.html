@@ -1581,6 +1581,51 @@ input,select,textarea{border-radius:11px;min-height:43px;font-size:14px!importan
   </style>
 
 
+  <style id="monthly-attendance-report-styles">
+
+/* Monthly attendance report: read-only employee-by-employee totals */
+.month-report{margin:0 0 22px;border-color:#dce9df}
+.month-report-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:16px}
+.month-report-head h3{margin:5px 0 6px;font-size:19px;letter-spacing:-.45px;color:#214632}
+.month-report-head p{font-size:12px;color:#738778;line-height:1.6;margin:0;max-width:660px}
+.month-report-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 16px}
+.month-report-stat{padding:14px 13px;border-radius:12px;border:1px solid #e4ede6;background:#f8fbf8;min-width:0}
+.month-report-stat small{display:block;color:#708473;font-size:10px;line-height:1.4}
+.month-report-stat strong{display:block;color:#21573b;font-size:23px;margin-top:6px;line-height:1.2}
+.month-report-stat.absent strong{color:#ad5b3d}.month-report-stat.pending strong{color:#8b6b3c}
+.month-report-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.month-report-controls label{font-size:11px;color:#5b735f;font-weight:800}
+.month-report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.month-worker-card{border:1px solid #e1eae3;border-radius:14px;padding:17px;background:#fff;min-width:0}
+.month-worker-title{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-bottom:15px}
+.month-worker-title .person-row{min-width:0;padding:0;border:0}.month-worker-title .person-main strong{font-size:14px}
+.month-worker-title .person-main small{display:block;font-size:10px;color:#74887b;margin-top:4px}
+.month-worker-title .month-worker-state{font-size:10px;font-weight:800;color:#668271;white-space:nowrap}
+.month-main-counts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.month-main-counts>div{border-radius:12px;padding:13px;background:#edf7ef;min-width:0}
+.month-main-counts>div.absent{background:#fff1ea}
+.month-main-counts strong{font-size:27px;display:block;line-height:1.1;color:#1d6b43}
+.month-main-counts>div.absent strong{color:#ad5b3d}
+.month-main-counts span{font-size:11px;color:#587760;display:block;margin-top:6px}
+.month-main-counts>div.absent span{color:#986548}
+.month-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 12px;margin:14px 0}
+.month-metrics>div{min-width:0}.month-metrics small{display:block;font-size:10px;color:#78877d;line-height:1.45}
+.month-metrics b{display:block;color:#2c4435;font-size:13px;margin-top:4px;overflow-wrap:anywhere}
+.month-absence-list{font-size:11px;line-height:1.65;color:#82523c;background:#fff9f5;border:1px solid #f5e6da;border-radius:10px;padding:9px 11px;margin-top:7px}
+.month-no-absences{color:#657d6d;background:#f7faf6;border-color:#e6eee6}
+.month-worker-detail{border-top:1px solid #e8eee8;margin-top:14px;padding-top:12px}
+.month-worker-detail summary{cursor:pointer;font-size:12px;color:#1d714c;font-weight:800;padding:7px 0}
+.month-worker-detail summary:focus-visible{outline:3px solid #79bfa3;outline-offset:2px}
+.month-day-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:12px 0 2px}
+.month-day-item{border:1px solid #e8eee8;border-radius:9px;background:#fafbfa;padding:9px 10px;display:flex;justify-content:space-between;align-items:center;gap:7px;font-size:10px;min-width:0}
+.month-day-item b{font-size:10px;white-space:nowrap}.month-day-item .month-day-label{color:#5b6e62}
+.month-day-item.work b{color:#1a7547}.month-day-item.halfday b{color:#326ea4}.month-day-item.absent b{color:#af5638}.month-day-item.unmarked b{color:#8f743e}.month-day-item.closed b{color:#899a8b}
+.month-report-foot{border-top:1px solid #e8eee8;margin-top:17px;padding-top:14px;color:#697c70;font-size:11px;line-height:1.75}
+.cal-toolbar .month-picker-controls{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.cal-toolbar input[type=month],.month-report-head input[type=month]{min-height:41px;max-width:170px;padding:8px 10px;border:1px solid #d9e5dc;border-radius:9px;background:#fff;color:#264c35;font-size:13px;font-weight:700}
+@media(max-width:1000px){.month-report-grid{grid-template-columns:1fr}}
+@media(max-width:650px){.month-report-head{flex-direction:column;align-items:stretch}.month-report-head .btn{align-self:flex-start}.month-report-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.month-report-stat strong{font-size:21px}.month-worker-card{padding:13px}.month-day-list{grid-template-columns:1fr 1fr}.cal-toolbar .month-picker-controls{width:100%;justify-content:space-between}.cal-toolbar input[type=month],.month-report-head input[type=month]{max-width:none;flex:1;min-width:0}}
+@media(max-width:380px){.month-day-list{grid-template-columns:1fr}.month-main-counts strong{font-size:23px}}
+  </style>
   <style id="kirushi-sidebar-readable-contrast-fix">
     /* Final accessibility pass: keep the light sidebar, but use readable dark text.
        This intentionally overrides legacy sidebar rules left by previous redesigns. */
@@ -2169,7 +2214,7 @@ function renderDashboard(){const td=today(),t=totals(td),ws=activeWorkers(),curr
  `<div class="grid-two"><section class="panel panel-pad"><div class="panel-title-row"><div><h3>Salary overview</h3><p>Unpaid wages up to today</p></div><button type="button" class="link-button" data-page="payroll">All payroll →</button></div>${currentDues.length?currentDues.map(({w,amount,present,fullDays=present,halfDays=0,nextPayDate,isDue},i)=>{const netAmount=netUnpaidSalary(w,amount,td);return `<div class="pay-row">${avatar(w,i)}<div class="person-main"><strong>${escapeHTML(w.name)}</strong><small>${fullDays} full + ${halfDays} half day(s) unpaid · ${escapeHTML(salaryScheduleLabel(w))}</small></div><div class="pay-amount"><strong>${moneyShort(netAmount)}</strong><small>${isDue?'Payment due / overdue':nextPayDate?`Pay ${fmt(nextPayDate,{day:'numeric',month:'short'})}`:'Set payday'} · after credit</small></div></div>`}).join(''):'<div class="empty-state">No workers added.</div>'}</section><section class="panel panel-pad"><div class="panel-title-row"><div><h3>Quick actions</h3><p>Your everyday shortcuts</p></div></div><div class="flex-wrap"><button type="button" class="btn secondary" data-page="attendance">${ic('check')} Attendance</button><button type="button" class="btn secondary" data-page="payroll">${ic('wallet')} Salaries</button><button type="button" class="btn secondary" data-action="add-worker" ${ws.length>=MAX_WORKERS?'disabled':''}>${ic('plus')} Add worker</button><button type="button" class="btn secondary" data-page="settings">${ic('download')} Backup & reports</button></div><div class="hint-box"><strong>✳ Tip:</strong> Open or close your shop on ANY date in Attendance / Calendar. Closed days are not counted as absences or paid workdays. Wages start Monday 26 Oct 2026 for current staff. To choose or change any employee’s payday, use Team members → Edit profile or Payroll → Change payday.</div></section></div>`;
 }
 function renderAttendance(){const dt=state.selectedDate,ws=workersOnDate(state.selectedDate),closed=isClosed(dt),future=dt>today(),t=totals(dt),disabled=closed||future||dt<START;
- return pageHeader('Attendance register','Select a date and mark who came to work.',headButton('export-attendance','Export attendance','download','secondary'))+
+ return pageHeader('Attendance register','Select a date and mark who came to work.',headButton('export-attendance','Export attendance','download','secondary')+`<button type="button" class="btn primary" data-page="calendar">${ic('calendar')} Monthly report</button>`)+
  `<section class="panel panel-pad" style="margin-bottom:16px"><div class="panel-title-row tight"><div><h3>Attendance date</h3><p>${weekday(dt)}, ${fmt(dt)}</p></div><div class="date-picker-row"><button type="button" class="icon-button" data-action="prev-day" aria-label="Previous day" ${dt<=START?'disabled':''}>${ic('chevronLeft')}</button><input id="attDateInput" type="date" class="date-field" value="${dt}" min="${START}" aria-label="Attendance date"/><button type="button" class="icon-button" data-action="next-day" aria-label="Next day">${ic('chevronRight')}</button><button type="button" class="btn mini soft" data-action="week-monday">Start 26 Oct</button><button type="button" class="btn mini soft" data-action="today">Today</button></div></div></section>`+
  (dt<today()?`<div class="hint-box" style="margin-bottom:16px"><strong>🔐 Past-date protection:</strong> Changing attendance or shop status for this date requires the manager password.</div>`:'')+
  `<div class="shop-status-panel">${shopToggle(dt)}<p>Every date can be opened or closed — including Sundays. A closed date does not count as Absent or earn salary. Changes are saved to your cloud account.</p></div>`+
@@ -2177,12 +2222,59 @@ function renderAttendance(){const dt=state.selectedDate,ws=workersOnDate(state.s
  `<section class="att-cards"><div class="mini-count"><div class="count-icon">${ic('checkcircle')}</div><div><strong>${closed?'—':t.present}</strong><small>Full day</small></div></div><div class="mini-count"><div class="count-icon blue">◐</div><div><strong>${closed?'—':t.halfDay}</strong><small>Half day · 50% pay</small></div></div><div class="mini-count"><div class="count-icon orange">${ic('close')}</div><div><strong>${closed?'—':t.absent}</strong><small>Absent</small></div></div><div class="mini-count"><div class="count-icon grey">${ic('clock')}</div><div><strong>${closed?'—':t.unmarked}</strong><small>Not marked</small></div></div></section>`+
  `<section class="panel"><div class="panel-pad" style="padding-bottom:4px"><div class="panel-title-row"><div><h3>Mark employee attendance</h3><p>Changes are confirmed by the cloud database before appearing.</p></div>${!disabled&&ws.length?`<button type="button" class="btn mini secondary" data-action="mark-all-present">${ic('check')} All present</button>`:''}</div></div>${ws.length?ws.map((w,i)=>{const st=attendanceFor(w,dt),locked=!!w.lastPaidDate&&dt<=w.lastPaidDate;return `<div class="att-row"> <div class="person-row" style="padding:0;border:0">${avatar(w,i)}<div class="person-main"><strong>${escapeHTML(w.name)}</strong><small>${moneyShort(rateOn(w))} / day · joined ${fmt(w.joinDate)}</small></div></div>${statusHTML(st)}<div class="att-control">${st==='notjoined'?'<span style="font-size:11px;color:#9dab9e">Not yet joined</span>':locked?'<span class="pill due" title="Undo latest salary payment before changing settled attendance">Paid period · locked</span>':`<button type="button" class="${st==='present'?'active-present':''}" data-action="mark-attendance" data-id="${escapeHTML(w.id)}" data-status="present" ${disabled?'disabled':''}>✓ Full day</button><button type="button" class="${st==='halfday'?'active-halfday':''}" data-action="mark-attendance" data-id="${escapeHTML(w.id)}" data-status="halfday" ${disabled?'disabled':''}>◐ Half day</button><button type="button" class="${st==='absent'?'active-absent':''}" data-action="mark-attendance" data-id="${escapeHTML(w.id)}" data-status="absent" ${disabled?'disabled':''}>✕ Absent</button><button type="button" title="Clear attendance record" data-action="mark-attendance" data-id="${escapeHTML(w.id)}" data-status="clear" ${disabled||!['present','halfday','absent'].includes(st)?'disabled':''}>↺</button>`}</div></div>`;}).join(''):'<div class="empty-state">No workers have been added.</div>'}<div class="table-note">Unmarked is different from Absent. You can mark Monday 26 and Tuesday 27 October now. Paid attendance periods are locked to protect payroll accuracy.</div></section><div class="hint-box"><strong>Auto salary calculation:</strong> Full day = 100% of daily salary; Half day = 50%; Absent, Closed and Unmarked = Rs. 0. You can change the mark manually before the salary period is paid.</div>`;
 }
+// Monthly report uses the existing saved attendance marks. Never equate "not marked" with "absent".
+// Closed days, pre-join dates, post-exit dates, and future dates do not count as work or absence.
+function monthlyAttendanceReport(month=state.calendarMonth){
+ if(!/^\d{4}-(0[1-9]|1[0-2])$/.test(month))return {month,rows:[],summary:{workers:0,worked:0,absent:0,unmarked:0}};
+ const start=month+'-01',firstDate=date(start);
+ const end=month+'-'+pad(new Date(firstDate.getFullYear(),firstDate.getMonth()+1,0).getDate());
+ const cutoff=end<today()?end:today();
+ if(cutoff<start)return {month,start,end,cutoff,rows:[],summary:{workers:0,worked:0,absent:0,unmarked:0}};
+ const rows=[...db.workers,...formerWorkers()].filter(w=>w.joinDate<=cutoff&&(!lastWorkingDate(w)||lastWorkingDate(w)>=start)).map(w=>{
+  const first=[START,start,w.joinDate].sort().at(-1);
+  const final=[cutoff,lastWorkingDate(w)||cutoff].sort()[0];
+  const counts={full:0,half:0,absent:0,unmarked:0,closed:0,wages:0};
+  const dates=[];
+  for(let dt=first;dt<=final;dt=add(dt,1)){
+   const status=attendanceFor(w,dt);
+   if(status==='closed')counts.closed++;
+   else if(status==='present'){counts.full++;counts.wages+=rateOn(w,dt);}
+   else if(status==='halfday'){counts.half++;counts.wages+=rateOn(w,dt)*0.5;}
+   else if(status==='absent')counts.absent++;
+   else if(status==='unmarked')counts.unmarked++;
+   dates.push({date:dt,status});
+  }
+  counts.wages=Math.round(counts.wages*100)/100;
+  return {worker:w,...counts,worked:counts.full+counts.half,equivalent:counts.full+counts.half*0.5,dates,absentDates:dates.filter(x=>x.status==='absent').map(x=>x.date)};
+ });
+ const summary={workers:rows.length,worked:rows.reduce((n,r)=>n+r.worked,0),absent:rows.reduce((n,r)=>n+r.absent,0),unmarked:rows.reduce((n,r)=>n+r.unmarked,0)};
+ return {month,start,end,cutoff,rows,summary};
+}
+function renderMonthlyAttendance(){
+ const report=monthlyAttendanceReport();
+ const {rows,summary}=report;
+ const label=fmt(report.month+'-01',{month:'long',year:'numeric'});
+ const stat=(label,value,cls='')=>`<div class="month-report-stat ${cls}"><small>${label}</small><strong>${value}</strong></div>`;
+ const dayLabel={present:'Full day',halfday:'Half day',absent:'Absent',unmarked:'Not marked',closed:'Shop closed'};
+ return `<section class="panel panel-pad month-report" id="monthReport" aria-label="Monthly employee attendance report">
+ <div class="month-report-head"><div><div class="eyebrow">MONTHLY REPORT / ${escapeHTML(label.toUpperCase())}</div><h3>Each employee's attendance</h3><p>Select a month to see the number of days each person worked, missed or has not yet been marked. Open a worker's daily breakdown for exact dates.</p></div><div class="month-report-controls"><label for="reportMonthInput">Month</label><input type="month" id="reportMonthInput" aria-label="Select monthly attendance report" min="${START.slice(0,7)}" value="${report.month}"/><button type="button" class="btn secondary" data-action="export-monthly-attendance">${ic('download')} Download monthly CSV</button></div></div>
+ <div class="month-report-summary">${stat('Staff in this month',summary.workers)}${stat('Total worked days',summary.worked)}${stat('Recorded absences',summary.absent,'absent')}${stat('Attendance not marked',summary.unmarked,'pending')}</div>
+ ${rows.length?`<div class="month-report-grid">${rows.map((r,i)=>`<article class="month-worker-card">
+  <div class="month-worker-title"><div class="person-row">${avatar(r.worker,i)}<div class="person-main"><strong>${escapeHTML(r.worker.name)}</strong><small>${r.worker.active===false?'Former employee · ':'Employee · '}joined ${fmt(r.worker.joinDate)}</small></div></div><span class="month-worker-state">${r.dates.length} days reviewed</span></div>
+  <div class="month-main-counts"><div><strong>${r.worked}</strong><span>Days worked (full + half)</span></div><div class="absent"><strong>${r.absent}</strong><span>Days absent (recorded)</span></div></div>
+  <div class="month-metrics"><div><small>Full days</small><b>${r.full}</b></div><div><small>Half days</small><b>${r.half}</b></div><div><small>Not marked yet</small><b>${r.unmarked}</b></div><div><small>Paid day equivalent</small><b>${r.equivalent.toLocaleString('en-LK',{maximumFractionDigits:1})} days</b></div><div><small>Shop closed days</small><b>${r.closed}</b></div><div><small>Gross wages earned this month</small><b>${currency(r.wages)}</b></div></div>
+  <div class="month-absence-list ${r.absent?'':'month-no-absences'}">${r.absent?`<strong>Absent on:</strong> ${r.absentDates.map(d=>fmt(d,{day:'numeric',month:'short'})).join(', ')}`:'No recorded absences this month.'}</div>
+  <details class="month-worker-detail"><summary>View daily breakdown (${r.dates.length} dates)</summary><div class="month-day-list">${r.dates.map(d=>`<div class="month-day-item ${d.status==='present'?'work':escapeHTML(d.status)}"><span class="month-day-label">${fmt(d.date,{weekday:'short',day:'numeric',month:'short'})}</span><b>${dayLabel[d.status]||'—'}</b></div>`).join('')||'<div class="empty-state">No days to review.</div>'}</div></details>
+ </article>`).join('')}</div>`:`<div class="empty-state">${report.start>today()?'This month is in the future. No attendance recorded yet.':'No employees worked during this month. Try another month.'}</div>`}
+ <div class="month-report-foot"><strong>How totals work:</strong> Worked days = Full + Half days. A half day is 0.5 when calculating wages. <strong>Absent</strong> counts only days explicitly marked Absent; <strong>Not marked</strong> is shown separately. Sundays/other shop-closed days, days before joining, dates after an employee left and future dates are not counted as absences. Monthly wages are gross earnings before any shop-credit deduction or actual salary payment.</div></section>`;
+}
 function renderCalendar(){const month=state.calendarMonth,first=month+'-01',d=date(first),lastDay=new Date(d.getFullYear(),d.getMonth()+1,0).getDate(),offset=(d.getDay()+6)%7,cells=[];
  for(let i=0;i<offset;i++)cells.push(`<div class="cal-cell other"></div>`);
  for(let n=1;n<=lastDay;n++){const dt=month+'-'+pad(n),st=totals(dt),closed=isClosed(dt),future=dt>today(),summary=[st.present?`${st.present} full`:'',st.halfDay?`${st.halfDay} half`:'',st.absent?`${st.absent} absent`:''].filter(Boolean).join(' · '),text=closed?'Closed':future?'':summary|| (st.unmarked<st.total?'Not joined':'Not marked');cells.push(`<button type="button" class="cal-cell ${closed?'sun':''} ${dt===today()?'today':''} ${dt===state.selectedDate?'active':''}" data-action="cal-select" data-date="${dt}"><strong>${n}</strong><small class="${st.present||st.halfDay?'good':''} ${st.absent?'mixed':''}">${text}</small>${dt>=START?`<em class="calendar-payday">${activeWorkers().some(w=>isPayDay(w,dt))?'💰 Payday':''}</em>`:''}</button>`);}
  const dt=state.selectedDate,ws=workersOnDate(state.selectedDate);
- return pageHeader('Attendance calendar','Browse the attendance history for any day.',headButton('export-attendance','Export CSV','download','secondary'))+
- `<div class="cal-wrap"><section class="panel panel-pad"><div class="cal-toolbar"><h3>${fmt(first,{month:'long',year:'numeric'})}</h3><div class="cal-nav"><button type="button" class="icon-button" data-action="prev-month" aria-label="Previous month">${ic('chevronLeft')}</button><button type="button" class="icon-button" data-action="next-month" aria-label="Next month">${ic('chevronRight')}</button></div></div><div class="weekday-row">${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(s=>`<span>${s}</span>`).join('')}</div><div class="cal-grid">${cells.join('')}</div><div class="legend"><span><b class="green"></b> Present</span><span><b class="orange"></b> Absent</span><span><b class="grey"></b> Closed</span></div></section>`+
+ return pageHeader('Attendance calendar','Select any month to see each employee’s days worked and days absent.',headButton('export-attendance','Export all attendance','download','secondary'))+
+ renderMonthlyAttendance()+
+ `<div class="cal-wrap"><section class="panel panel-pad"><div class="cal-toolbar"><h3>${fmt(first,{month:'long',year:'numeric'})}</h3><div class="month-picker-controls"><label class="visually-hidden" for="calMonthInput">Select report month</label><input type="month" id="calMonthInput" aria-label="Select report month" min="${START.slice(0,7)}" value="${month}"/><div class="cal-nav"><button type="button" class="icon-button" data-action="prev-month" aria-label="Previous month">${ic('chevronLeft')}</button><button type="button" class="icon-button" data-action="next-month" aria-label="Next month">${ic('chevronRight')}</button></div></div></div><div class="weekday-row">${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(s=>`<span>${s}</span>`).join('')}</div><div class="cal-grid">${cells.join('')}</div><div class="legend"><span><b class="green"></b> Present</span><span><b class="orange"></b> Absent</span><span><b class="grey"></b> Closed</span></div></section>`+
  `<aside class="panel panel-pad"><div class="panel-title-row"><div><h3>Selected date</h3><p>Attendance details</p></div><button type="button" class="link-button" data-page="attendance">Manage →</button></div><div class="cal-detail-date">${date(dt).getDate()}</div><div class="cal-detail-caption">${weekday(dt)}, ${fmt(dt,{month:'long',year:'numeric'})}</div>${shopToggle(dt,true)}${isClosed(dt)?'<div class="hint-box">🌿 Shop closed on this date. Saved attendance is preserved, but not counted for salary until reopened.</div>':ws.map(w=>`<div class="cal-person"><strong>${escapeHTML(w.name)}</strong>${statusHTML(attendanceFor(w,dt))}</div>`).join('')||'<div class="empty-state">No staff yet.</div>'}<div class="top-gap"><button type="button" class="btn soft" data-page="attendance">${ic('check')} Mark this day</button></div></aside></div>`;
 }
 function renderFormerPayroll(){
@@ -2469,6 +2561,14 @@ function restoreCreditPurchase(id,returnToWorkerHistory=''){
 function csvCell(s){let x=String(s??'');if(/^[\s]*[=+@-]/.test(x)&&!(/^[-+]?\d+(?:\.\d+)?$/.test(x)))x="'"+x;return /[,\n\r"]/.test(x)?'"'+x.replace(/"/g,'""')+'"':x;}
 function download(filename,data,mime){const blob=new Blob([data],{type:mime});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),12000);toast(`${filename} downloaded.`);}
 function exportJSON(){download(`Kirushi-Backup-${today()}.json`,JSON.stringify({...db,exportedAt:new Date().toISOString()},null,2),'application/json');}
+function exportMonthlyAttendance(){
+ const report=monthlyAttendanceReport();
+ const arr=[['Month','Employee','Employee status','Worked days (Full + Half)','Full days','Half days','Absent days','Absent dates','Not marked days','Shop closed days','Paid equivalent days','Gross earned wages (LKR)','Reviewed dates']];
+ for(const r of report.rows){
+  arr.push([report.month,r.worker.name,r.worker.active===false?'Former':'Active',r.worked,r.full,r.half,r.absent,r.absentDates.join('; '),r.unmarked,r.closed,r.equivalent,r.wages,r.dates.length]);
+ }
+ download(`Kirushi-Monthly-Attendance-${report.month}.csv`,'\ufeff'+arr.map(row=>row.map(csvCell).join(',')).join('\r\n'),'text/csv;charset=utf-8');
+}
 function exportAttendance(){const start=[START,...db.workers.map(w=>w.joinDate),...Object.keys(db.attendance)].sort()[0]||today();const last=[today(),...Object.keys(db.attendance)].sort().at(-1);const arr=[['Date','Day','Shop status','Employee','Daily rate (LKR)','Attendance','Earned wage (LKR)','Employee status','Last working day']];for(let d=start;d<=last;d=add(d,1)){for(const w of [...db.workers,...formerWorkers()]){const st=attendanceFor(w,d);arr.push([d,weekday(d),isClosed(d)?'Closed':'Open',w.name,rateOn(w,d),st,Math.round(rateOn(w,d)*attendanceFraction(w,d)*100)/100,w.active!==false?'Active':'Former',w.endDate||'']);}}download(`Kirushi-Attendance-${today()}.csv`,'\ufeff'+arr.map(row=>row.map(csvCell).join(',')).join('\r\n'),'text/csv;charset=utf-8');}
 function exportPayroll(){
  const rows=[['REMAINING UNPAID SALARIES'],['Employee','Daily rate (LKR)','Payment schedule','Joined','Paid through','Unpaid period start','Full days','Half days','Workday equivalents','Gross wages unpaid (LKR)','Credit balance (LKR)','Next payday','Gross current period (LKR)','Credit deducted this period (LKR)','Net cash due (LKR)','Unmarked dates in due period']];
@@ -2583,11 +2683,11 @@ document.addEventListener('click',e=>{
  case 'prev-month':case 'next-month':{const y=Number(state.calendarMonth.slice(0,4)),m=Number(state.calendarMonth.slice(5,7));const nd=new Date(y,m-1+(action==='next-month'?1:-1),1,12);state.calendarMonth=key(nd).slice(0,7);state.selectedDate=state.calendarMonth+'-01';render();break;}
  case 'refresh-cloud':refreshCloud(true).then(()=>toast('Latest cloud data loaded ✓')).catch(e=>toast('Refresh failed: '+e.message));break;
  case 'show-history':showHistory();break;case 'restore-revision':restoreRevision(Number(btn.dataset.version));break;case 'sign-out':logout();break;
- case 'export-json':exportJSON();break;case 'export-attendance':exportAttendance();break;case 'export-payroll':exportPayroll();break;case 'import-json':$('#restoreInput').click();break;
+ case 'export-json':exportJSON();break;case 'export-monthly-attendance':exportMonthlyAttendance();break;case 'export-attendance':exportAttendance();break;case 'export-payroll':exportPayroll();break;case 'import-json':$('#restoreInput').click();break;
  }
 });
 document.addEventListener('input',e=>{if(e.target.id==='creditSearch'){state.creditSearch=e.target.value;const list=$('#creditHistoryResults');if(list)list.innerHTML=creditEntriesHTML([...(db.deductions||[])].sort((a,b)=>b.date.localeCompare(a.date)||(b.createdAt||'').localeCompare(a.createdAt||'')),true);}});
-document.addEventListener('change',e=>{if(e.target.id==='creditFilter'){state.creditFilter=e.target.value;const list=$('#creditHistoryResults');if(list)list.innerHTML=creditEntriesHTML([...(db.deductions||[])].sort((a,b)=>b.date.localeCompare(a.date)||(b.createdAt||'').localeCompare(a.createdAt||'')),true);return;}if(e.target.id==='payMode'){updateScheduleFields();return;}if(e.target.id==='attDateInput'){if(validDate(e.target.value)&&e.target.value>=START){state.selectedDate=e.target.value;state.calendarMonth=state.selectedDate.slice(0,7);render();}else toast('Please choose a valid date.');}});
+document.addEventListener('change',e=>{if(e.target.id==='creditFilter'){state.creditFilter=e.target.value;const list=$('#creditHistoryResults');if(list)list.innerHTML=creditEntriesHTML([...(db.deductions||[])].sort((a,b)=>b.date.localeCompare(a.date)||(b.createdAt||'').localeCompare(a.createdAt||'')),true);return;}if(e.target.id==='payMode'){updateScheduleFields();return;}if(e.target.id==='calMonthInput'||e.target.id==='reportMonthInput'){const month=e.target.value;if(/^\d{4}-(0[1-9]|1[0-2])$/.test(month)&&month>=START.slice(0,7)){state.calendarMonth=month;state.selectedDate=month===today().slice(0,7)?today():month+'-01';render();}else toast('Please choose a valid report month.');return;}if(e.target.id==='attDateInput'){if(validDate(e.target.value)&&e.target.value>=START){state.selectedDate=e.target.value;state.calendarMonth=state.selectedDate.slice(0,7);render();}else toast('Please choose a valid date.');}});
 document.addEventListener('submit',e=>{if(e.target.id==='pastAttendancePasswordForm'){e.preventDefault();verifyPastAttendancePassword(e.target);return;}if(e.target.id==='deductionForm'){e.preventDefault();saveCreditPurchase(e.target);return;}if(e.target.id==='archiveForm'){e.preventDefault();archiveEmployee(e.target);return;}if(e.target.id==='rateForm'){e.preventDefault();updateRate(e.target);return;}if(e.target.id==='chatForm'){e.preventDefault();const input=$('#chatInput');const q=input.value.trim();input.value='';ask(q);return;}
  if(e.target.id==='workerForm'){e.preventDefault();const form=e.target;const fd=new FormData(form);
   const name=String(fd.get('workerName')||'').trim(),rate=Number(fd.get('dailyRate'));
